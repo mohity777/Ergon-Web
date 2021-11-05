@@ -1,0 +1,160 @@
+.header{height: 80px;
+    width: 1187px;
+    left: 0px;
+    top: 0px;
+    border-radius: 0px;
+   
+    background: #FFFFFF;
+
+    
+    }
+
+    .header2{
+       
+      
+        margin-top: 11px;
+      
+    }
+    .header3{
+       
+        height: 193px;
+        margin-right: 23px;
+            width: auto;
+        left: 253px;
+        top: 91px;
+        margin-top: 18px;
+        background: #FFFFFF;
+        margin-left: 39px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        
+        
+    }
+    .Suppliers{
+        margin-left: 3px;
+        font-weight: 700;
+        font-size: 1.7vw;
+        line-height: 36px;
+    }
+
+    .SearchBar{
+        display: flex;
+        margin-right: 27px;
+        
+
+    }
+
+    .h2Content{
+        border: 2px solid black;
+        width: 10px;
+        height: 10px;
+    }
+
+    .div2{
+        height: 111px;
+width: 127px;
+left: 300px;
+top: 275px;
+border-radius: 0px;
+border: 2px solid black;
+overflow: hidden;
+
+    }
+    .div3{
+        height: 111px;
+width: 263px;
+left: 300px;
+top: 275px;
+border-radius: 0px;
+
+
+    }
+    .main-div{
+        display: flex;
+    }
+
+    .service{height: 31px;
+        width: 233px;
+        left: 433px;
+        top: 287px;
+        border-radius: nullpx;
+        font-family: Lato;
+font-style: normal;
+font-weight: 500;
+font-size: 22px;
+line-height: 140%;
+/* identical to box height, or 31px */
+
+letter-spacing: -0.3px;
+
+        }
+
+        .vendor{height: 17px;
+            width: 72vw;
+            left: 436px;
+            top: 322px;
+            border-radius: nullpx;
+            font-family: Inter;
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 140%;
+            }
+
+
+            .sideDiv{
+                
+                width: 157px;
+                height: 75px;
+                left: 1147px;
+                top: 308px;
+                margin-right: 133px;
+                    margin-top: 42px;
+                
+                
+            }
+     .sideDivContent{font-family: Inter;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 140%;
+        /* or 25px */
+        
+        letter-spacing: -0.3px;}
+
+        .header4{
+       
+            height: 38px;
+            margin-right: 23px;
+                width: 1125;
+            left: 253px;
+            top: 91px;
+            margin-top: 4px;
+            background: #FFFFFF;
+            margin-left: 39px;
+            display: flex;
+            justify-content: space-between;
+            
+            
+        }
+
+        .downBar{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .Suppliers{height: 34px;
+            width: 107px;
+            left: 273px;
+            top: 105px;
+            border-radius: undefinedpx;
+            }
+
+            .sideRfq{
+                
+                margin-right: -26px;
+   
+    margin-left: 27px;
+            }

@@ -1,0 +1,147 @@
+.sqContainer {
+  width: 100vw;
+  height: 100vh;
+  background-color: #E5E5E5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sqCard {
+   margin-top: 2rem;
+   margin-bottom: 2rem;
+   width: 85%;
+   height: 35%;
+   display: flex;
+   flex-direction: column;
+}
+
+.up { 
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  padding: 0.8rem;
+  height: 85%;
+  justify-content: space-between;
+}
+
+.left { 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.rfqId {
+  font-size: 0.8rem;
+  color: rgb(170, 170, 170);
+  font-weight: 400;
+}
+
+.boxRow {
+  display: flex;
+}
+
+.cardBox {
+  display: flex;
+  flex-direction: column;
+  background-color: #DBECEB;
+  padding: 1rem;
+  margin-right: 0.8rem;
+}
+
+.boxLabel {
+  font-size: 0.75rem;
+  color: rgb(160, 160, 160);
+  margin-bottom: 0.4rem;
+}
+
+.boxValue {
+  font-size: 0.9rem;
+}
+
+.middle {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: flex-start; */
+}
+
+.middleRow {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+}
+
+.rowLabel {
+  font-size: 0.9rem;
+  color: rgb(160, 160, 160);
+  width: 60%;
+}
+
+.rowValue {
+  font-size: 0.9rem;
+  width: 40%;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.applyBtn {
+  background-color: #4661F0;
+  padding: 0.5rem;
+  border-radius: 10rem;
+  color: white;
+  font-size: 1rem;
+}
+
+.down {
+  padding: 0.7rem;
+  margin-top: 0.2rem;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  height: 15%;
+}
+
+.downLeft { 
+  display: flex;
+}
+
+.downLabel {
+  font-size: 0.72rem;
+  color: rgb(160, 160, 160);
+  margin-right: 0.2rem;
+}
+
+.downValue {
+    font-size: 0.72rem;
+    margin-right: 0.5rem;
+}
+
+.downRight { 
+  display: flex;
+}
+
+.estTimeDiv {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+}
+
+.estTimeRow {
+  display: flex;
+  align-items: center;
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.estTimeTxt {
+   font-size: 0.8rem;
+   flex: 1;
+   margin-right: 0.5rem;
+}

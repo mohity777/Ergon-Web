@@ -1,0 +1,42 @@
+.sqCardDetails {
+  height: 100vh;
+}
+
+.sqCardDetailsTop {
+  height: 32%;
+}
+
+.payDueBtn {
+  font-size: 0.7rem;
+}
+
+.sqCardDetailsMiddle {
+  height: 63%;
+  background-color: white;
+  margin-top: 0.2rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.poDesign {
+  width:fit-content;
+}
+
+.poDesignRow {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.poDesignText {
+  flex: 1;
+  font-size: 1rem;
+  margin-right: 1rem;
+}
+
+.sqCardDetailsBottom {
+  height: 5%;
+  align-items: center;
+}

@@ -1,4 +1,8 @@
 import './App.css';
+import "antd/dist/antd.css";
+import SQCardDetails from "./components/Seller/SQCardDetails";
+// import SQCardListing from './components/Seller/SQCardListing';
+
 
 
 // import Dashboard from './components/Dashboard/Dashboard';
@@ -49,8 +53,6 @@ function App() {
      
      </Router>
     </div>
-  
-    
   );
 }
 

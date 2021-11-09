@@ -1,27 +1,43 @@
+import React from 'react'
+import '../RfqBuyer/Buyer.css'
+import { useRef } from 'react'
+import { PortraitSharp } from '@mui/icons-material'
+import Modale from '../Modal/Modal'
 
-import '../Dashboard/Dashboard.css'
-import './Buyer.css'
-import { Link } from 'react-router-dom';
 
-function BuyerDashboard() {
+const BuyerHeader = (props) => {
+
+  const refer = useRef(null)
+
+  const rfqModal = (e) => {
+    e.preventDefault()
+
+
+  }
+
+
   return (
+
+
     <div className="App">
+
+
       <div className="layer"></div>
 
-      <Link className="skip-link sr-only" to="#skip-target">Skip to content</Link>
+      <a className="skip-link sr-only" href="#skip-target">Skip to content</a>
       <div className="page-flex">
 
         <aside className="sidebar">
           <div className="sidebar-start">
             <div className="sidebar-head">
-              <Link to="/" className="logo-wrapper" title="Home">
+              <a href="/" className="logo-wrapper" title="Home">
                 <span className="sr-only">Home</span>
                 <span className="icon logo" aria-hidden="true"></span>
                 <div className="logo-text">
                   <span className="logo-title">Elegant</span>
                   <span className="logo-subtitle">Dashboard</span>
                 </div>
-              </Link>
+              </a>
               <button
                 className="sidebar-toggle transparent-btn"
                 title="Menu"
@@ -34,126 +50,125 @@ function BuyerDashboard() {
             <div className="sidebar-body">
               <ul className="sidebar-body-menu">
                 <li>
-                  <Link className="active" to="/"
+                  <a className="active" href="/"
                   ><span className="icon home" aria-hidden="true"></span
-                  >Dashboard</Link
+                  >Dashboard</a
                   >
                 </li>
                 <li>
-                  <Link className="show-cat-btn" to="##">
+                  <a className="show-cat-btn" href="##">
                     <span className="icon document" aria-hidden="true"></span>RFQ
 
-                  </Link>
+                  </a>
                   <ul className="cat-sub-menu">
                     <li>
-                      <Link to="posts.html">All Posts</Link>
+                      <a href="posts.html">All Posts</a>
                     </li>
                     <li>
-                      <Link to="new-post.html">Add new post</Link>
+                      <a href="new-post.html">Add new post</a>
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <Link className="show-cat-btn" to="##">
-                    <span className="icon folder" aria-hidden="true"></span>
-                   <Link to='buyer'> Suppliers</Link>
+                  <a className="show-cat-btn" href="##">
+                    <span className="icon folder" aria-hidden="true"></span>Suppliers
                     <span className="category__btn transparent-btn" title="Open list">
                       <span className="sr-only">Open list</span>
                       <span className="icon arrow-down" aria-hidden="true"></span>
                     </span>
-                  </Link>
+                  </a>
                   <ul className="cat-sub-menu">
                     <li>
-                      <Link to="categories.html">All categories</Link>
+                      <a href="categories.html">All categories</a>
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <Link className="show-cat-btn" to="##">
+                  <a className="show-cat-btn" href="##">
                     <span className="icon image" aria-hidden="true"></span>Company Profile
 
-                  </Link>
+                  </a>
                   <ul className="cat-sub-menu">
                     <li>
-                      <Link to="media-01.html">Media-01</Link>
+                      <a href="media-01.html">Media-01</a>
                     </li>
                     <li>
-                      <Link to="media-02.html">Media-02</Link>
+                      <a href="media-02.html">Media-02</a>
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <Link className="show-cat-btn" to="##">
-                    <span className="icon paper" aria-hidden="true"></span>
-                    <Link to='Screw'> SQ</Link>
+                  <a className="show-cat-btn" href="##">
+                    <span className="icon paper" aria-hidden="true"></span>SQ
 
-                  </Link>
+
+                  </a>
                   <ul className="cat-sub-menu">
                     <li>
-                      <Link to="pages.html">All pages</Link>
+                      <a href="pages.html">All pages</a>
                     </li>
                     <li>
-                      <Link to="new-page.html">Add new page</Link>
+                      <a href="new-page.html">Add new page</a>
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <Link to="comments.html">
+                  <a href="comments.html">
                     <span className="icon message" aria-hidden="true"></span>
-                    <Link to="/allquotes">Notification ssu</Link>
-                  </Link>
+                    Notificationssu
+                  </a>
                   <span className="msg-counter">7</span>
                 </li>
               </ul>
               <span className="system-menu__title">system</span>
               <ul className="sidebar-body-menu">
                 <li>
-                  <Link to="appearance.html"
+                  <a href="appearance.html"
                   ><span className="icon edit" aria-hidden="true"></span
-                  >Appearance</Link
+                  >Appearance</a
                   >
                 </li>
                 <li>
-                  <Link className="show-cat-btn" to="##">
+                  <a className="show-cat-btn" href="##">
                     <span className="icon category" aria-hidden="true"></span
                     >Extentions
 
 
-                  </Link>
+                  </a>
                   <ul className="cat-sub-menu">
                     <li>
-                      <Link to="extention-01.html">Extentions-01</Link>
+                      <a href="extention-01.html">Extentions-01</a>
                     </li>
                     <li>
-                      <Link to="extention-02.html">Extentions-02</Link>
+                      <a href="extention-02.html">Extentions-02</a>
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <Link className="show-cat-btn" to="##">
+                  <a className="show-cat-btn" href="##">
                     <span className="icon user-3" aria-hidden="true"></span>Users
 
-                  </Link>
+                  </a>
                   <ul className="cat-sub-menu">
                     <li>
-                      <Link to="users-01.html">Users-01</Link>
+                      <a href="users-01.html">Users-01</a>
                     </li>
                     <li>
-                      <Link to="users-02.html">Users-02</Link>
+                      <a href="users-02.html">Users-02</a>
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <Link to="##"
+                  <a href="##"
                   ><span className="icon setting" aria-hidden="true"></span
-                  >Settings</Link
+                  >Settings</a
                   >
                 </li>
               </ul>
             </div>
           </div>
           <div className="sidebar-footer">
-            <Link to="##" className="sidebar-user">
+            <a href="##" className="sidebar-user">
               <span className="sidebar-user-img">
                 <picture
                 ><source
@@ -168,7 +183,7 @@ function BuyerDashboard() {
                 <span className="sidebar-user__title">Nafisa Sh.</span>
                 <span className="sidebar-user__subtitle">Support manager</span>
               </div>
-            </Link>
+            </a>
           </div>
         </aside>
         <div className="main-wrapper">
@@ -195,9 +210,9 @@ function BuyerDashboard() {
                     <i data-feather="chevron-down" aria-hidden="true"></i>
                   </button>
                   <ul className="lang-menu dropdown">
-                    <li><Link to="##">English</Link></li>
-                    <li><Link to="##">French</Link></li>
-                    <li><Link to="##">Uzbek</Link></li>
+                    <li><a href="##">English</a></li>
+                    <li><a href="##">French</a></li>
+                    <li><a href="##">Uzbek</a></li>
                   </ul>
                 </div>
                 <button
@@ -223,7 +238,7 @@ function BuyerDashboard() {
                   </button>
                   <ul className="users-item-dropdown notification-dropdown dropdown">
                     <li>
-                      <Link to="##">
+                      <a href="##">
                         <div className="notification-dropdown-icon info">
                           <i data-feather="check"></i>
                         </div>
@@ -236,10 +251,10 @@ function BuyerDashboard() {
                             here.</span
                           >
                         </div>
-                      </Link>
+                      </a>
                     </li>
                     <li>
-                      <Link to="##">
+                      <a href="##">
                         <div className="notification-dropdown-icon danger">
                           <i data-feather="info" aria-hidden="true"></i>
                         </div>
@@ -252,10 +267,10 @@ function BuyerDashboard() {
                             interfere ...</span
                           >
                         </div>
-                      </Link>
+                      </a>
                     </li>
                     <li>
-                      <Link to="##">
+                      <a href="##">
                         <div className="notification-dropdown-icon info">
                           <i data-feather="check" aria-hidden="true"></i>
                         </div>
@@ -267,18 +282,18 @@ function BuyerDashboard() {
                           >A new subscriber has subscribed.</span
                           >
                         </div>
-                      </Link>
+                      </a>
                     </li>
                     <li>
-                      <Link className="link-to-page" to="##"
-                      >Go to Notifications page</Link
+                      <a className="link-to-page" href="##"
+                      >Go to Notifications page</a
                       >
                     </li>
                   </ul>
                 </div>
                 <div className="nav-user-wrapper">
                   <button
-                    to="##"
+                    href="##"
                     className="nav-user-btn dropdown-btn"
                     title="My profile"
                     type="button"
@@ -297,22 +312,22 @@ function BuyerDashboard() {
                   </button>
                   <ul className="users-item-dropdown nav-user-dropdown dropdown">
                     <li>
-                      <Link to="##">
+                      <a href="##">
                         <i data-feather="user" aria-hidden="true"></i>
                         <span>Profile</span>
-                      </Link>
+                      </a>
                     </li>
                     <li>
-                      <Link to="##">
+                      <a href="##">
                         <i data-feather="settings" aria-hidden="true"></i>
                         <span>Account settings</span>
-                      </Link>
+                      </a>
                     </li>
                     <li>
-                      <Link className="danger" to="##">
+                      <a className="danger" href="##">
                         <i data-feather="log-out" aria-hidden="true"></i>
                         <span>Log out</span>
-                      </Link>
+                      </a>
                     </li>
                   </ul>
                 </div>
@@ -323,16 +338,18 @@ function BuyerDashboard() {
           <div className="header2" >
             <div class="sort-bar">
               <div class="sort-bar-start">
-               <p className="Suppliers">Suppliers</p>
+                <p className="Suppliers">{props.rfq ? props.rfq : props.screw}</p>
               </div>
               <div class="sort-bar-end">
-              <div class="sort-bar-start">
-              <div class="search-wrapper">
-                <i data-feather="search" aria-hidden="true"></i>
-                <input type="text" placeholder="Search" required/>
-              </div>
-            </div>
-            <Link class="primary-default-btn sideRfq" to="##"><i data-feather="plus"></i>Create New RFQ</Link>
+                <div class="sort-bar-start">
+                  <div class="search-wrapper">
+                    <i data-feather="search" aria-hidden="true"></i>
+                    <input type="text" placeholder="Search" required />
+                  </div>
+                </div>
+                <a class="primary-default-btn sideRfq" href="##"><i data-feather="plus"></i><Modale />
+                </a>
+
               </div>
             </div>
 
@@ -340,48 +357,48 @@ function BuyerDashboard() {
 
               <div class="sort-bar-end">
                 <div class="select-wrapper">
-                <nav class="tab-nav">
-                <ul class="tab-menu">
-                  <li><Link to="">General</Link></li>
-                  <li><Link to="#widgets">Widgets</Link></li>
-                  <li><Link to="#menus">Menus</Link></li>
-                  <li><select class="select transparent-btn" style={{marginLeft:"9vmax"}} required>
-                  <option selected disabled>All dates</option>
-                  <option value="2.03.2014">2.03.2014</option>
-                  <option value="5.06.2014">5.06.2014</option>
-                  <option value="2.03.2021">2.03.2021</option>
-                </select></li>
-                <li> <div class="select-wrapper">
-                <select class="select transparent-btn" required>
-                  <option selected disabled>All categories</option>
-                  <option value="Wellness">Wellness</option>
-                  <option value="UX-design">UX design</option>
-                  <option value="Interaction">Interaction</option>
-                  <option value="2.03.2021">Interaction</option>
-                </select>
-              </div></li>
-                <li> <div class="select-wrapper">
-                <select class="select transparent-btn" required>
-                  <option selected disabled>Status</option>
-                  <option value="Pending">Pending</option>
-                  <option value="Active">Active</option>
-                  <option value="Pending">Pending</option>
-                </select>
-              </div></li>
-                <li> <div class="select-wrapper">
-                <button class="filter-btn select transparent-btn">
-                  <i data-feather="filter" aria-hidden="true"></i>
-                  <span>Filter</span>
-                </button>
-              </div></li>
-              
-                </ul>
-              </nav>
-                  </div>
-                  
-               
-               
-               
+                  <nav class="tab-nav">
+                    <ul class="tab-menu">
+                      <li><a href="/#">{props.openQuote}</a></li>
+                      <li><a href="#widgets">{props.closedQuote}</a></li>
+                      <li><a href="#menus">{props.draft}</a></li>
+                      <li><select class="select transparent-btn" style={{ marginLeft: "9vmax" }} required>
+                        <option selected disabled>All dates</option>
+                        <option value="2.03.2014">2.03.2014</option>
+                        <option value="5.06.2014">5.06.2014</option>
+                        <option value="2.03.2021">2.03.2021</option>
+                      </select></li>
+                      <li> <div class="select-wrapper">
+                        <select class="select transparent-btn" required>
+                          <option selected disabled>All categories</option>
+                          <option value="Wellness">Wellness</option>
+                          <option value="UX-design">UX design</option>
+                          <option value="Interaction">Interaction</option>
+                          <option value="2.03.2021">Interaction</option>
+                        </select>
+                      </div></li>
+                      <li> <div class="select-wrapper">
+                        <select class="select transparent-btn" required>
+                          <option selected disabled>Status</option>
+                          <option value="Pending">Pending</option>
+                          <option value="Active">Active</option>
+                          <option value="Pending">Pending</option>
+                        </select>
+                      </div></li>
+                      <li> <div class="select-wrapper">
+                        <button class="filter-btn select transparent-btn">
+                          <i data-feather="filter" aria-hidden="true"></i>
+                          <span>Filter</span>
+                        </button>
+                      </div></li>
+
+                    </ul>
+                  </nav>
+                </div>
+
+
+
+
               </div>
             </form>
 
@@ -391,37 +408,27 @@ function BuyerDashboard() {
           <div>
 
             <div className="header3">
-              <div className="main-div">
-                <div className="div2">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/LEGO_logo.svg/2048px-LEGO_logo.svg.png" alt="" />
 
-                </div>
+              <div className="fdiv">
+                <div> <div>Fabrication Screw <p style={{marginTop:"6px"}}>Rfq : 1234</p>  </div>  <div className="blocks"><div className="sideContent"><p>00</p><p className="line">Quotes</p></div></div>  <div className="blocks" style={{ left: "915px" }}><div className="sideContent"><p>02</p><p className="line">Selected</p></div></div> </div>
 
-                <div className="div3">
-                  <p className="service">Shree om Techno Service</p>
-                  <div>
-                    <p className="vendor">Vendor Id :1234</p>
-                    <p className="vendor">Location: Mumbai ,Thane ,42230</p>
-                    <p className="vendor">Experience : 15 Years</p>
-                  </div>
-                </div>
-              </div>
+                <div className="d-flex " style={{ marginLeft: "-19px" }}><div className="sp"><p className="budget">Budget</p> <p className="rupees">Rs. 50,00,000</p> </div>
+                  <div><div className="sp" style={{ marginLeft: "25px", width: "142px" }}><p className="budget">Qty</p> <p className="rupees">50 Tons</p></div></div></div>
 
-              <div className="sideDiv">
-                <p class="sideDivContent">Po Complete 30</p>
-                <p class="sideDivContent">open Rfq 0</p>
-                <p class="sideDivContent">Request rfq 30</p>
 
 
               </div>
+
+
+
 
             </div>
             <div className="header4">
 
               <div className="col downBar">
-                <div className=""><p>Add to favourites</p></div>
+                <div ><span className="category">Category Mechanical</span><span className="category" style={{ marginLeft: "34px" }}>Sub category  Fabrication</span></div>
                 <div className="">
-                  <p>Capabilities <span className="welding"> <td><span class="badge-active">Welding</span></td></span> <span className="welding"> <td><span class="badge-active">Forging</span></td></span> </p>
+                  <p style={{ marginRight: "25px" }}>Created on 27 Oct 2021<span className="welding"></span></p>
                 </div>
               </div>
 
@@ -442,24 +449,25 @@ function BuyerDashboard() {
               <div className="footer-start">
                 <p>
                   2021 © Elegant Dashboard -
-                  <Link
-                    to="elegant-dashboard.com"
+                  <a
+                    href="elegant-dashboard.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                  >elegant-dashboard.com </Link>
+                  >elegant-dashboard.com</a
+                  >
                 </p>
               </div>
               <ul className="footer-end">
-                <li><Link to="##">About</Link></li>
-                <li><Link to="##">Support</Link></li>
-                <li><Link to="##">Puchase</Link></li>
+                <li><a href="##">About</a></li>
+                <li><a href="##">Support</a></li>
+                <li><a href="##">Puchase</a></li>
               </ul>
             </div>
           </footer>
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default BuyerDashboard;
+export default BuyerHeader

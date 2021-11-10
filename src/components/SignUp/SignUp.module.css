@@ -1,0 +1,61 @@
+.signUpContainer {
+    background-color: #E5E5E5;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+}
+
+.signUpMiddle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.signUpHeading {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.signUpSubHeadline {
+    font-size: 0.8rem;
+    text-align: center;
+    color: #767676;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.signUpBox {
+    width: 26rem;
+    background-color: white;
+    height: 75%; 
+    padding: 2rem;
+}
+
+@media only screen and (max-width: 500px) {
+   .signUpBox {
+       width: 100%;
+   }
+} 
+
+.signUpInputLabel label {
+    color: black;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.signUpInput {
+    background: #EFF0F6;
+    border-radius: 0.2rem;
+}
+
+.signUpBox ::placeholder {
+    font-size: 0.8rem;
+    font-weight: normal;
+    vertical-align: middle;
+    color: #D6D7E3;
+}
+

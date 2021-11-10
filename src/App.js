@@ -1,17 +1,17 @@
-import "antd/dist/antd.css";
-// import Dashboard from './components/Dashboard/Dashboard';
-import "./components/Dashboard/Dashboard.css";
+import Dashboard from './components/Dashboard/Dashboard';
 import BuyerDashboard from "./components/RfqBuyer/Buyer";
 import SQCardDetails from "./components/Seller/SQCardDetails";
-// import SQCardListing from './components/Seller/SQCardListing';
+import SQCardListing from './components/Seller/SQCardListing';
+import SignUp from "./components/SignUp";
 
 function App() {
   return (
     <div>
       {/* <Dashboard/>  */}
       {/* <BuyerDashboard/> */}
-      <SQCardDetails />
+      {/* <SQCardDetails /> */}
       {/* <SQCardListing /> */}
+      <SignUp />
     </div>
   );
 }

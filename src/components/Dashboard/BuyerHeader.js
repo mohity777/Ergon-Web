@@ -1,7 +1,6 @@
 import React from 'react'
 import '../RfqBuyer/Buyer.css'
 import { useRef } from 'react'
-import { PortraitSharp } from '@mui/icons-material'
 import Modale from '../Modal/Modal'
 
 

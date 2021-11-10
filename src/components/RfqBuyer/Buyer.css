@@ -146,7 +146,7 @@ line-height: 140%;
         }
 
         .Suppliers{height: 34px;
-            width: 107px;
+            width: 210px;
             left: 273px;
             top: 105px;
             border-radius: undefinedpx;
@@ -158,3 +158,117 @@ line-height: 140%;
    
     margin-left: 27px;
             }
+
+            .fScrew{height: 31px;
+                width: 181px;
+                left: 324px;
+                top: 290px;
+                border-radius: undefinedpx;
+                }
+
+                .header5{
+       
+                    height: 193px;
+                    margin-right: 23px;
+                        width: auto;
+                    left: 253px;
+                    top: 91px;
+                    margin-top: 18px;
+                    background: #FFFFFF;
+                    margin-left: 39px;
+                   
+                    
+                }
+
+                .sp{
+                    width: 156px;
+                    height: 67px;
+                    left: 305px;
+                    margin-top: 44px;
+                    
+                    background: #DBECEB;}
+
+                    .blocks{position: absolute;
+                        width: 128px;
+                        height: 80px;
+                        left: 767px;
+                        /* top: 331px; */
+                        
+                        /* White */
+                        
+                        background: #FFFFFF;
+                        border: 1px solid #2F49D1;}
+
+                        .fdiv{    margin-left: 32px ;
+                                
+                            margin-top: 24px;}
+
+
+                            .category{
+                                width: 208px;
+                                height: 20px;
+                                left: 305px;
+                                top: 727px;
+                                
+                                font-family: Inter;
+                                font-style: normal;
+                                font-weight: 500;
+                                font-size: 14px;
+                                line-height: 140%;
+                                /* identical to box height, or 20px */
+                                
+                                letter-spacing: -0.3px;
+                                
+                                color: #5F5B5B;}
+
+                                /* .budget{height: 25px;
+                                    width: 68px;
+                                    
+                                    top: 386px;
+                                    border-radius: nullpx;
+                                    margin-left: 24px;
+                                        margin-top: 12px;
+                                    } */
+
+
+                                    .sideContent{
+                                        margin-top: 13px ;
+                                            margin-left: 31px;
+                                    }
+
+                                    .line{
+                                        line-height: 32px;
+                                    }
+
+                                    .sideline>div{
+                                        margin-left: 13px;
+                                            font-size: 14px;
+                                           
+                                         
+                                            font-weight: 500;
+                                    }
+
+                                    .sideline>div:hover{
+                                        color: #5671f5;
+                                    }
+
+
+                                    .header5 {
+                                        height: 38px ;
+                                        margin-right: 20px;
+                                        width: 1125;
+                                        left: 253 px;
+                                        top: 91px ;
+                                        margin-top: 4 px;
+                                        background: #FFFFFF;
+                                        margin-left: 20 px;
+                                        display: flex;
+                                        justify-content: space-between;
+                                    }
+
+                                    .amount>span{margin-left: 12px;    margin-left: 44px;
+                                            font-size: 13px;}
+                                    .amount{margin-right: 114px;
+                                    margin-right: 114px;
+                                align-self: center;
+                            font-weight: 600px;}

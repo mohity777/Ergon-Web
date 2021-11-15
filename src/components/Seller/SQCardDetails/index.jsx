@@ -37,11 +37,11 @@ const SQCardDetails = (props) => {
           <div className="poDesign">
             <div className="poDesignRow">
               <h5 className="poDesignText">PO</h5>
-              <img src={ImgPlaceholder} />
+              <img src={ImgPlaceholder} alt="..." />
             </div>
             <div className="poDesignRow">
               <h5 className="poDesignText">Design</h5>
-              <img src={ImgPlaceholder} />
+              <img src={ImgPlaceholder} alt="..."/>
             </div>
           </div>
           <div className="poDesignRow" style={{ width: "fit-content", marginTop: 0 }}>

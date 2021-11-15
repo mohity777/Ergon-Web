@@ -1,5 +1,6 @@
 
 import '../Dashboard/Dashboard.css'
+import { Link } from 'react-router-dom';
 
 
 function Dashboard() {
@@ -10,7 +11,7 @@ function Dashboard() {
       <a className="skip-link sr-only" href="#skip-target">Skip to content</a>
       <div className="page-flex">
 
-        <aside className="sidebar">
+        <aside className="sidebar " style={{height:"100vmax"}}>
           <div className="sidebar-start">
             <div className="sidebar-head">
               <a href="/" className="logo-wrapper" title="Home">
@@ -40,7 +41,8 @@ function Dashboard() {
                 </li>
                 <li>
                   <a className="show-cat-btn" href="##">
-                    <span className="icon document" aria-hidden="true"></span>RFQ
+                    <span className="icon document" aria-hidden="true"></span>
+                    <Link to="/buyer">RFQ</Link>
 
                   </a>
                   <ul className="cat-sub-menu">
@@ -54,7 +56,8 @@ function Dashboard() {
                 </li>
                 <li>
                   <a className="show-cat-btn" href="##">
-                    <span className="icon folder" aria-hidden="true"></span>Suppliers
+                    <span className="icon folder" aria-hidden="true"></span>
+                    <Link to="/#">Suppliers</Link>
                     <span className="category__btn transparent-btn" title="Open list">
                       <span className="sr-only">Open list</span>
                       <span className="icon arrow-down" aria-hidden="true"></span>
@@ -68,7 +71,8 @@ function Dashboard() {
                 </li>
                 <li>
                   <a className="show-cat-btn" href="##">
-                    <span className="icon image" aria-hidden="true"></span>Company Profile
+                    <span className="icon image" aria-hidden="true"></span>
+                    <Link to="/allquotes">Company Profile</Link>
 
                   </a>
                   <ul className="cat-sub-menu">
@@ -82,7 +86,8 @@ function Dashboard() {
                 </li>
                 <li>
                   <a className="show-cat-btn" href="##">
-                    <span className="icon paper" aria-hidden="true"></span>SQ
+                    <span className="icon paper" aria-hidden="true"></span>
+                    <Link to="/postrfq">SQ</Link>
 
 
                   </a>
@@ -98,7 +103,7 @@ function Dashboard() {
                 <li>
                   <a href="comments.html">
                     <span className="icon message" aria-hidden="true"></span>
-                    Notificationssu
+                    <Link to="/approved">Notification</Link>
                   </a>
                   <span className="msg-counter">7</span>
                 </li>

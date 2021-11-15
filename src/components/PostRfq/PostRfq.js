@@ -1,8 +1,8 @@
 import React from 'react'
 
-import '../Dashboard/Dashboard.css'
+// import '../Dashboard/Dashboard.css'
 // import '../RfqBuyer/Buyer.css'
-import styleAll from './AllQutes.module.css'
+// import stylePost from './PostRfq.module.css'
 import { Link } from 'react-router-dom';
 import Dashboard from '../Dashboard/Dashboard';
 import Header1 from '../FirstHeader/Header1';
@@ -10,7 +10,7 @@ import ModalKeep from '../Modals/ModalKeep';
 import Dots from '../ThreeDots/Dots';
 import Pagination from '../Pagination/Pagination'
 
-const AllOuotes = (props) => {
+const PostRfq = () => {
   return (
     <div className="App">
       <div className="layer"></div>
@@ -25,7 +25,7 @@ const AllOuotes = (props) => {
           <div className="header2" >
             <div class="sort-bar">
               <div class="sort-bar-start">
-                <p className="Suppliers">Fabrication Screw</p>
+                <p className="Suppliers">Fabrication Screw post</p>
               </div>
               <div class="sort-bar-end">
                 <div class="sort-bar-start">
@@ -47,16 +47,13 @@ const AllOuotes = (props) => {
                       <div className="d-flex">
                         <div className="d-flex sideline">
                           <div>
-                            All Quotes <span>(0)</span>
+                            Open quotes <span>(0)</span>
                           </div>
                           <div>
-                            Approved Quotes <span>(0)</span>
+                            Accepted quotes <span>(0)</span>
                           </div>
                           <div>
-                            Received NDA
-                          </div>
-                          <div>
-                            RFQ Details
+                            Completed <span>(0)</span>
                           </div>
 
                         </div>
@@ -73,7 +70,15 @@ const AllOuotes = (props) => {
                       <option value="5.06.2014">5.06.2014</option>
                       <option value="2.03.2021">2.03.2021</option>
                     </select></li>
-
+                    <li> <div class="select-wrapper">
+                      <select class="select transparent-btn" style={{ marginLeft: "-27px" }} required>
+                        <option selected disabled>All categories</option>
+                        <option value="Wellness">Wellness</option>
+                        <option value="UX-design">UX design</option>
+                        <option value="Interaction">Interaction</option>
+                        <option value="2.03.2021">Interaction</option>
+                      </select>
+                    </div></li>
                     <li> <div class="select-wrapper">
                       <select class="select transparent-btn" required>
                         <option selected disabled>Status</option>
@@ -102,43 +107,37 @@ const AllOuotes = (props) => {
 
 
           <div>
-            <div className={styleAll.header5} style={{ justifyContent: "space-evenly", alignSelf: "center" }}>
 
 
-              <div style={{alignSelf:"center"}}>Suppliers</div>
-              <div className={styleAll.amount}>
-                <span>Quote Amount</span>
-                <span>Deleviery Time </span>
-                <span>Status</span>
-              </div>
+            <div className="header3">
 
-
-            </div>
-
-            <div className={styleAll.header3} style={{ justifyContent: "space-evenly", alignSelf: "center" }}>
-              <div className={styleAll.maindiv}>
-                <div className={styleAll.div2} style={{ marginLeft: "-161px" }}>
-                  <img className="img1" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/LEGO_logo.svg/2048px-LEGO_logo.svg.png" alt="" />
-
-                </div>
-
-                <div className={styleAll.div3}>
-                  <p className={styleAll.service}>Shree om Techno Service</p>
-                  <div>
-                    <p className={styleAll.vendor}>Vendor Id :1234</p>
-                    <p className={styleAll.vendor}>Location: Mumbai ,Thane ,42230</p>
-                    <p className={styleAll.vendor}>Experience : 15 Years</p>
-
+              <div className="fdiv">
+                <div>
+                <div className="d-flex">
+                  <div>Fabrication Screw <p style={{ marginTop: "6px" }}>Rfq : 1234</p>  </div>
+                  <div style={{marginLeft:"46vmax"}}> <Link class="primary-default-btn sideRfq" style={{borderRadius:"36px"}}  to="##"><i data-feather="plus"></i>Payment Due in 45 Days</Link>  </div>
                   </div>
-
-
+                  <div className="blocks2">
+                  
+                   
+                    
+                  </div>
+                 
                 </div>
-                
-                <div className={styleAll.amount} style={{ marginBottom: "119px" }}>
-                  <span>Rs 25,000,000,00</span>
-                  <span>   48 Days</span>
-                  <span><td><span class="badge-active">New</span></td></span>
+
+                <div className="d-flex " style={{ marginLeft: "-19px" }}>
+                  <div className="sp">
+                    <p className="budget">Budget</p>
+                    <p className="rupees" >Rs. 50,00,000</p>
+                  </div>
+                  <div className="sp" style={{ marginLeft: "15px" }}>
+                    <p className="budget">Qty</p>
+                    <p className="rupees">50 Tons</p>
+                  </div>
+                  <div>
+                  </div>
                 </div>
+
 
 
               </div>
@@ -147,17 +146,47 @@ const AllOuotes = (props) => {
 
 
             </div>
-            <div className={styleAll.buttons}>
-            <Link class="primary-default-btn sideRfq" style={{background:"#4BDE97"}} to="##"><i data-feather="plus"></i>Approve</Link>
-            <Link class="primary-default-btn sideRfq" style={{background:"#F26464",marginLeft:"33px"}} to="##"><i data-feather="plus"></i>Reject</Link>
-            </div>
+
           </div>
 
 
-         <Pagination/>
 
 
+<div className="header6">
+<div style={{marginLeft:"60vmax",lineHeight:"44px",fontWeight:"700",fontSize:"1rem"}}>Request for update</div>
 
+
+<div style={{marginLeft:"26px"}}>
+<div>PO <span><img  className="img2" style={{marginLeft:"2.4vmax"}} src="https://img.freepik.com/free-vector/illustration-data-folder-icon_53876-6329.jpg?size=338&ext=jpg" alt="..."/></span></div>
+<div style={{marginTop:"24px"}}>DESIGN <span><img className="img2" src="https://img.freepik.com/free-vector/illustration-data-folder-icon_53876-6329.jpg?size=338&ext=jpg" alt="..."/></span> </div>
+</div>
+
+<div>
+<p className="shipped">Status <span style={{marginLeft:"2vmax"}}>Shipped</span></p>
+</div>
+
+<div className="sidename">
+<p className="pspan" >Company Name <span style={{marginLeft:"27px",fontWeight:700}}>Tata Motors</span></p>
+<p className="pspan">Location<span style={{marginLeft:"80px",fontWeight:700}}>Tata Motors</span></p>
+<p className="pspan">Deleviery Location <span style={{marginLeft:"10px",fontWeight:700}}>Tata Motors</span></p>
+
+</div>
+
+</div>
+
+
+<div className="header4">
+
+<div className="col downBar">
+  <div ><span className="category">Category Mechanical</span><span className="category" style={{ marginLeft: "34px" }}>Sub category  Fabrication</span></div>
+  <div className="d-flex">
+    <p style={{ marginRight: "25px" }}>  Created on <span style={{fontWeight:900}}>27 Oct 2021</span> <span className="welding"></span></p>
+    <p style={{ marginRight: "25px" }}>Last Date to Quote <span style={{fontWeight:900}}>27 Nov 2021</span><span className="welding"></span></p>
+  </div>
+</div>
+
+</div>
+<Pagination/>
 
           <footer className="footer">
             <div className="container footer--flex">
@@ -184,4 +213,4 @@ const AllOuotes = (props) => {
   )
 }
 
-export default AllOuotes
+export default PostRfq

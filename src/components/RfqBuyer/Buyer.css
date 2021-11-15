@@ -9,6 +9,44 @@
     
     }
 
+    .shipped{    margin-left: 1.8vmax;
+            margin-top: 4vmax;
+            font-weight: 600;
+            font-size: 1rem;}
+
+    .img2{
+        width: 3vmax;
+    }
+
+    .sidename{
+        margin-left: 54vmax;
+            margin-top: 5vmax;
+    }
+    .sidename>p{
+        line-height: 20px;
+    }
+
+    .pspan{
+        font-weight: 300;
+    }
+    
+
+    .buttons{
+        margin-top: -4vmax;
+    margin-left: 58vmax;
+    
+    display: flex;
+    }
+    .rupees{margin-left: 39px ;
+            margin-top: 9px ;
+            font-weight:700;
+        }
+
+        .budget{    margin-top: 12px
+            ;
+                margin-left: 24px
+            ;}
+
     .header2{
        
       
@@ -28,6 +66,23 @@
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
+        
+        
+    }
+
+
+    .header6{
+       
+        height: 379px;
+        margin-right: 23px;
+            width: auto;
+        left: 253px;
+        top: 91px;
+        margin-top: 18px;
+        background: #FFFFFF;
+        margin-left: 39px;
+       
+       
         
         
     }
@@ -57,10 +112,21 @@ width: 127px;
 left: 300px;
 top: 275px;
 border-radius: 0px;
-border: 2px solid black;
+
 overflow: hidden;
 
+
     }
+    
+
+    .img1{width: 4vmax
+        ;
+            margin-left: 2vmax
+        ;
+            margin-top: 2.3vmax
+        ;}
+
+
     .div3{
         height: 111px;
 width: 263px;
@@ -70,25 +136,30 @@ border-radius: 0px;
 
 
     }
-    .main-div{
+
+
+    .maindiv{
         display: flex;
     }
 
+
+
     .service{height: 31px;
-        width: 233px;
+        width: 297px;
         left: 433px;
         top: 287px;
         border-radius: nullpx;
-        font-family: Lato;
-font-style: normal;
-font-weight: 500;
+       
+font-weight: 700;
 font-size: 22px;
 line-height: 140%;
 /* identical to box height, or 31px */
 
 letter-spacing: -0.3px;
+margin-top: 21px;
 
         }
+
 
         .vendor{height: 17px;
             width: 72vw;
@@ -101,6 +172,7 @@ font-weight: 500;
 font-size: 12px;
 line-height: 140%;
             }
+
 
 
             .sideDiv{
@@ -198,6 +270,15 @@ line-height: 140%;
                         
                         background: #FFFFFF;
                         border: 1px solid #2F49D1;}
+                    .blocks2{position: absolute;
+                      
+                        left: 767px;
+                        /* top: 331px; */
+                        
+                        /* White */
+                        
+                        background: #FFFFFF;
+                       }
 
                         .fdiv{    margin-left: 32px ;
                                 

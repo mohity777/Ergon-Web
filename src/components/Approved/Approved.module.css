@@ -1,0 +1,142 @@
+.header2{
+       
+      
+    margin-top: 11px;
+  
+}
+.Suppliers{
+    margin-left: 3px;
+    font-weight: 700;
+    font-size: 1.7vw;
+    line-height: 36px;
+}
+.Suppliers{height: 34px;
+    width: 210px;
+    left: 273px;
+    top: 105px;
+    border-radius: undefinedpx;
+    }
+    .sideline>div{
+        margin-left: 13px;
+            font-size: 14px;
+           
+         
+            font-weight: 500;
+    }
+
+    .sideline>div:hover{
+        color: #5671f5;
+    }
+
+    .amount>span{margin-left: 12px;    margin-left: 44px;
+        font-size: 13px;}
+.amount{margin-right: 114px;
+margin-right: 114px;
+align-self: center;
+font-weight: 600px;}
+.header5{
+       
+    height: 193px;
+    margin-right: 23px;
+        width: auto;
+    left: 253px;
+    top: 91px;
+    margin-top: 18px;
+    background: #FFFFFF;
+    margin-left: 39px;
+   
+    
+}
+.header5 {
+    height: 38px ;
+    margin-right: 20px;
+    width: 1125;
+    left: 253 px;
+    top: 91px ;
+    margin-top: 4 px;
+    background: #FFFFFF;
+    margin-left: 20 px;
+    display: flex;
+    justify-content: space-between;
+}
+.header3{
+       
+    height: 193px;
+    margin-right: 23px;
+        width: auto;
+    left: 253px;
+    top: 91px;
+    margin-top: 18px;
+    background: #FFFFFF;
+    margin-left: 39px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    
+    
+}
+.maindiv{
+    display: flex;
+}
+
+
+.div2{
+    height: 111px;
+width: 127px;
+left: 300px;
+top: 275px;
+border-radius: 0px;
+
+overflow: hidden;
+
+
+}
+.img1{width: 4vmax
+    ;
+        margin-left: 2vmax
+    ;
+        margin-top: 2.3vmax
+    ;}
+
+    .div3{
+        height: 111px;
+width: 263px;
+left: 300px;
+top: 275px;
+border-radius: 0px;
+
+
+    }
+    .service{height: 31px;
+        width: 297px;
+        left: 433px;
+        top: 287px;
+        border-radius: nullpx;
+       
+font-weight: 700;
+font-size: 22px;
+line-height: 140%;
+/* identical to box height, or 31px */
+
+letter-spacing: -0.3px;
+margin-top: 21px;
+
+        }
+        .vendor{height: 17px;
+            width: 72vw;
+            left: 436px;
+            top: 322px;
+            border-radius: nullpx;
+            font-family: Inter;
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 140%;
+            }
+
+            .buttons{
+                margin-top: -4vmax;
+            margin-left: 58vmax;
+            
+            display: flex;
+            }

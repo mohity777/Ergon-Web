@@ -2,7 +2,9 @@
     background-color: #E5E5E5;
     display: flex;
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
+    overflow-y: scroll;
+    padding: 2rem 0rem;
     justify-content: center;
 }
 
@@ -11,7 +13,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
 }
 
 .signUpHeading {
@@ -24,15 +25,19 @@
     font-size: 0.8rem;
     text-align: center;
     color: #767676;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .signUpBox {
     width: 26rem;
     background-color: white;
-    height: 75%; 
-    padding: 2rem;
+    height: fit-content; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1.2rem 1.5rem;
+    border-radius: 0.4rem;
 }
 
 @media only screen and (max-width: 500px) {
@@ -41,21 +46,10 @@
    }
 } 
 
-.signUpInputLabel label {
-    color: black;
-    font-size: 0.85rem;
-    font-weight: 500;
+.nextBtn {
+    width: 100%;
+    background-color: #2F49D1;
+    color: white;
+    border-radius: 0.4rem;
+    height: 40px;
 }
-
-.signUpInput {
-    background: #EFF0F6;
-    border-radius: 0.2rem;
-}
-
-.signUpBox ::placeholder {
-    font-size: 0.8rem;
-    font-weight: normal;
-    vertical-align: middle;
-    color: #D6D7E3;
-}
-

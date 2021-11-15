@@ -1,0 +1,10 @@
+:global(.ant-upload-list) {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+}
+
+:global(.ant-upload.ant-upload-select-picture-card) {
+  background-color: white;
+  border: none;
+}

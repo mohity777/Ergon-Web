@@ -1,6 +1,6 @@
 import React from "react";
 import "./SQCardListing.css";
-import BsThreeDots from "../../../dist/img/Seller/3DotsHorizontal.png";
+import BsThreeDots from "../../../dist/img/Seller/3dotsHorizontal.png";
 import Modal from "../SQModal";
 
 const SQCardListing = (props) => {
@@ -47,7 +47,7 @@ const SQCardListing = (props) => {
             </div>
           </div>
           <div className="right">
-            <BsThreeDots />
+            <img src={BsThreeDots} style={{ marginTop: "-1rem" }} />
             <button onClick={openModal} className="applyBtn">
               Apply
             </button>

@@ -1,6 +1,6 @@
 import React from "react";
 import Modal from "react-modal";
-import BsThreeDots from "../../../dist/img/Seller/3DotsHorizontal.png";
+import BsThreeDots from "../../../dist/img/Seller/3dotsHorizontal.png";
 import "../SQCardListing/SQCardListing.css";
 import "./SQModal.css";
 
@@ -43,7 +43,7 @@ const SQModal = ({ visible, closeModal }) => {
           </div>
         </div>
         <div className="right">
-          <BsThreeDots />
+          <img src={BsThreeDots} style={{marginTop: '-1rem'}} />
           <button className="applyBtn">Apply</button>
         </div>
       </div>

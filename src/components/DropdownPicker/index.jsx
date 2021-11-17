@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import { Menu, Dropdown, Button, message } from "antd";
+import { Menu, Dropdown, Button} from "antd";
 import { DownOutlined } from "@ant-design/icons";
 
 const DropdownPicker = ({items, title, onChange }) => {
@@ -18,7 +18,7 @@ const DropdownPicker = ({items, title, onChange }) => {
         ))}
       </Menu>
     ),
-    []
+    [handleMenuClick,items]
   );
 
   return (

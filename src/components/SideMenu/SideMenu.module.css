@@ -1,0 +1,116 @@
+.drawer {
+   padding: 1rem 0rem;
+   background-color: #0061F7;
+   width: 230px!important;
+   max-width: 230px!important;
+   min-width: 230px!important;
+}
+
+.drawerHeader {
+   width: 100%;
+   display: flex;
+   padding: 0rem 1rem;
+   margin-bottom: 1rem;
+   align-items: center;
+}
+
+.logo {
+   margin-right: 0.6rem;
+}
+
+.headline {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 1px;;
+}
+
+.subheadline {
+    color: white;
+    font-size: 0.7rem;
+    margin-top: 0.2rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.system {
+   color: rgba(255,255,255,0.5);
+   font-size: 0.7rem;
+   font-weight: 400;
+   margin: 1rem 0rem;
+   letter-spacing: 0.5px;
+   padding-left: 24px;
+}
+
+.footer {
+   color: #B9B9B9;
+   font-weight: 500;
+   font-size: 0.77rem;
+}
+
+
+.dashboard {
+  width: 100%;
+  background-color: white;
+  padding: 0.8rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.searchRow {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.filterRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 2rem;
+}
+
+.tabs {
+   display: flex;
+   align-items: center;
+   font-size: 0.75rem;
+   font-weight: 600;
+}
+
+.filters {
+   display: flex;
+}
+
+:global(.ant-menu.ant-menu-dark){                      /* drawer dark mode */
+   background-color: #0061F7;
+}
+
+:global(.ant-menu-item .ant-menu-item-icon){            /* side menu options icon */
+  font-size: 0.9rem;
+}
+
+:global(.ant-menu-title-content){         /* side menu options text */
+   font-size: 0.8rem;
+   font-weight: 500;
+   letter-spacing: 0.2px;
+}
+
+:global(.ant-layout){                   /* whole layout */
+   background:  #E5E5E5;
+}
+
+:global(.ant-layout-header){           /* header */
+   background: white;
+}
+
+:global(.ant-layout-footer){           /* header */
+   background:  #E5E5E5;
+   display: flex;
+   justify-content: space-between;
+   flex-wrap: wrap;
+   height:fit-content;
+   padding: 0.6rem 1rem;
+   border-top: 1.4px solid rgb(210,210,210);
+}

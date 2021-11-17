@@ -1,0 +1,113 @@
+.header2{
+       
+      
+    margin-top: 11px;
+  
+}
+
+.sideline>div{
+    margin-left: 13px;
+        font-size: 14px;
+       
+     
+        font-weight: 500;
+}
+
+.sideline>div:hover{
+    color: #5671f5;
+}
+
+.header3{
+       
+    height: 193px;
+    margin-right: 23px;
+        width: auto;
+    left: 253px;
+    top: 91px;
+    margin-top: 18px;
+    background: #FFFFFF;
+    margin-left: 39px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    
+    
+}
+
+.fdiv{    margin-left: 32px ;
+                                
+    margin-top: 24px;}
+
+
+    .sideContent{
+        margin-top: 13px ;
+            margin-left: 31px;
+    }
+
+    .line{
+        line-height: 32px;
+    }
+    .sp{
+        width: 156px;
+        height: 67px;
+        left: 305px;
+        margin-top: 44px;
+        
+        background: #DBECEB;}
+
+        .blocks{position: absolute;
+            width: 128px;
+            height: 80px;
+            left: 767px;
+            /* top: 331px; */
+            
+            /* White */
+            
+            background: #FFFFFF;
+            border: 1px solid #2F49D1;}
+
+
+            .rupees{margin-left: 39px ;
+                margin-top: 9px ;
+                font-weight:700;
+            }
+            .header4{
+       
+                height: 38px;
+                margin-right: 23px;
+                    width: 1125;
+                left: 253px;
+                top: 91px;
+                margin-top: 4px;
+                background: #FFFFFF;
+                margin-left: 39px;
+                display: flex;
+                justify-content: space-between;
+                
+                
+            }
+            .downBar{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .category{
+                width: 208px;
+                height: 20px;
+                left: 305px;
+                top: 727px;
+                
+                font-family: Inter;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 140%;
+                /* identical to box height, or 20px */
+                
+                letter-spacing: -0.3px;
+                
+                color: #5F5B5B;}
+                .budget{    margin-top: 12px
+                    ;
+                        margin-left: 24px
+                    ;}

@@ -1,11 +1,12 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import './components/Dashboard/Dashboard.css'
 
 //BUYER
-import BuyerDashboard from "./components/RfqBuyer/Buyer";
-import Buyer2 from "./components/RfqBuyer/Buyer2";
+import RFQ from "./components/RfqBuyer/RFQ";
 import AllOuotes from "./components/AllQuotes/AllOuotes";
-import PostRfq from "./components/PostRfq/PostRfq";
+import RfqPostDeal from "./components/PostRfq/RfqPostRfq";
 import ApprovedQuotes from "./components/Approved/ApprovedQuotes";
+import Suppliers from "./components/RfqBuyer/Suppliers";
 
 // SELLER
 import SignUp from "./components/SignUp";
@@ -16,6 +17,9 @@ import SQCardDetails from "./components/Seller/SQCardDetails";
 import Login from "./components/Login";
 import SignUpDetails from "./components/SignUpDetails";
 import SideMenu from "./components/SideMenu";
+
+
+
 
 function App() {
   return (
@@ -28,24 +32,25 @@ function App() {
           <Route exact path="/SignUp">
             <SignUp />
           </Route>
-          
+
           <SideMenu>
             <Route exact path="/">
-              <BuyerDashboard />
-            </Route>
-            <Route exact path="/buyer">
-              <Buyer2 />
-            </Route>
-            <Route exact path="/allquotes">
-              <AllOuotes />
-            </Route>
-            <Route exact path="/postrfq">
-              <PostRfq />
-            </Route>
-            <Route exact path="/approved">
               <ApprovedQuotes />
             </Route>
-            
+            <Route exact path="/Suppliers">
+              <Suppliers />
+            </Route>
+            <Route exact path="/RFQ">
+              <RFQ />
+            </Route>
+            <Route exact path="/AllQuotes">
+              <AllOuotes />
+            </Route>
+            <Route exact path="/RfqPostDeal">
+              <RfqPostDeal />
+            </Route>
+
+
             <Route exact path="/SQCardListing">
               <SQCardListing />
             </Route>

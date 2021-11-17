@@ -51,16 +51,24 @@ const SideMenu = ({children}) => {
         </div>
         <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
           <Menu.Item key="1" icon={<HomeFilled />}>
-            Dashboard
+          <Link to='/'>
+         Dashboard
+         </Link>
           </Menu.Item>
           <Menu.Item key="2" icon={<FileTextFilled />}>
-            RFQ
+          <Link to='/RFQ'>
+          RFQ
+         </Link>
           </Menu.Item>
           <Menu.Item key="3" icon={<DropboxOutlined />}>
-            Suppliers
+          <Link to='/Suppliers'>
+          Suppliers
+         </Link>
           </Menu.Item>
           <Menu.Item key="4" icon={<PictureFilled />}>
-            Company Profile
+          <Link to='/AllQuotes'>
+          Company Profile
+         </Link>
           </Menu.Item>
           <Menu.Item key="5" icon={<SnippetsFilled />}>
             <Link to='/SQCardListing'>
@@ -69,7 +77,9 @@ const SideMenu = ({children}) => {
           </Menu.Item>
           <h5 className={styles.system}>SYSTEM</h5>
           <Menu.Item key="6" icon={<MailFilled />}>
-            Notifications
+          <Link to='/RfqPostDeal'>
+          Notifications
+         </Link>
           </Menu.Item>
           <Menu.Item key="7" icon={<EditFilled />}>
             Appearance

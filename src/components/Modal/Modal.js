@@ -26,19 +26,21 @@ const Modale = () => {
 
                     <div className="my-5" style={{ marginLeft: "10vmax" }}>
 
-                        <div> Rfq title  <span><input className={styleM.inputs} style={{ marginLeft: "3.6vmax" }} placeholder="Enter RFQ Title" /> </span><span>Budget <input className={styleM.inputs} placeholder="in Rs."></input></span> </div>
+                        <div> Rfq title  <span><input className={styleM.inputs} style={{ marginLeft: "3.6vmax" }} placeholder="Enter RFQ Title" /> </span><span style={{marginLeft:"4vmax"}}>Budget <input className={styleM.inputs} style={{marginLeft:"6vmax"}} placeholder="in Rs."></input></span> </div>
 
 
-                        <div className={styleM.formMargin} >Description <span><input className={styleM.inputs} placeholder="Describe your RequireMents" /> </span><span>Quantity  <input placeholder=""></input></span> </div>
-                        <div className={styleM.formMargin}>Category <input className={styleM.inputs} placeholder="INR" /> <span> Sub-Category <input className={styleM.inputs} style={{ marginLeft: "2.7vmax" }} placeholder="INR" /></span></div>
+                        <div className={styleM.formMargin} >Description <span><input className={styleM.inputs}  placeholder="Describe your RequireMents" /> </span><span style={{marginLeft:"4vmax"}}>Quantity  <input style={{marginLeft:"5.3vmax"}} placeholder=""></input></span> </div>
+                        <div className={styleM.formMargin}>Category <input className={styleM.inputs} placeholder="INR" style={{marginLeft:"2.7vmax"}} /> <span style={{marginLeft:"4vmax"}}> Sub-Category <input className={styleM.inputs} style={{ marginLeft: "2.7vmax" }} placeholder="INR" /></span></div>
                         <div className={styleM.formMargin}>Credit-Preiod <input className={styleM.inputs} style={{ marginLeft: ".6vmax" }} placeholder="Note to suppliers" /></div>
-                        <div className={styleM.formMargin}>Note <input className={styleM.inputs} style={{ marginLeft: "4.6vmax" }} placeholder="INR" /></div>
+                        <div className={styleM.formMargin}>Note <input className={styleM.inputs} style={{ marginLeft: "4.6vmax" ,}} placeholder="INR" /></div>
 
                     </div>
 
 
 
                 </div>
+
+                <div className="btn btn-primary">Submit</div>
                 <button onClick={close} > close</button>
             </Modal>
         </div>

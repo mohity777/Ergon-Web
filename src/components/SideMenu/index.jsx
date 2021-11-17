@@ -22,7 +22,7 @@ import { Link } from "react-router-dom";
 
 const { Header, Sider, Content, Footer } = Layout;
 
-const SideMenu = ({children, selectedKey}) => {
+const SideMenu = ({children}) => {
   const [collapsed, setCollapsed] = useState(false);
 
   const toggle = () => setCollapsed((state) => !state);
@@ -49,7 +49,7 @@ const SideMenu = ({children, selectedKey}) => {
             <h5 className={styles.subheadline}>Dashboard</h5>
           </span>
         </div>
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={[selectedKey]}>
+        <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
           <Menu.Item key="1" icon={<HomeFilled />}>
             Dashboard
           </Menu.Item>

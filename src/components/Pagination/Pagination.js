@@ -3,7 +3,7 @@ import React from 'react'
 const Pagination = () => {
     return (
         <div>
-        <div class="pagination-wrapper" style={{marginRight:"1.7vmax"}}>
+        <div class="pagination-wrapper" style={{marginRight:"1.7vmax",marginTop:"5vmax"}}>
         <a class="pagination-prev disabled" href="##" title="Go to previous page"><i
             data-feather="arrow-left"></i></a>
         <ul class="pagination">

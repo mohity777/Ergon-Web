@@ -131,9 +131,9 @@ function BuyerDashboard() {
               </div>
              
               <div className="sideDiv">
-                <p class="sideDivContent">Po Complete 30</p>
-                <p class="sideDivContent">open Rfq 0</p>
-                <p class="sideDivContent">Request rfq 30</p>
+                <p class="sideDivContent" style={{fontWeight:200}} >Po Complete <span style={{fontWeight:700,marginLeft:"1vmax"}}>30</span> </p>
+                <p class="sideDivContent" style={{fontWeight:200}} >open Rfq <span style={{fontWeight:700,marginLeft:"3vmax"}}>0</span> </p>
+                <p class="sideDivContent" style={{fontWeight:200}} >Request rfq  <span style={{fontWeight:700,marginLeft:"1.5vmax"}}>15</span></p>
 
 
               </div>
@@ -142,7 +142,7 @@ function BuyerDashboard() {
             </div>
             <div className="header4">
 
-              <div className="downBar">
+              <div className="col downBar">
                 <div className=""><p>Add to favourites</p></div>
                 <div className="">
                   <p>Capabilities <span className="welding"> <td><span class="badge-active">Welding</span></td></span> <span className="welding"> <td><span class="badge-active">Forging</span></td></span> </p>

@@ -158,8 +158,8 @@ const AllOuotes = (props) => {
 
 
 
-
-<Pagination/>
+<div ><Pagination/>
+</div>
 
           <footer className="footer">
             <div className="container footer--flex">

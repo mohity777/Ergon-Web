@@ -19,6 +19,8 @@ import ProfileIcon from "../../dist/img/Seller/profileIcon.png"
 import SunIcon from "../../dist/img/Seller/sun.png";
 import DropdownPicker from "../DropdownPicker";
 import { Link } from "react-router-dom";
+import ModalKeep from "../Modals/ModalKeep";
+import Modale from "../Modal/Modal";
 
 const { Header, Sider, Content, Footer } = Layout;
 
@@ -131,7 +133,7 @@ const SideMenu = ({children}) => {
                     marginRight: '0.5rem',
                   }}
                 />
-                <button style={{backgroundColor: '#2F49D1', color: 'white', fontSize: '0.7rem', padding: '0 0.4rem', borderRadius: '0.3rem'}}>Create New RFQ</button>
+                <Link class={`${styles.primary_default_btn} ${styles.sideRfq}`} to="##"><i data-feather="plus" style={{width:"11vmax"}}></i><Modale/></Link>
               </div>
             </div>
             <div className={styles.filterRow}>

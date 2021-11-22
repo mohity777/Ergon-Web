@@ -58,17 +58,19 @@ font-weight: 600px;}
     margin-left: 20 px;
     display: flex;
     justify-content: space-between;
+    margin-left: 1px;
+        margin-right: 1px;
 }
 .header3{
        
     height: 193px;
-    margin-right: 23px;
+    /* margin-right: 23px; */
         width: auto;
-    left: 253px;
+    /* left: 253px; */
     top: 91px;
     margin-top: 18px;
     background: #FFFFFF;
-    margin-left: 39px;
+    /* margin-left: 39px; */
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -131,7 +133,7 @@ margin-top: 21px;
 font-style: normal;
 font-weight: 500;
 font-size: 12px;
-line-height: 140%;
+/* line-height: 140%; */
             }
 
             .buttons{

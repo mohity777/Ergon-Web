@@ -1,25 +1,25 @@
 .header5{
        
     height: 193px;
-    margin-right: 23px;
+    /* margin-right: 23px; */
         width: auto;
     left: 253px;
     top: 91px;
-    margin-top: 18px;
+  
     background: #FFFFFF;
-    margin-left: 39px;
+    /* margin-left: 39px; */
    
     
 }
 .header5 {
     height: 38px ;
-    margin-right: 20px;
+    /* margin-right: 20px; */
     width: 1125;
     left: 253 px;
     top: 91px ;
     margin-top: 4 px;
     background: #FFFFFF;
-    margin-left: 20 px;
+    /* margin-left: 20 px; */
     display: flex;
     justify-content: space-between;
 }
@@ -37,13 +37,13 @@ font-weight: 600px;}
 .header3{
        
     height: 193px;
-    margin-right: 23px;
+    /* margin-right: 23px; */
         width: auto;
     left: 253px;
     top: 91px;
     margin-top: 18px;
     background: #FFFFFF;
-    margin-left: 39px;
+    /* margin-left: 39px; */
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;

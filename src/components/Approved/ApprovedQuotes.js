@@ -13,7 +13,7 @@ const ApprovedQuotes = (props) => {
     <div className="App">
       <div className="layer"></div>
 
-      <Link className="skip-link sr-only" to="#skip-target">Skip to content</Link>
+  {/*<Link className="skip-link sr-only" to="#skip-target">Skip to content</Link>*/}
       <div className="page-flex">
       
         <div className="main-wrapper">

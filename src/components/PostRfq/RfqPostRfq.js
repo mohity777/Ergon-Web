@@ -78,7 +78,7 @@ const RfqPostDeal = () => {
 
 
 
-<div className="header6">
+<div className="header6" style={{marginLeft:0,marginRight:0}}>
 <div style={{marginLeft:"60vmax",lineHeight:"44px",fontWeight:"700",fontSize:"1rem"}}>Request for update</div>
 
 

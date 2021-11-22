@@ -20,13 +20,13 @@
 .header3{
        
     height: 193px;
-    margin-right: 23px;
+    /* margin-right: 23px; */
         width: auto;
     left: 253px;
     top: 91px;
     margin-top: 18px;
     background: #FFFFFF;
-    margin-left: 39px;
+    /* margin-left: 39px; */
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -74,15 +74,17 @@
             .header4{
        
                 height: 38px;
-                margin-right: 23px;
+                margin-right: 1px;
                     width: 1125;
                 left: 253px;
                 top: 91px;
                 margin-top: 4px;
                 background: #FFFFFF;
-                margin-left: 39px;
+                margin-left: 1px;
                 display: flex;
                 justify-content: space-between;
+                
+                
                 
                 
             }

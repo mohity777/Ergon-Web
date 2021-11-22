@@ -56,7 +56,7 @@ class Uploader extends React.Component {
             return false;
           }}
         >
-          {fileList.length >= 8 ? null : uploadButton}
+          {uploadButton}
         </Upload>
         <Modal
           visible={previewVisible}

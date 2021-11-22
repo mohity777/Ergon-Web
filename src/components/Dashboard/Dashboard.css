@@ -622,134 +622,6 @@ body {
   background-repeat: no-repeat;
   background-position: center center;
 }
-.logo {
-  background-image: url(../../dist/img/svg/Logo.svg);
-  width: 49px;
-  height: 49px;
-}
-.menu-toggle {
-  background-image: url(../../dist/img/svg/Bulk/Menu-toggle-white.svg);
-  width: 24px;
-  height: 24px;
-}
-.home,
-.menu-toggle--gray {
-  background-image: url(../../dist/img/svg/Bulk/Menu-toggle-gray.svg);
-  width: 24px;
-  height: 24px;
-}
-.home {
-  background-image: url(../../dist/img/svg/Bulk/Home-white.svg);
-}
-.arrow-down,
-.document,
-.folder {
-  background-image: url(../../dist/img/svg/Bulk/Document-white.svg);
-  width: 24px;
-  height: 24px;
-}
-.arrow-down,
-.folder {
-  background-image: url(../../dist/img/svg/Bulk/Folder-white.svg);
-}
-.arrow-down {
-  background-image: url(../../dist/img/svg/Bulk/Arrow-DownCircle.svg);
-}
-.image,
-.message,
-.paper {
-  background-image: url(../../dist/img/svg/Bulk/Image-white.svg);
-  width: 24px;
-  height: 24px;
-}
-.message,
-.paper {
-  background-image: url(../../dist/img/svg/Bulk/Paper-white.svg);
-}
-.message {
-  background-image: url(../../dist/img/svg/Bulk/Message-white.svg);
-}
-.category,
-.edit,
-.user-3 {
-  background-image: url(../../dist/img/svg/Bulk/Edit-white.svg);
-  width: 24px;
-  height: 24px;
-}
-.category,
-.user-3 {
-  background-image: url(../../dist/img/svg/Bulk/Category-white.svg);
-}
-.user-3 {
-  background-image: url(../../dist/img/svg/Bulk/3-User-white.svg);
-}
-.setting,
-.settings-line {
-  background-image: url(../../dist/img/svg/Bulk/Setting-white.svg);
-  width: 24px;
-  height: 24px;
-}
-.settings-line {
-  background-image: url(../../dist/img/svg/Bulk/Settings-line.svg);
-}
-.avatar {
-  background-image: url(../../dist/img/avatar/Avatar.svg);
-  width: 56px;
-  height: 56px;
-}
-.avatar-2 {
-  background-image: url(../../dist/img/avatar/avatar-2.svg);
-  width: 40px;
-  height: 40px;
-}
-.notification {
-  background-image: url(../../dist/img/svg/Bulk/Notification-gray.svg);
-  width: 24px;
-  height: 24px;
-}
-.arrows-up-down {
-  background-image: url(../../dist/img/svg/Bulk/arrows-up-down.svg);
-  width: 10px;
-  height: 17px;
-  margin-left: 10px;
-}
-.move,
-.radio {
-  background-image: url(../../dist/img/svg/move.svg);
-  width: 24px;
-  height: 24px;
-}
-.radio {
-  background-image: url(../../dist/img/svg/radio.svg);
-}
-.thumbnail {
-  background-image: url(../../dist/img/svg/thumbnail.svg);
-  width: 60px;
-  height: 60px;
-}
-.google-drive,
-.time-circle {
-  background-image: url(../../dist/img/svg/Bulk/TimeCircle.svg);
-  width: 24px;
-  height: 24px;
-}
-.google-drive {
-  background-image: url(../../dist/img/svg/GoogleDrive.svg);
-}
-.delete,
-.dropbox,
-.star {
-  background-image: url(../../dist/img/svg/dropbox.svg);
-  width: 24px;
-  height: 24px;
-}
-.delete,
-.star {
-  background-image: url(../../dist/img/svg/Bulk/Star.svg);
-}
-.delete {
-  background-image: url(../../dist/img/svg/Bulk/Delete.svg);
-}
 .search-wrapper svg {
   stroke: #d6d7e3;
   position: absolute;
@@ -842,18 +714,7 @@ h3 {
   color: #171717;
   margin-bottom: 20px;
 }
-button {
-  cursor: pointer;
-  -webkit-transition: 0.3s all;
-  -o-transition: 0.3s all;
-  transition: 0.3s all;
-  border: 2px solid transparent;
-}
 .transparent-btn:focus,
-button:focus {
-  outline: 0;
-  border: 2px solid #afbcff;
-}
 button.disabled {
   cursor: default;
   color: #d6d7e3;
@@ -1321,10 +1182,6 @@ textarea {
   transition: 0.3s all;
   background-color: #e3daf9;
   border-radius: 50%;
-}
-.white-block input:checked + .radio {
-  background-color: transparent;
-  background-image: url(../../dist/img/svg/radio.svg);
 }
 label {
   width: -webkit-max-content;
@@ -3711,9 +3568,6 @@ label {
 }
 .darkmode .footer {
   border-top-color: #222235;
-}
-.darkmode .menu-toggle--gray {
-  background-image: url(../../dist/img/svg/Bulk/Menu-toggle-white.svg);
 }
 @media (min-width: 576px) {
   .container {

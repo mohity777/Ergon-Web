@@ -3,7 +3,7 @@ import style from "../SQCardListing/SQCardListing.module.css";
 import styles from "./SQCardDetails.module.css";
 import ImgPlaceholder from "../../../dist/img/Seller/imgPlaceholder.png";
 import DropdownPicker from "../../DropdownPicker";
-
+import SQDashboard from "../SQDashboard"
 const items = [
   { label: "Raw Material Purchased", value: 0 },
   { label: "Manufacturing Started", value: 1 },
@@ -12,11 +12,11 @@ const items = [
 
 const SQCardDetails = (props) => {
   return (
-    <>
+    <SQDashboard>
         <div className={`${style.sqCard} ${styles.sqCardDetails}`}>
           <div className={`${style.up} ${styles.sqCardDetailsTop}`}>
             <div className={style.left}>
-              <h5 style={{fontSize: '1.1rem'}}>Fabrication - Screw</h5>
+              <h5 style={{fontWeight: 600, fontSize: '0.9rem'}}>Fabrication - Screw</h5>
               <h5 className={style.rfqId}>RFQ ID: 1234</h5>
               <div className={style.boxRow}>
                 <div className={style.cardBox}>
@@ -86,7 +86,7 @@ const SQCardDetails = (props) => {
             </div>
           </div>
         </div>
-    </>
+    </SQDashboard>
   );
 };
 

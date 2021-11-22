@@ -15,7 +15,7 @@ const SQModal = ({ visible, closeModal }) => {
     >
       <div className={styles.up}>
         <div className={styles.left}>
-          <h5>Fabrication - Screw</h5>
+          <h5 style={{fontWeight: 600, fontSize: '1rem'}}>Fabrication - Screw</h5>
           <h5 className={styles.rfqId}>RFQ ID: 1234</h5>
           <div className={styles.estTimeDiv}>
             <div className={styles.estTimeRow}>

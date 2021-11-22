@@ -1,5 +1,6 @@
+// COMMON
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import './components/Dashboard/Dashboard.css'
+import "./components/Dashboard/Dashboard.css";
 
 //BUYER
 import RFQ from "./components/RfqBuyer/RFQ";
@@ -16,10 +17,7 @@ import SQCardDetails from "./components/Seller/SQCardDetails";
 // LOGIN/SIGNUP
 import Login from "./components/Login";
 import SignUpDetails from "./components/SignUpDetails";
-import SideMenu from "./components/SideMenu";
-
-
-
+import Layout from "./components/Layout";
 
 function App() {
   return (
@@ -32,8 +30,11 @@ function App() {
           <Route exact path="/SignUp">
             <SignUp />
           </Route>
+          <Route exact path="/SignUpDetails">
+            <SignUpDetails />
+          </Route>
 
-          <SideMenu>
+          <Layout>
             <Route exact path="/">
               <ApprovedQuotes />
             </Route>
@@ -50,17 +51,13 @@ function App() {
               <RfqPostDeal />
             </Route>
 
-
             <Route exact path="/SQCardListing">
               <SQCardListing />
             </Route>
             <Route exact path="/SQCardDetails">
               <SQCardDetails />
             </Route>
-            <Route exact path="/SignUpDetails">
-              <SignUpDetails />
-            </Route>
-          </SideMenu>
+          </Layout>
         </Switch>
       </Router>
     </div>

@@ -8,9 +8,11 @@ import { Link } from 'react-router-dom';
 import ModalKeep from '../Modals/ModalKeep';
 import Dots from '../ThreeDots/Dots';
 import Pagination from '../Pagination/Pagination'
+import SQDashboard from '../Seller/SQDashboard';
 
 const RfqPostDeal = () => {
   return (
+    <SQDashboard>
     <div className="App">
       <div className="layer"></div>
 
@@ -118,6 +120,7 @@ const RfqPostDeal = () => {
         </div>
       </div>
     </div>
+    </SQDashboard>
   )
 }
 

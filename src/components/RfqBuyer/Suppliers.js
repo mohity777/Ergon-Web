@@ -5,11 +5,13 @@ import { Link } from 'react-router-dom';
 
 import ModalKeep from '../Modals/ModalKeep';
 import Dots from '../ThreeDots/Dots';
+import SQDashboard from '../Seller/SQDashboard';
 
 
 
 function Suppliers() {
   return (
+    <SQDashboard>
     <div className="App">
       <div className="layer"></div>
 
@@ -103,6 +105,7 @@ function Suppliers() {
         </div>
       </div>
     </div>
+    </SQDashboard>
   );
 }
 

@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./SQCardListing.module.css";
 import BsThreeDots from "../../../dist/img/Seller/3dotsHorizontal.png";
 import Modal from "../SQModal";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import SQDashboard from "../SQDashboard";
 
 const items = [
@@ -13,9 +13,10 @@ const items = [
 
 const SQCardListing = (props) => {
   const [visible, setVisible] = React.useState(false);
+  const history = useHistory();
 
-  const openModal = event => {
-    event.preventDefault();
+  const openModal = e => {
+    e.stopPropagation();
     setVisible(true);
   }
 
@@ -23,11 +24,15 @@ const SQCardListing = (props) => {
     setVisible(false);
   }
 
+  const navigateToDetails = (e) => {
+    history.push('/SQCardDetails')
+  }
+
   return (
     <SQDashboard>
       {[1, 2].map((item) => (
-        <Link key={item} to="/SQCardDetails">
-          <div className={styles.sqCard} style={{ height: '11rem', marginBottom: '1.5rem' }}>
+        <>
+          <div onClick={navigateToDetails} className={styles.sqCard} style={{ height: '11rem', marginBottom: '1.5rem', cursor: 'pointer' }}>
             <div className={styles.up}>
               <div className={styles.left}>
                 <h5 style={{ fontWeight: 600, fontSize: "0.9rem" }}>
@@ -82,7 +87,7 @@ const SQCardListing = (props) => {
             </div>
           </div>
           <Modal visible={visible} closeModal={closeModal} />
-        </Link>
+        </>
       ))}
     </SQDashboard>
   );

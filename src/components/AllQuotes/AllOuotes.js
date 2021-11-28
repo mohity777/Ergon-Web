@@ -8,9 +8,11 @@ import { Link } from 'react-router-dom';
 import ModalKeep from '../Modals/ModalKeep';
 import Dots from '../ThreeDots/Dots';
 import Pagination from '../Pagination/Pagination'
+import SQDashboard from '../Seller/SQDashboard';
 
 const AllOuotes = (props) => {
   return (
+    <SQDashboard>
     <div className="App">
       <div className="layer"></div>
 
@@ -93,6 +95,7 @@ const AllOuotes = (props) => {
         </div>
       </div>
     </div>
+    </SQDashboard>
   )
 }
 

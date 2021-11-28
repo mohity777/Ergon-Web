@@ -1,30 +1,21 @@
 import { Layout as AntdLayout } from "antd";
-import React, { useState } from "react";
-
+import React from "react";
+import styles from "./Layout.module.css";
 import Footer from "./Footer";
 import Header from "./Header";
+import SideMenu from "./SideMenu";
 import Drawer from "./Drawer";
 
 const { Content } = AntdLayout;
 
 const Layout = ({ children }) => {
-  const [collapsed, setCollapsed] = useState(false);
-
-  const toggle = () => setCollapsed((state) => !state);
-
   return (
     <AntdLayout style={{ minHeight: "100vh" }}>
-      <Drawer collapsed={collapsed} />
-      <AntdLayout className="site-layout" style={{ marginLeft: 230 }}>
+      <SideMenu />
+      <Drawer />
+      <AntdLayout className={`site-layout ${styles.siteLayout}`}>
         <Header />
-        <Content
-          style={{
-            overflow: "hidden",
-            marginBottom: "1.5rem",
-          }}
-        >
-         {children}
-        </Content>
+        <Content className={styles.content}>{children}</Content>
         <Footer />
       </AntdLayout>
     </AntdLayout>

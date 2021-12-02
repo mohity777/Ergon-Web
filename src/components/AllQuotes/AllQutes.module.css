@@ -17,7 +17,7 @@
     width: 1125;
     left: 253 px;
     top: 91px ;
-    margin-top: 4 px;
+  
     background: #FFFFFF;
     /* margin-left: 20 px; */
     display: flex;
@@ -31,6 +31,7 @@
 
 .amount{margin-right: 114px;
 margin-right: 114px;
+margin-left: 4vmax;
 align-self: center;
 font-weight: 600px;}
 
@@ -106,7 +107,7 @@ line-height: 140%;
 
         .buttons{
             margin-top: -4vmax;
-        margin-left: 58vmax;
+        margin-left: 61vmax;
         
         display: flex;
         }

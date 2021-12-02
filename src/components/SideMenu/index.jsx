@@ -117,40 +117,11 @@ const SideMenu = ({children}) => {
             marginBottom: "1.5rem",
           }}
         >
-          <div className={styles.dashboard}>
-            <div className={styles.searchRow}>
-              <h5>SQ</h5>
-              <div style={{display: 'flex'}}>
-                <Input
-                  bordered={false}
-                  size="small"
-                  placeholder="Enter Keywords..."
-                  prefix={<SearchOutlined style={{color: 'grey', marginRight: '0.2rem'}} />}
-                  style={{
-                    background: "#EFF0F6",
-                    maxWidth: "14rem",
-                    borderRadius: "0.4rem",
-                    marginRight: '0.5rem',
-                  }}
-                />
-                <Link class={`${styles.primary_default_btn} ${styles.sideRfq}`} to="##"><i data-feather="plus" style={{width:"11vmax"}}></i><Modale/></Link>
-              </div>
-            </div>
+         
             <div className={styles.filterRow}>
-              <div className={styles.tabs}>
-                <span style={{marginRight: '0.5rem', color: '#0061F7'}}>Open quotes</span>
-                <span style={{marginRight: '0.5rem', color: '#767676'}}>Accepted quotes</span>
-                <span style={{ color: '#767676'}}>Completed</span>
-              </div>
-              <div className={styles.filters}>
-                <DropdownPicker title="All dates" items={[]} />
-                <span style={{width: '1rem'}} />
-                <DropdownPicker title="All Categories" items={[]} />
-                <span style={{width: '1rem'}} />
-                <DropdownPicker title="Status" items={[]} />
-              </div>
+             
             </div>
-          </div>
+       
           <div
             className="site-layout-background"
             style={{ margin: "0px 1.5rem" }}

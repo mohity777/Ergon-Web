@@ -33,7 +33,7 @@ function App() {
             <SignUp />
           </Route>
 
-          <SideMenu>
+          <SideMenu >
             <Route exact path="/">
               <ApprovedQuotes />
             </Route>

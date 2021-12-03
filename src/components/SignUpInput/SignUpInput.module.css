@@ -1,37 +1,39 @@
 .signUpInputLabel label {
     color: black;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-weight: 500;
     height: 100%;
 }
 
 .signUpInput {
-    background-color: #EFF0F6 !important;
+    background-color: #EFF0F6!important;
     border-radius: 0.4rem;
     height: 44px;
 }
 
-.signUpInput::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+.signUpInput:global(.ant-input::placeholder) { /* Chrome, Firefox, Opera, Safari 10.1+ */
   font-size: 0.75rem;
-}
-
-:global(.ant-form-item-explain div) {
-  font-size: 0.65rem;
 }
 
 .signUpPasswordInput {
-    background-color: #EFF0F6 !important;
+    background-color: #EFF0F6!important;
     border-radius: 0.4rem;
-    padding-top: 0;
-    padding-bottom: 0;
     height: 44px;
 }
 
-:global(.ant-input::placeholder) { /* Chrome, Firefox, Opera, Safari 10.1+ */
+.signUpPasswordInput input:global(.ant-input){
+  background-color: #EFF0F6!important;
+}
+
+.signUpPasswordInput input:global(.ant-input::placeholder) { /* Chrome, Firefox, Opera, Safari 10.1+ */
   font-size: 0.75rem;
 }
 
+.textAreaInput {
+   background-color: #EFF0F6!important;
+   border-radius: 0.4rem;
+}
 
-:global(.ant-input){
-  background-color: #EFF0F6!important;
+:global(.ant-form-item-explain div) {                      /* Error Text style */
+  font-size: 0.65rem;
 }

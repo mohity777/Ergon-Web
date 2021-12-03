@@ -1,18 +1,52 @@
 import "./components/Dashboard/Dashboard.css";
+
+import { useDispatch, useSelector } from "react-redux";
+import { Switch, Route, Redirect } from "react-router-dom";
+import { PRIVATE_ROUTES, PUBLIC_ROUTES } from "./utils/constants";
 import Layout from "./components/Layout";
-import PrivateRoutes from "./routes/PrivateRoutes";
-import PublicRoutes from "./routes/PublicRoutes";
 
-function App() {
-  const isLoggedIn = true;
+const PublicRoute = ({ isLoggedIn,component: Component, ...rest }) => {
+  return (
+    <Route
+      {...rest}
+      render={(props) => {
+        if (isLoggedIn) return <Redirect to="/" />;
+        else return <Component {...props} />;
+      }}
+    />
+  );
+};
 
-  if (isLoggedIn)
-    return (
+const PrivateRoute = ({ isLoggedIn,component: Component, ...rest }) => {
+  return (
+    <Route
+      {...rest}
+      render={(props) => {
+        if (isLoggedIn) return <Component {...props}/>;
+        else return <Redirect to="/Login" />;
+      }}
+    />
+  );
+};
+
+function App(props) {
+  const { token } = useSelector((state) => state.user);
+
+  return (
+    <Switch>
+      {PUBLIC_ROUTES.map((route) => (
+        <PublicRoute key={route.path} {...route} isLoggedIn={token} />
+      ))}
+      {PRIVATE_ROUTES.withoutLayout.map((route) => (
+        <PrivateRoute key={route.path} {...route} isLoggedIn={token}/>
+      ))}
       <Layout>
-        <PrivateRoutes />
+        {PRIVATE_ROUTES.withLayout.map((route) => (
+          <PrivateRoute key={route.path} {...route} isLoggedIn={token}/>
+        ))}
       </Layout>
-    );
-  return <PublicRoutes />;
+    </Switch>
+  );
 }
 
 export default App;

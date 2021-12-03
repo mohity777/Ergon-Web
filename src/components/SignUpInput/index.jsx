@@ -32,6 +32,18 @@ const SignUpInput = ({
           placeholder={placeholder}
           className={styles.signUpPasswordInput}
         />
+      ) : type == "textarea" ? (
+        <Input.TextArea
+          rows={4}
+          placeholder={placeholder}
+          className={styles.textAreaInput}
+          onKeyUp={(e) => {
+            onKeyUp && onKeyUp(e);
+          }}
+          onChange={(e) => {
+            onChange && onChange(e);
+          }}
+        />
       ) : (
         <Input
           placeholder={placeholder}

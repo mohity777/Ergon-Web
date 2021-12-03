@@ -1,9 +1,16 @@
-import React from "react"
+import React from "react";
 import SignUpInput from "../SignUpInput";
 import styles from "./TagsInput.module.css";
 
-const TagsInput = ({ placeholder, label, onChangeTags, labelClass, inputClass }) => {
-  console.log("kkkkkkkkkkkkkkkkkkkkkk",labelClass);
+const TagsInput = ({
+  placeholder,
+  label,
+  onChangeTags,
+  labelClass,
+  inputClass,
+  single = false,
+  onChange
+}) => {
   const [tags, setTags] = React.useState([]);
 
   const removeTags = (indexToRemove) => {
@@ -29,23 +36,35 @@ const TagsInput = ({ placeholder, label, onChangeTags, labelClass, inputClass })
           <SignUpInput
             noStyle={true}
             placeholder={placeholder}
-            onKeyUp={(event) => (event.key === "Enter" ? addTags(event) : null)}
+            onKeyUp={(event) => {
+              if (single) return;
+              if (event.key == "Enter") {
+                addTags(event);
+              }
+            }}
+            onChange={(e) => {
+              onChange && onChange(e)
+            }}
           />
         </div>
       </div>
-      <ul className={styles.tags}>
-        {tags.map((tag, index) => (
-          <div key={index} className={styles.tag}>
-            <h1 className={styles.tag_title}>{tag}</h1>
-            <span
-              className={styles.tag_close_icon}
-              onClick={() => removeTags(index)}
-            >
-              x
-            </span>
-          </div>
-        ))}
-      </ul>
+      {single ? (
+        <></>
+      ) : (
+        <ul className={styles.tags}>
+          {tags.map((tag, index) => (
+            <div key={index} className={styles.tag}>
+              <h1 className={styles.tag_title}>{tag}</h1>
+              <span
+                className={styles.tag_close_icon}
+                onClick={() => removeTags(index)}
+              >
+                x
+              </span>
+            </div>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };

@@ -25,7 +25,7 @@ const SQCardListing = (props) => {
   }
 
   const navigateToDetails = (e) => {
-    history.push('/SQCardDetails')
+    history.push('/SQDetails')
   }
 
   return (

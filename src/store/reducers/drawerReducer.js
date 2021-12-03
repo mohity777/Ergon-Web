@@ -1,4 +1,4 @@
-import { TOGGLE_DRAWER, TOGGLE_SIDE_MENU } from "../actions/drawerActions";
+import { TOGGLE_DRAWER, TOGGLE_SIDE_MENU } from "../../utils/types";
 
 const INITIAL_STATE = {
   sideMenuCollapsed: false,

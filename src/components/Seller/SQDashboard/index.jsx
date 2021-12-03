@@ -20,23 +20,10 @@ const SQDashboard = ({ children }) =>  {
                     style={{ color: "grey", marginRight: "0.2rem" }}
                   />
                 }
-                style={{
-                  background: "#EFF0F6",
-                  borderRadius: "0.4rem",
-                  marginRight: "0.5rem",
-                  width: "fit-content",
-                }}
+                className={styles.searchInput}
               />
               <button
-                style={{
-                  backgroundColor: "#2F49D1",
-                  color: "white",
-                  fontSize: "0.65rem",
-                  fontWeight: 400,
-                  width: "7rem",
-                  borderRadius: "0.3rem",
-                  lineHeight: "normal",
-                }}
+                className={styles.createRFQbtn}
               >
                 Create New RFQ
               </button>

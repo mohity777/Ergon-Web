@@ -2,13 +2,21 @@ import React from "react";
 import styles from "../SignUp/SignUp.module.css";
 import { Button, Form, Checkbox } from "antd";
 import SignUpInput from "../SignUpInput";
-
-const onFinish = (values) => {
-  console.log("Received values of form: ", values);
-};
+import { useDispatch } from "react-redux";
+import { login } from "../../store/actions/userActions";
+import { useHistory } from "react-router-dom";
 
 const Login = (props) => {
   const [form] = Form.useForm();
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const onFinish = async (values) => {
+    try{
+         await dispatch(login(values));
+         history.replace('/')
+    }catch(err){}
+  };
 
   return (
     <div className={styles.signUpContainer}>

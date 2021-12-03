@@ -9,9 +9,9 @@
 }
 
 .searchRow {
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .filterRow {
@@ -23,34 +23,50 @@
 }
 
 .tabs {
-   display: flex;
-   align-items: center;
-   font-size: 0.75rem;
-   font-weight: 600;
+  display: flex;
+  align-items: center;
+  font-size: 0.75rem;
+  font-weight: 600;
 }
 
 .filters {
-   display: flex;
-   flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-:global(.ant-input){                 /* input */
+.searchInput {
+  background-color: #eff0f6;
+  border-radius: 0.4rem;
+  margin-right: 0.5rem;
+  width: fit-content;
+}
+:global(.ant-input-affix-wrapper > input.ant-input) {  /* input */
+  padding: 0.6rem 0rem;
+}
+:global(.ant-input-affix-wrapper-borderless:hover) {
+  background-color: #eff0f6;
+}
+:global(.ant-input) {  /* input */
   line-height: normal;
   min-height: fit-content;
   font-size: 0.7rem;
 }
-
-:global(.ant-input::placeholder){                 /* input placeholder*/
+:global(.ant-input::placeholder) {  /* input placeholder*/
   line-height: normal;
   font-size: 0.7rem;
   font-weight: 400;
 }
 
-:global(.ant-input-affix-wrapper > input.ant-input){        /* input */
-     padding: 0.6rem 0rem;
+.createRFQbtn {
+  background-color: #2f49d1;
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 400;
+  width: 7rem;
+  border-radius: 0.3rem;
+  line-height: normal;
 }
-
-:global(.ant-btn){
+:global(.ant-btn) {
   font-size: 0.7rem;
   line-height: normal;
 }

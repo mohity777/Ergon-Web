@@ -3,17 +3,18 @@ import { Menu } from "antd";
 import styles from "./Layout.module.css";
 import DrawerLogo from "../../dist/img/Seller/drawerLogo.png";
 import { Link } from "react-router-dom";
-import { DRAWER_ITEMS, getMenuItemKey } from "../../utils/constants";
+import { DRAWER_ITEMS } from "../../utils/constants";
 import { useLocation, useHistory } from "react-router-dom";
+import { getMenuItemKey } from "../../utils/functions";
 
 const DrawerContent = ({ containerClass, onPressMenuItem }) => {
   const location = useLocation();
   const history = useHistory();
 
-  const onPressItem = item => {
-     history.push(item.to);
-     onPressMenuItem && onPressMenuItem();
-  }
+  const onPressItem = (item) => {
+    history.push(item.to);
+    onPressMenuItem && onPressMenuItem();
+  };
 
   return (
     <div className={containerClass}>
@@ -33,7 +34,11 @@ const DrawerContent = ({ containerClass, onPressMenuItem }) => {
           const Icon = item.icon;
           return (
             <>
-              <Menu.Item onClick={() => onPressItem(item)} key={item.key} icon={<Icon />}>
+              <Menu.Item
+                onClick={() => onPressItem(item)}
+                key={item.key}
+                icon={<Icon />}
+              >
                 {item.name}
               </Menu.Item>
               {item.name == "SQ" && <h5 className={styles.system}>SYSTEM</h5>}

@@ -2,13 +2,24 @@ import React from "react";
 import styles from "./SignUp.module.css";
 import { Button, Form, Checkbox } from "antd";
 import SignUpInput from "../SignUpInput";
+import { useDispatch } from "react-redux";
+import { signUp } from "../../store/actions/userActions";
+import { useHistory } from "react-router-dom";
 
-const onFinish = (values) => {
-  console.log("Received values of form: ", values);
-};
 
 const SignUp = (props) => {
   const [form] = Form.useForm();
+  const dispatch = useDispatch();
+
+  const history = useHistory()
+
+  const onFinish = async (values) => {
+    try{
+         await dispatch(signUp(values));
+         history.replace("/SignUpDetails");
+    }catch(err){}
+  };
+
 
   return (
     <div className={styles.signUpContainer}>
@@ -24,6 +35,17 @@ const SignUp = (props) => {
         <div className={styles.signUpBox}>
           <Form form={form} layout="vertical" onFinish={onFinish}>
             <SignUpInput
+              label="Contact Person Name"
+              name="ownerName"
+              placeholder="POC"
+              rules={[
+                {
+                  required: true,
+                  message: "Company Name is required",
+                },
+              ]}
+            />
+            <SignUpInput
               label="Company Name"
               name="companyName"
               placeholder="Enter comapny name"
@@ -35,13 +57,13 @@ const SignUp = (props) => {
               ]}
             />
             <SignUpInput
-              label="GSTN"
-              name="gstn"
-              placeholder="Enter GSTN"
+              label="GSTIN"
+              name="gstin"
+              placeholder="Enter GSTIN"
               rules={[
                 {
                   required: true,
-                  message: "GSTN is required",
+                  message: "GSTIN is required",
                 },
               ]}
             />
@@ -61,6 +83,18 @@ const SignUp = (props) => {
               ]}
             />
             <SignUpInput
+              label="Address"
+              name="address"
+              placeholder="Enter Address"
+              type="textarea"
+              rules={[
+                {
+                  required: true,
+                  message: "Address is required",
+                },
+              ]}
+            />
+            <SignUpInput
               label="Password"
               name="password"
               placeholder="Enter your Password"
@@ -74,6 +108,30 @@ const SignUp = (props) => {
                   min: 6,
                   message: "Password should should contain atleast 6 digits",
                 },
+              ]}
+            />
+            <SignUpInput
+              label="Confirmed Password"
+              name="confirmedPassword"
+              placeholder="Confirm your Password"
+              type="password"
+              rules={[
+                {
+                  required: true,
+                  message: "Please Confirm your password",
+                },
+                ({ getFieldValue }) => ({
+                  validator(_, value) {
+                    if (!value || getFieldValue("password") === value) {
+                      return Promise.resolve();
+                    }
+                    return Promise.reject(
+                      new Error(
+                        "The two passwords that you entered do not match!"
+                      )
+                    );
+                  },
+                }),
               ]}
             />
             <Form.Item name="remember" valuePropName="checked">

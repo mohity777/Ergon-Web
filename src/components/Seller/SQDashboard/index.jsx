@@ -3,13 +3,15 @@ import styles from "./SQDashboard.module.css";
 import DropdownPicker from "../../DropdownPicker";
 import { SearchOutlined } from "@ant-design/icons";
 import { Input } from "antd";
+import ModalKeep from "../../Modals/ModalKeep";
 
-const SQDashboard = ({ children }) =>  {
+const SQDashboard = (props) =>  {
     return (
       <div style={{marginTop: '0.3rem'}}>
         <div className={styles.dashboard}>
           <div className={styles.searchRow}>
-            <h5 style={{ fontWeight: 600 }}>SQ</h5>
+            <h5 style={{ fontWeight: 600 }}>{props.suppliers ? props.suppliers :props.rfq?props.rfq :props.rfqs} <p style={{marginTop:"10px",fontWeight:"700"}}>{props.rfqs?props.fabricationScrew:""}</p></h5>
+            
             <div style={{ display: "flex" }}>
               <Input
                 bordered={false}
@@ -25,19 +27,20 @@ const SQDashboard = ({ children }) =>  {
               <button
                 className={styles.createRFQbtn}
               >
-                Create New RFQ
+              <ModalKeep/>
               </button>
             </div>
           </div>
           <div className={styles.filterRow}>
             <div className={styles.tabs}>
               <span style={{ marginRight: "0.7rem", color: "#0061F7" }}>
-                Open quotes
+                {props.mysuppliers? props.mysuppliers : props.allquotes?props.allquotes:"Open Quotes"}(0)
               </span>
               <span style={{ marginRight: "0.7rem", color: "#767676" }}>
-                Accepted quotes
+              {props.findsuppliers? props.findsuppliers : props.approvedquotes? props.approvedquotes:"Accepted Quotes"}(0)
               </span>
-              <span style={{ color: "#767676" }}>Completed</span>
+              <span style={{ marginRight: "0.7rem", color: "#767676" }}>{props.receivednda? props.receivednda:"Completed Quotes"}(0)</span>
+              <span style={{ color: "#767676" }}>{props.rfqdetail}</span>
             </div>
             <div className={styles.filters}>
               <DropdownPicker title="All dates" items={[]} />
@@ -52,7 +55,7 @@ const SQDashboard = ({ children }) =>  {
           className="site-layout-background"
           style={{ margin: "0px 1.5rem" }}
         >
-          {children}
+          {props.children}
         </div>
       </div>
     );

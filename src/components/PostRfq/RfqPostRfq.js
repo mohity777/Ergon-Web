@@ -9,10 +9,39 @@ import ModalKeep from '../Modals/ModalKeep';
 import Dots from '../ThreeDots/Dots';
 import Pagination from '../Pagination/Pagination'
 import SQDashboard from '../Seller/SQDashboard';
+import styles from "../Seller/SQCardListing/SQCardListing.module.css";
+import BsThreeDots from "../../dist/img/Seller/3dotsHorizontal.png";
+import { useHistory } from 'react-router';
 
 const RfqPostDeal = () => {
+
+
+  const history = useHistory()
+  const navigateToDetails = (e) => {
+    history.push('/SQDetails')
+  }
   return (
-    <SQDashboard>
+    <SQDashboard rfqs="RFQ" fabricationScrew="Fabrication Screw">
+    <div onClick={navigateToDetails} className={styles.sqCard} style={{ height: '11rem', marginBottom: '1.5rem', cursor: 'pointer' }}>
+    <div className={styles.up}>
+      <div className={styles.left}>
+        <h5 style={{ fontWeight: 600, fontSize: "0.9rem" }}>
+          Fabrication - Screw
+        </h5>
+        <h5 className={styles.rfqId}>RFQ ID: 1234</h5>
+        <div className={styles.boxRow}>
+          <div className={styles.cardBox}>
+            <h5 className={styles.boxLabel}>Budget</h5>
+            <h5 className={styles.boxValue}>Rs. 50,00,000</h5>
+          </div>
+         
+        </div>
+      </div>
+     
+      <div style={{marginLeft:"46vmax"}}> <Link class="primary-default-btn " style={{borderRadius:"36px"}}  to="##"><i data-feather="plus"></i>Payment Due in 45 Days</Link>  </div>
+    </div>
+   
+  </div>
     <div className="App">
       <div className="layer"></div>
 
@@ -23,133 +52,10 @@ const RfqPostDeal = () => {
 
          
 
-        <div className="header2" >
-        <div class="sort-bar">
-          <div class="sort-bar-start">
-          <p style={{marginLeft:"4px",fontWeight:"700",fontSize:"1rem"}}>RFQ/</p>
-            <p className="Suppliers" style={{width:"215px"}}>Fabrication-Screw</p>
-          </div>
-          <div class="sort-bar-end">
-            <div class="sort-bar-start">
-              <div class="search-wrapper">
-                <i data-feather="search" aria-hidden="true"></i>
-                <input type="text" placeholder="Search" required />
-              </div>
+    
 
 
-            </div>
-            <ModalKeep/>
-            <Dots/>
-          
-            
-          </div>
-          <div style={{marginTop:"59px"}}>
-           <nav class="tab-nav">
-          <ul class="tab-menu">
-       
-          <ul class="tab-menu">
-            <div className="d-flex">
-              <div className="sideline" style={{display:"flex"}}>
-                <div>
-                All Quotes   <span>(0)</span>
-                </div>
-                <div>
-                Approved Quotes <span>(0)</span>
-                </div>
-                <div>
-                 Received NDA  <span>(0)</span>
-                </div>
-                <div>
-                 RFQ Details  <span>(0)</span>
-                </div>
-              
-              </div>
-             
-
-            </div>
-
-
-          </ul>
-      
-            <li><select class="select transparent-btn" style={{ marginLeft: "5.4vmax" }} required>
-              <option selected disabled>All dates</option>
-              <option value="2.03.2014">2.03.2014</option>
-              <option value="5.06.2014">5.06.2014</option>
-              <option value="2.03.2021">2.03.2021</option>
-            </select></li>
-            <li> <div class="select-wrapper">
-              <select class="select transparent-btn" style={{marginLeft:"-27px"}} required>
-                <option selected disabled>All categories</option>
-                <option value="Wellness">Wellness</option>
-                <option value="UX-design">UX design</option>
-                <option value="Interaction">Interaction</option>
-                <option value="2.03.2021">Interaction</option>
-              </select>
-            </div></li>
-            <li> <div class="select-wrapper">
-              <select class="select transparent-btn" required>
-                <option selected disabled>Status</option>
-                <option value="Pending">Pending</option>
-                <option value="Active">Active</option>
-                <option value="Pending">Pending</option>
-              </select>
-            </div></li>
-           
-
-          </ul>
-        </nav></div>
-        </div>
-
-      
-             
-           
-
-
-      </div>
-
-
-          <div>
-
-
-            <div className="header3">
-
-              <div className="fdiv">
-                <div>
-                <div className="d-flex">
-                  <div>Fabrication Screw <p style={{ marginTop: "6px" }}>Rfq : 1234</p>  </div>
-                  <div style={{marginLeft:"46vmax"}}> <Link class="primary-default-btn sideRfq" style={{borderRadius:"36px"}}  to="##"><i data-feather="plus"></i>Payment Due in 45 Days</Link>  </div>
-                  </div>
-                  <div className="blocks2">
-                  
-                   
-                    
-                  </div>
-                 
-                </div>
-
-                <div className="d-flex " style={{ marginLeft: "-19px" }}>
-                  <div className="sp">
-                    <p className="budget">Budget</p>
-                    <p className="rupees" >Rs. 50,00,000</p>
-                  </div>
-                  <div className="sp" style={{ marginLeft: "15px" }}>
-                    <p className="budget">Qty</p>
-                    <p className="rupees">50 Tons</p>
-                  </div>
-                  <div>
-                  </div>
-                </div>
-
-
-
-              </div>
-
-
-
-
-            </div>
-
-          </div>
+        
 
 
 
@@ -176,17 +82,21 @@ const RfqPostDeal = () => {
 
 </div>
 
-
-<div className="header4">
-
-<div className="col downBar">
-  <div ><span className="category">Category Mechanical</span><span className="category" style={{ marginLeft: "34px" }}>Sub category  Fabrication</span></div>
-  <div className="d-flex">
-    <p style={{ marginRight: "25px" }}>  Created on <span style={{fontWeight:900}}>27 Oct 2021</span> <span className="welding"></span></p>
-    <p style={{ marginRight: "25px" }}>Last Date to Quote <span style={{fontWeight:900}}>27 Nov 2021</span><span className="welding"></span></p>
-  </div>
+<div>
+<div className={styles.down}>
+<div className={styles.downLeft}>
+  <h5 className={styles.downLabel}>Category</h5>
+  <h5 className={styles.downValue}>Mechanical</h5>
+  <h5 className={styles.downLabel}>Sub Category</h5>
+  <h5 className={styles.downValue}>Fabrication</h5>
 </div>
-
+<div className={styles.downRight}>
+  <h5 className={styles.downLabel}>Created On</h5>
+  <h5 className={styles.downValue}>27/04/19</h5>
+  <h5 className={styles.downLabel}>Last Date to Quote</h5>
+  <h5 className={styles.downValue}>27/05/19</h5>
+</div>
+</div>
 </div>
 <Pagination/>
 

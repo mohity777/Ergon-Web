@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import SignUpInput from "../SignUpInput";
 import styles from "./TagsInput.module.css";
 
@@ -24,7 +24,7 @@ const TagsInput = ({
       const updatedTags = [...tags, event.target.value?.trim()];
       setTags(updatedTags);
       onChangeTags(updatedTags);
-      event.target.value = "";
+      requestAnimationFrame(() => event.target.value = "");
     }
   };
 
@@ -69,4 +69,4 @@ const TagsInput = ({
   );
 };
 
-export default TagsInput;
+export default memo(TagsInput);

@@ -14,7 +14,7 @@ const Login = (props) => {
   const onFinish = async (values) => {
     try{
          await dispatch(login(values));
-         history.replace('/')
+         history.replace("/Dashboard");
     }catch(err){}
   };
 

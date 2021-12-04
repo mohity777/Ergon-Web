@@ -40,7 +40,7 @@ const SignUpDetails = (props) => {
          };
          console.log(data)
          const res = await Api.post(PATH.signUpDetails, data);
-         history.replace('/')
+         history.replace('/Dashboard')
     }catch(err){}
   };
 
@@ -87,7 +87,7 @@ const SignUpDetails = (props) => {
             <div style={{ display: "flex", flexDirection: "row" }}>
               <h5 className={styles.label}>Industry</h5>
               <Select
-                className={`${styles.input} ${styles.select}`}
+                className={`${styles.input}`}
                 onChange={value => { industry.current = value }}
                 placeholder="Metal & Metal Products"
               >

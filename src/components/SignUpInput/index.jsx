@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { Form, Input } from "antd";
 import styles from "./SignUpInput.module.css";
 
@@ -60,4 +60,4 @@ const SignUpInput = ({
   );
 };
 
-export default SignUpInput;
+export default memo(SignUpInput);

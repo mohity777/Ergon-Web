@@ -22,7 +22,7 @@
 
 .label {
     color: black;
-    font-size: 1rem;
+    font-size: 0.85rem;
     font-weight: 500;
     height: 100%;
     width: 35%;
@@ -33,7 +33,9 @@
 }
 
 .input {
-  width: 65%
+  width: 65%;
+  font-size: 0.8rem;
+  font-weight: 500;
 }
 
 .row {
@@ -43,7 +45,7 @@
     align-items: flex-start;
 }
 
-:global(.ant-select-selector) {
+.input div:global(.ant-select-selector) {
   height: 44px!important;
   display: flex;
   align-items: center;

@@ -14,9 +14,9 @@ const SideMenu = (props) => {
       trigger={null}
       collapsible
       collapsed={sideMenuCollapsed}
-      className={styles.drawer}
+      className={sideMenuCollapsed ? styles.collapsedMenu : styles.menu}
       style={{
-        overflow: "auto",
+        overflow: "hidden",
         height: "100vh",
         position: "fixed",
         left: 0,

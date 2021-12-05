@@ -46,7 +46,7 @@
 }
 
 .input div:global(.ant-select-selector) {
-  height: 44px!important;
+  height: 42px!important;
   display: flex;
   align-items: center;
 }

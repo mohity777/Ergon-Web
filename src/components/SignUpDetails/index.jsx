@@ -44,6 +44,10 @@ const SignUpDetails = (props) => {
     }catch(err){}
   };
 
+  const onSkip = () => {
+    history.push('/Dashboard')
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.inputView}>
@@ -51,7 +55,9 @@ const SignUpDetails = (props) => {
           placeholder="Gas Filter"
           label="Product List"
           name="products"
-          onChangeTags={(tags) => { products.current = tags }}
+          onChangeTags={(tags) => {
+            products.current = tags;
+          }}
           labelClass={styles.label}
           inputClass={styles.input}
         />
@@ -88,11 +94,15 @@ const SignUpDetails = (props) => {
               <h5 className={styles.label}>Industry</h5>
               <Select
                 className={`${styles.input}`}
-                onChange={value => { industry.current = value }}
+                onChange={(value) => {
+                  industry.current = value;
+                }}
                 placeholder="Metal & Metal Products"
               >
-                {INDUSTRY_OPTIONS.map((item,i) => (
-                  <Option key={i} value={item}>{item}</Option>
+                {INDUSTRY_OPTIONS.map((item, i) => (
+                  <Option key={i} value={item}>
+                    {item}
+                  </Option>
                 ))}
               </Select>
             </div>
@@ -127,7 +137,9 @@ const SignUpDetails = (props) => {
           placeholder="Tata Motars"
           label="Worked with"
           name="workedWith"
-          onChangeTags={(tags) => { workedWith.current = tags }}
+          onChangeTags={(tags) => {
+            workedWith.current = tags;
+          }}
           labelClass={styles.label}
           inputClass={styles.input}
         />
@@ -153,6 +165,11 @@ const SignUpDetails = (props) => {
       <Form.Item noStyle>
         <Button htmlType="submit" className={styles.btn} onClick={onFinish}>
           Update
+        </Button>
+      </Form.Item>
+      <Form.Item noStyle>
+        <Button htmlType="submit" className={styles.btn} onClick={onSkip}>
+          Skip
         </Button>
       </Form.Item>
     </div>

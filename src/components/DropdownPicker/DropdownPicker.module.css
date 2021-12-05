@@ -1,0 +1,14 @@
+.dropdown{
+    font-size: 0.68rem;
+}
+
+.dropdown div:global(.ant-select-selector) {
+  height: 27px!important;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown span:global(.ant-select-arrow) {
+  font-size: 0.5rem;
+  margin-top: -4.5px;
+}

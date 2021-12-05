@@ -25,7 +25,7 @@
 .tabs {
   display: flex;
   align-items: center;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 600;
 }
 
@@ -40,18 +40,22 @@
   margin-right: 0.5rem;
   width: fit-content;
 }
-:global(.ant-input-affix-wrapper > input.ant-input) {  /* input */
+
+.searchInput:global(.ant-input-affix-wrapper > input.ant-input) {  /* input */
   padding: 0.6rem 0rem;
 }
-:global(.ant-input-affix-wrapper-borderless:hover) {
+
+.searchInput:global(.ant-input-affix-wrapper-borderless:hover) {
   background-color: #eff0f6;
 }
-:global(.ant-input) {  /* input */
+
+.searchInput input:global(.ant-input) {  /* input */
   line-height: normal;
   min-height: fit-content;
   font-size: 0.7rem;
 }
-:global(.ant-input::placeholder) {  /* input placeholder*/
+
+.searchInput input:global(.ant-input::placeholder) {  /* input placeholder*/
   line-height: normal;
   font-size: 0.7rem;
   font-weight: 400;
@@ -66,7 +70,8 @@
   border-radius: 0.3rem;
   line-height: normal;
 }
-:global(.ant-btn) {
+
+.createRFQbtn:global(.ant-btn) {
   font-size: 0.7rem;
   line-height: normal;
 }

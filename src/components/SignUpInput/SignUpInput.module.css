@@ -1,6 +1,6 @@
 .signUpInputLabel label {
     color: black;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 500;
     height: 100%;
 }
@@ -8,7 +8,8 @@
 .signUpInput {
     background-color: #EFF0F6!important;
     border-radius: 0.4rem;
-    height: 44px;
+    height: 42px;
+    font-size: 0.75rem;
 }
 
 .signUpInput:global(.ant-input::placeholder) { /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -18,7 +19,8 @@
 .signUpPasswordInput {
     background-color: #EFF0F6!important;
     border-radius: 0.4rem;
-    height: 44px;
+    height: 42px;
+    font-size: 0.75rem;
 }
 
 .signUpPasswordInput input:global(.ant-input){
@@ -32,6 +34,11 @@
 .textAreaInput {
    background-color: #EFF0F6!important;
    border-radius: 0.4rem;
+  font-size: 0.75rem;
+}
+
+.textAreaInput:global(.ant-input::placeholder) { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  font-size: 0.75rem;
 }
 
 :global(.ant-form-item-explain div) {                      /* Error Text style */

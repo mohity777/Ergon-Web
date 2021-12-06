@@ -5,6 +5,8 @@ const INITIAL_STATE = {
   drawerVisible: false,
 };
 
+
+
 const drawerReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case TOGGLE_SIDE_MENU:
@@ -15,5 +17,8 @@ const drawerReducer = (state = INITIAL_STATE, action) => {
       return state;
   }
 };
+
+
+
 
 export default drawerReducer;

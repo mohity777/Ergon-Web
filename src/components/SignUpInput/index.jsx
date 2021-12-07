@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { Form, Input } from "antd";
+import { DatePicker, Form, Input, InputNumber } from "antd";
 import styles from "./SignUpInput.module.css";
 
 const SignUpInput = ({
@@ -44,6 +44,19 @@ const SignUpInput = ({
             onChange && onChange(e);
           }}
         />
+      ) : type == "number" ? (
+        <InputNumber
+          placeholder={placeholder}
+          className={styles.numberInput}
+          onKeyUp={(e) => {
+            onKeyUp && onKeyUp(e);
+          }}
+          onChange={(e) => {
+            onChange && onChange(e);
+          }}
+        />
+      ) : type == "dateTime" ? (
+        <DatePicker showTime format="YYYY-MM-DD HH:mm:ss" />
       ) : (
         <Input
           placeholder={placeholder}

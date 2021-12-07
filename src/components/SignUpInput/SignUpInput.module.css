@@ -34,10 +34,26 @@
 .textAreaInput {
    background-color: #EFF0F6!important;
    border-radius: 0.4rem;
-  font-size: 0.75rem;
+   font-size: 0.75rem;
 }
 
 .textAreaInput:global(.ant-input::placeholder) { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  font-size: 0.75rem;
+}
+
+.numberInput {
+    background-color: #EFF0F6!important;
+    border-radius: 0.4rem;
+    height: 42px;
+    font-size: 0.75rem;
+    width: 100%;
+}
+
+.numberInput input:global(.ant-input-number-input) {
+    height: 42px;
+}
+
+.numberInput input:global(.ant-input-number-input::placeholder) { /* Chrome, Firefox, Opera, Safari 10.1+ */
   font-size: 0.75rem;
 }
 

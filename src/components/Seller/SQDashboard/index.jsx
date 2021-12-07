@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./SQDashboard.module.css";
 import DropdownPicker from "../../DropdownPicker";
 import { SearchOutlined } from "@ant-design/icons";
 import { Input } from "antd";
+import Modal from "../../Modal/Modal";
 
 const SQDashboard = ({ children }) => {
+
+  const [visible,setVisible] = useState(false);
+
+  const createRfq = () => {
+       setVisible(true);
+  };
+
+  const closeRfq = () => {
+    setVisible(false);
+  }
+
   return (
     <div style={{ marginTop: "0.3rem" }}>
       <div className={styles.dashboard}>
@@ -22,7 +34,7 @@ const SQDashboard = ({ children }) => {
               }
               className={styles.searchInput}
             />
-            <button className={styles.createRFQbtn}>Create New RFQ</button>
+            <button onClick={createRfq} className={styles.createRFQbtn}>Create New RFQ</button>
           </div>
         </div>
         <div className={styles.filterRow}>
@@ -47,6 +59,7 @@ const SQDashboard = ({ children }) => {
       <div className="site-layout-background" style={{ margin: "0px 1.5rem" }}>
         {children}
       </div>
+      <Modal visible={visible} closeModal={closeRfq} />
     </div>
   );
 };

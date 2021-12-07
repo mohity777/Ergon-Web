@@ -8,6 +8,7 @@ import Pagination from "../Pagination/Pagination";
 import SQDashboard from "../Seller/SQDashboard/index.jsx";
 import styles from "../Seller/SQCardListing/SQCardListing.module.css";
 import {useHistory} from 'react-router-dom'
+import RfqForm from "../Modal/RfqForm";
 const RFQ = (props) => {
 
 const history = useHistory();
@@ -76,6 +77,7 @@ const history = useHistory();
           </div>
         </div>
       </div>
+     
 
          
 

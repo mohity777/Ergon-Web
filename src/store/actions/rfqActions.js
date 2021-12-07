@@ -19,7 +19,7 @@ export const createRfq = (data) => async (dispatch) => {
            budget:data.budget,
            creditPeriod:data.creditPeriod,
            deliveryLocation:data.deliveryLocation,
-           applicationClosetime:data.applicationClosetime,
+           applicationCloseTime:data.applicationCloseTime,
            note:data.note
          };
 

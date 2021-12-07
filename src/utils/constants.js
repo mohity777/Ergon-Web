@@ -12,6 +12,7 @@ import {
 import AllOuotes from "../components/AllQuotes/AllOuotes";
 import ApprovedQuotes from "../components/Approved/ApprovedQuotes";
 import Login from "../components/Login";
+import RfqForm from "../components/Modal/RfqForm";
 import RfqPostDeal from "../components/PostRfq/RfqPostRfq";
 import RFQ from "../components/RfqBuyer/RFQ";
 import Suppliers from "../components/RfqBuyer/Suppliers";
@@ -52,6 +53,7 @@ export const DRAWER_ITEMS = [
   { key: "7", name: "Appearance", icon: EditFilled, to: "" },
   { key: "8", name: "Users", icon: TeamOutlined, to: "" },
   { key: "9", name: "Settings", icon: SettingFilled, to: "" },
+  
 ];
 
 export const PUBLIC_ROUTES = [
@@ -70,6 +72,7 @@ export const PRIVATE_ROUTES = {
 
     { path: "/SQ", component: SQCardListing, exact: true },
     { path: "/SQDetails", component: SQCardDetails, exact: true },
+    { path: "/modal", component: RfqForm, exact: true },
   ],
   withoutLayout: [
     { path: "/SignUpDetails", component: SignUpDetails, exact: true },

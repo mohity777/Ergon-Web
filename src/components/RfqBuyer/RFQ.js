@@ -116,9 +116,6 @@ const RFQ = (props) => {
               
 
 
-
-
-            <Pagination />
           </div>
         </div>
       </div>

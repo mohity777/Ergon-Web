@@ -20,8 +20,8 @@ const DrawerContent = ({ containerClass, onPressMenuItem }) => {
       <div className={styles.drawerHeader}>
         <img src={DrawerLogo} className={styles.logo} />
         <span>
-          <h5 className={styles.headline}>Erogan</h5>
-          <h5 className={styles.subheadline}>Dashboard</h5>
+          <h5 className={styles.headline}>Ergons</h5>
+          <h5 className={styles.headline}>Tech</h5>
         </span>
       </div>
       <Menu

@@ -46,7 +46,7 @@ export const DRAWER_ITEMS = [
   { key: "/Dashboard", name: "Dashboard", icon: HomeFilled, to: "/Dashboard" },
   { key: "/RFQ", name: "RFQ", icon: FileTextFilled, to: "/RFQ" },
   { key: "/Suppliers", name: "Suppliers", icon: DropboxOutlined, to: "/Suppliers" },
-  { key: "/SqsForRfq/:rfqId", name: "Company Profile", icon: PictureFilled, to: "/SqsForRfq" },
+  { key: "4", name: "Company Profile", icon: PictureFilled, to: "" },
   { key: "/SQ", name: "SQ", icon: SnippetsFilled, to: "/SQ?type=Open" },
   { key: "/RfqPostDeal", name: "Notifications", icon: MailFilled, to: "/RfqPostDeal" },
   { key: "7", name: "Appearance", icon: EditFilled, to: "" },
@@ -64,7 +64,7 @@ export const PRIVATE_ROUTES = {
     { path: "/Dashboard", component: ApprovedQuotes, exact: true },
     { path: "/Suppliers", component: Suppliers, exact: true },
     { path: "/RFQ", component: RFQ, exact: true },
-    { path: "/SqsForRfq", component: SqsForRfq, exact: true },
+    { path: "/SqsForRfq/:id", component: SqsForRfq, exact: true },
     { path: "/RfqPostDeal", component: RfqPostDeal, exact: true },
 
     { path: "/SQ", component: SQ, exact: true },

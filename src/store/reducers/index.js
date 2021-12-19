@@ -1,13 +1,14 @@
 import drawerReducer from "./drawerReducer";
 import userReducer from "./userReducer";
 import { combineReducers } from "redux";
-import createReducer from "./rfqReducer";
+import { createReducer, getRfq } from "./rfqReducer";
 import sqReducer from "./sqReducer";
 
 const rootReducers = combineReducers({
   drawer: drawerReducer,
   user: userReducer,
-  create:createReducer,
+  create: createReducer,
+  getRfq : getRfq,
   sq: sqReducer
 });
 

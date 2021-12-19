@@ -1,4 +1,4 @@
-import { REQUEST_RFQ,IN_RFQ,RFQ_FAILURE } from "../../utils/types";
+import { REQUEST_RFQ,IN_RFQ,RFQ_FAILURE, GET_RFQ_REQUEST, GET_RFQ_SUCCESS, GET_RFQ_FAILURE } from "../../utils/types";
 
 
 const INITIAL_STATE1 = {
@@ -6,8 +6,7 @@ const INITIAL_STATE1 = {
     
     }
 
-
-const createReducer = (state = INITIAL_STATE1, action) => {
+export const createReducer = (state = INITIAL_STATE1, action) => {
     switch (action.type) {
       case REQUEST_RFQ:
         return { ...state, 
@@ -29,4 +28,26 @@ const createReducer = (state = INITIAL_STATE1, action) => {
     }
   };
 
-  export default createReducer;
+
+export const getRfq = (state = {state:{}}, action) => {
+    switch (action.type) {
+      case GET_RFQ_REQUEST:
+        return { ...state, 
+        loading:true,
+           getrfq:action.payload
+        
+        };
+      case GET_RFQ_SUCCESS:
+        return { ...state,
+        loading:false,
+            getrfq:action.payload
+    };
+        case GET_RFQ_FAILURE:
+          return{ ...state,
+        loading:false,
+            rfq:action.payload}
+      default:
+        return state;
+    }
+  };
+

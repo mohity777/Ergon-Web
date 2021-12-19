@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import styles from "./SqsForRfq.module.css"
 import SQDashboard from '../Seller/SQDashboard';
 import CompanyIcon from '../../dist/img/Seller/companyIcon.png';
-import { useDispatch } from 'react-redux';
 import Api from '../../utils/api';
 import { PATH } from '../../utils/apiPath';
 import { useParams } from "react-router-dom";
@@ -10,17 +9,18 @@ import { useParams } from "react-router-dom";
 const AllOuotes = (props) => {
 
   const [data,setData] = useState([]);
-  const { rfqID } = useParams();
+  const { id } = useParams();
 
   useEffect(()=>{
-     if(rfqID) getSqsForRfq();
+    console.log(id)
+     if(id) getSqsForRfq();
   },[])
 
   const getSqsForRfq = async () => {
    try{
         const res = await Api.get(PATH.getSqsForRfq, {
           params: {
-            rfqID: rfqID,
+            rfqID: id,
           },
         });
         setData(res?.data || []);
@@ -37,8 +37,8 @@ const AllOuotes = (props) => {
         <div className={styles.status}>Status</div>
         <div className={styles.cta}></div>
       </div>
-      {data.map((item) => (
-        <div className={styles.card}>
+      {data.map((item, i) => (
+        <div key={i} className={styles.card}>
           <div className={styles.image}>
             <img src={CompanyIcon} />
           </div>

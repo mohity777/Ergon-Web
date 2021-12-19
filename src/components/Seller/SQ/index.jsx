@@ -5,6 +5,7 @@ import SQCardListing from "../SQCardListing";
 import { useDispatch, useSelector } from "react-redux";
 import { getSqs } from "../../../store/actions/sqActions";
 import SqModal from "../SQModal";
+import { useHistory } from "react-router-dom";
 
 const SQ = (props) => {
  const sqs = useSelector(state => state.sq.sqs);
@@ -15,9 +16,14 @@ const SQ = (props) => {
  const selectedItem = useRef(null);
 
  const dispatch = useDispatch();
+ const history = useHistory();
 
  useEffect(() => {
-   setActiveIndex(SQ_PARAMS_TAB_INDEX[`${new URLSearchParams(props.location.search).get('type')}`])
+   if(!props.location.search) history.push({
+      pathname: '/SQ',
+      search: '?type=Open'
+   })
+   else setActiveIndex(SQ_PARAMS_TAB_INDEX[`${new URLSearchParams(props.location.search).get('type')}`])
  }, [props.location.search]);
 
  useEffect(()=>{

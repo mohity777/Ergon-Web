@@ -2,7 +2,6 @@ import React from "react";
 import { Menu } from "antd";
 import styles from "./Layout.module.css";
 import DrawerLogo from "../../dist/img/Seller/drawerLogo.png";
-import { Link } from "react-router-dom";
 import { DRAWER_ITEMS } from "../../utils/constants";
 import { useLocation, useHistory } from "react-router-dom";
 import { getMenuItemKey } from "../../utils/functions";

@@ -9,14 +9,14 @@ import {
   SettingFilled,
   TeamOutlined,
 } from "@ant-design/icons";
-import AllOuotes from "../components/AllQuotes/AllOuotes";
+import SqsForRfq from "../components/SqsForRfq";
 import ApprovedQuotes from "../components/Approved/ApprovedQuotes";
 import Login from "../components/Login";
 import RfqPostDeal from "../components/PostRfq/RfqPostRfq";
 import RFQ from "../components/RfqBuyer/RFQ";
 import Suppliers from "../components/RfqBuyer/Suppliers";
+import SQ from "../components/Seller/SQ";
 import SQCardDetails from "../components/Seller/SQCardDetails";
-import SQCardListing from "../components/Seller/SQCardListing";
 import SignUp from "../components/SignUp";
 import SignUpDetails from "../components/SignUpDetails";
 
@@ -46,8 +46,8 @@ export const DRAWER_ITEMS = [
   { key: "/Dashboard", name: "Dashboard", icon: HomeFilled, to: "/Dashboard" },
   { key: "/RFQ", name: "RFQ", icon: FileTextFilled, to: "/RFQ" },
   { key: "/Suppliers", name: "Suppliers", icon: DropboxOutlined, to: "/Suppliers" },
-  { key: "/AllQuotes", name: "Company Profile", icon: PictureFilled, to: "/AllQuotes" },
-  { key: "/SQ", name: "SQ", icon: SnippetsFilled, to: "/SQ" },
+  { key: "/SqsForRfq/:rfqId", name: "Company Profile", icon: PictureFilled, to: "/SqsForRfq" },
+  { key: "/SQ", name: "SQ", icon: SnippetsFilled, to: "/SQ?type=Open" },
   { key: "/RfqPostDeal", name: "Notifications", icon: MailFilled, to: "/RfqPostDeal" },
   { key: "7", name: "Appearance", icon: EditFilled, to: "" },
   { key: "8", name: "Users", icon: TeamOutlined, to: "" },
@@ -64,13 +64,25 @@ export const PRIVATE_ROUTES = {
     { path: "/Dashboard", component: ApprovedQuotes, exact: true },
     { path: "/Suppliers", component: Suppliers, exact: true },
     { path: "/RFQ", component: RFQ, exact: true },
-    { path: "/AllQuotes", component: AllOuotes, exact: true },
+    { path: "/SqsForRfq", component: SqsForRfq, exact: true },
     { path: "/RfqPostDeal", component: RfqPostDeal, exact: true },
 
-    { path: "/SQ", component: SQCardListing, exact: true },
+    { path: "/SQ", component: SQ, exact: true },
     { path: "/SQDetails", component: SQCardDetails, exact: true },
   ],
   withoutLayout: [
     { path: "/SignUpDetails", component: SignUpDetails, exact: true },
   ],
 };
+
+export const SQ_TABS = [
+  {key: 0 , name: 'Open', path: '/SQ?type=Open'},
+  {key: 1, name: 'Accepted', path: '/SQ?type=Accepted'},
+  {key: 2,name: 'Completed', path: '/SQ?type=Completed'}
+]
+
+export const SQ_PARAMS_TAB_INDEX = {
+  "Open": 0,
+  "Accepted": 1,
+  "Completed": 2
+}

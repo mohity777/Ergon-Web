@@ -4,7 +4,6 @@ import { SET_USER } from "../../utils/types";
 
 export const setUser = payload => ({type: SET_USER, payload})
 
-
 export const signUp = (data) => async (dispatch) => {
   try{
        const body = {
@@ -18,7 +17,7 @@ export const signUp = (data) => async (dispatch) => {
        };
        const res = await Api.post(PATH.signUp,body);
        localStorage.setItem('token', res?.access_token || null);
-       dispatch(setUser({token: res?.access_token || ''}))
+       dispatch(setUser({token: res?.access_token || '', ...( res?.user_data || {} )}))
        console.log(res);
   }catch(err){
       throw err;
@@ -38,4 +37,11 @@ export const login = data => async (dispatch) => {
   }catch(err){
      throw err;
   }
+}
+
+export const getUser = () => async (dispatch) => {
+  try{
+      const res = await Api.get(PATH.getUser);
+      dispatch(setUser({ ...(res?.data || {} ) }));
+  }catch(err){}
 }

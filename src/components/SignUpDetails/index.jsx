@@ -1,16 +1,15 @@
 import React, { useRef } from "react";
 import styles from "./SignUpDetails.module.css";
 import TagsInput from "../TagsInput";
-import { useForm } from "antd/lib/form/Form";
 import { INDUSTRY_OPTIONS } from "../../utils/constants";
 import { Button, Form } from "antd";
 
 import { Select } from "antd";
 import Uploader from "../Uploader";
-import { useDispatch } from "react-redux";
 import Api from "../../utils/api";
 import { PATH } from "../../utils/apiPath";
 import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const { Option } = Select;
 
@@ -21,17 +20,20 @@ const SignUpDetails = (props) => {
   const industry = useRef(null);
   const area = useRef(null);
   const workedWith = useRef([]);
+  const capabilities = useRef([]);
 
   const history = useHistory();
+  const user = useSelector(state => state.user);
 
   const onFinish = async () => {
     try{
          const data = {
-          //  companyName: "Ergon",
-          //  gstin: "sdvsdvsdbvsf",
-          //  address: "fadvad",
-          //  ownerName: "David",
+           companyName: user?.company?.companyName,
+           gstin: user?.company?.gstin,
+           address: user?.company?.address,
+           ownerName: user?.company?.ownerName,
            capacity: capacity.current,
+           capability: capabilities.current,
            area: area.current,
            industry: industry.current,
            products: products.current,
@@ -50,17 +52,31 @@ const SignUpDetails = (props) => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.inputView}>
-        <TagsInput
-          placeholder="Gas Filter"
-          label="Product List"
-          name="products"
-          onChangeTags={(tags) => {
-            products.current = tags;
-          }}
-          labelClass={styles.label}
-          inputClass={styles.input}
-        />
+      <div className={styles.row}>
+        <div className={styles.inputView}>
+          <TagsInput
+            placeholder="Gas Filter"
+            label="Product List"
+            name="products"
+            onChangeTags={(tags) => {
+              products.current = tags;
+            }}
+            labelClass={styles.label}
+            inputClass={styles.input}
+          />
+        </div>
+        <div className={styles.inputView}>
+          <TagsInput
+            placeholder="Capabilities"
+            label="Capabilities"
+            name="capabilities"
+            onChangeTags={(tags) => {
+              capabilities.current = tags;
+            }}
+            labelClass={styles.label}
+            inputClass={styles.input}
+          />
+        </div>
       </div>
       <div>
         <div className={styles.row}>

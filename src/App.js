@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { PRIVATE_ROUTES, PUBLIC_ROUTES } from "./utils/constants";
 import Layout from "./components/Layout";
+import { useEffect } from "react";
+import { getUser } from "./store/actions/userActions";
 
 const PublicRoute = ({ isLoggedIn, component: Component, ...rest }) => {
   return (
@@ -31,6 +33,11 @@ const PrivateRoute = ({ isLoggedIn, component: Component, ...rest }) => {
 
 function App(props) {
   const { token } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
+  useEffect(()=>{
+    if(token) dispatch(getUser());
+  },[])
 
   return (
     <Switch>

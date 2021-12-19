@@ -51,6 +51,7 @@
 .middle {
   display: flex;
   flex-direction: column;
+  width: 24%;
   /* justify-content: flex-start; */
 }
 
@@ -86,6 +87,7 @@
   border-radius: 10rem;
   color: white;
   font-size: 0.8rem;
+  cursor: pointer;
 }
 
 .down {

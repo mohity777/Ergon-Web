@@ -4,5 +4,11 @@ export const PATH = {
   login: "login/",
   signUp: "companySignup/",
   signUpDetails: "updateCompany/",
-  createRfq:"createRFQ/"
+  getUser: "getUser/",
+
+  createRfq: "createRFQ/",
+  getSqsForRfq: 'getSQbyRFQ/',
+
+  getSqs: "getRFQs/",
+  applySq: "createSQ/",
 };

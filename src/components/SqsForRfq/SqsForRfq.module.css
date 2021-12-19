@@ -1,0 +1,72 @@
+.header {
+    width: 100%;
+    display: flex;
+    background-color: white;
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+    font-size: 0.79rem;
+    padding: 0.4rem 0.8rem;
+}
+
+.card {
+    width: 100%;
+    display: flex;
+    background-color: white;
+    margin: 1rem 0rem;
+    padding: 1.2rem 0.8rem;
+}
+
+.image {
+    width: 10%;
+}
+
+.supplier {
+    width: 26%;
+    padding-right: 0.3rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.quote {
+    width: 14%;
+    padding-right: 0.3rem;
+}
+
+.delivery {
+    width: 13%;
+    padding-right: 0.3rem;
+}
+
+.status {
+    width: 13%;
+    padding-right: 0.3rem;
+}
+
+.cta {
+    width: 24%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.supplierName {
+    font-weight: 600;
+    font-size: 0.78rem;
+    margin-bottom: 0.3rem;
+}
+
+.supplierInfo {
+    font-size: 0.72rem;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.btn {
+    color: white;
+    width: 5rem;
+    padding: 0.5rem 0rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border-radius: 0.3rem;
+    margin: 0rem 0.3rem;
+}

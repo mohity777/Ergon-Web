@@ -4,24 +4,29 @@ import DropdownPicker from "../../DropdownPicker";
 import { SearchOutlined } from "@ant-design/icons";
 import { Input } from "antd";
 import Modal from "../../Modal/Modal";
+import { useHistory } from "react-router-dom";
 
-const SQDashboard = ({ children }) => {
-
-  const [visible,setVisible] = useState(false);
+const SQDashboard = ({ children, tabs, activeIndex, headline }) => {
+  const [visible, setVisible] = useState(false);
+  const history = useHistory();
 
   const createRfq = () => {
-       setVisible(true);
+    setVisible(true);
   };
 
   const closeRfq = () => {
     setVisible(false);
+  };
+
+  const onPressTab = (item) => {
+      history.push(item.path);
   }
 
   return (
     <div style={{ marginTop: "0.3rem" }}>
       <div className={styles.dashboard}>
         <div className={styles.searchRow}>
-          <h5 style={{ fontWeight: 600 }}>SQ</h5>
+          <h5 style={{ fontWeight: 600 }}>{headline}</h5>
           <div style={{ display: "flex" }}>
             <Input
               bordered={false}
@@ -34,18 +39,25 @@ const SQDashboard = ({ children }) => {
               }
               className={styles.searchInput}
             />
-            <button onClick={createRfq} className={styles.createRFQbtn}>Create New RFQ</button>
+            <button onClick={createRfq} className={styles.createRFQbtn}>
+              Create New RFQ
+            </button>
           </div>
         </div>
         <div className={styles.filterRow}>
           <div className={styles.tabs}>
-            <span style={{ marginRight: "0.7rem", color: "#0061F7" }}>
-              Open quotes
-            </span>
-            <span style={{ marginRight: "0.7rem", color: "#767676" }}>
-              Accepted quotes
-            </span>
-            <span style={{ color: "#767676" }}>Completed</span>
+            {tabs?.map((item, index) => (
+              <span
+                onClick={() => onPressTab(item)}
+                style={{
+                  marginRight: "0.7rem",
+                  color: activeIndex === index ? "#0061F7" : "black",
+                  cursor: "pointer",
+                }}
+              >
+                {item.name}
+              </span>
+            ))}
           </div>
           <div className={styles.filters}>
             <DropdownPicker placeholder="All dates" items={[]} />

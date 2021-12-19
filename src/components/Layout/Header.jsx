@@ -12,17 +12,26 @@ import {
 } from "../../store/actions/drawerActions";
 import { useWindowSize } from "../../customHooks";
 import { MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons";
+import { useHistory } from "react-router-dom";
+import { setUser } from "../../store/actions/userActions";
 
 const { Header: AntdHeader } = Layout;
 
 const Header = (props) => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [width] = useWindowSize();
   const { sideMenuCollapsed } = useSelector((state) => state.drawer);
 
   const SideMenuCollapseIcon = sideMenuCollapsed
     ? MenuUnfoldOutlined
     : MenuFoldOutlined;
+
+  const logout = () => {
+    localStorage.removeItem("token");  
+    dispatch(setUser({token: null}))
+    history.replace("/Login"); 
+  }
 
   return (
     <AntdHeader className={`site-layout-background ${styles.header}`}>
@@ -41,7 +50,7 @@ const Header = (props) => {
           src={NotificationIcon}
           style={{ marginRight: "0.6rem", height: "2rem", width: "2rem" }}
         />
-        <img src={ProfileIcon} style={{ height: "2rem", width: "2rem" }} />
+        <img onClick={logout} src={ProfileIcon} style={{ height: "2rem", width: "2rem", cursor: 'pointer' }} />
       </div>
     </AntdHeader>
   );

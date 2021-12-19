@@ -63,7 +63,6 @@ export const PUBLIC_ROUTES = [
 
 export const PRIVATE_ROUTES = {
   withLayout: [
-    { path: "/", component: ApprovedQuotes, exact: true },
     { path: "/Dashboard", component: ApprovedQuotes, exact: true },
     { path: "/Suppliers", component: Suppliers, exact: true },
     { path: "/RFQ", component: RFQ, exact: true },

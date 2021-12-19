@@ -56,13 +56,4 @@ export default class Api {
     }
   }
 
-  static async post(path, body, config) {
-    try {
-      const res = await axios.post(path, body, config);
-      return res.data;
-    } catch (err) {
-      console.log("$$$$$$$$$$$$$$$$$$$4", err?.response);
-      throw err;
-    }
-  }
 }

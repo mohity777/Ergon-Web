@@ -10,8 +10,10 @@
 }
 
 .rQuote{
-    margin-top: 41px;
-        margin-left: 159px ;
+     align-self: center;
+     text-align: center;
+     margin: 2rem 0rem;
+     font-weight: 600;
 }
 
 .formMargin{
@@ -20,4 +22,11 @@
 
 .inputs{
     margin-left: 25px;
+}
+
+.formLabel label{
+    color: black;
+    font-size: 0.8rem;
+    font-weight: 500;
+    height: 100%;
 }

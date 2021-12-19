@@ -16,7 +16,7 @@ const SQCardDetails = (props) => {
         <div className={`${style.sqCard} ${styles.sqCardDetails}`}>
           <div className={`${style.up} ${styles.sqCardDetailsTop}`}>
             <div className={style.left}>
-              <h5 style={{fontWeight: 600, fontSize: '0.9rem'}}>Fabrication - Screw</h5>
+              <h5 style={{fontWeight: 600, fontSize: '0.85rem'}}>Fabrication - Screw</h5>
               <h5 className={style.rfqId}>RFQ ID: 1234</h5>
               <div className={style.boxRow}>
                 <div className={style.cardBox}>
@@ -51,7 +51,7 @@ const SQCardDetails = (props) => {
               style={{ width: "fit-content", marginTop: 0 }}
             >
               <h5 className={styles.poDesignText}>Status</h5>
-              <DropdownPicker title="All Days" items={items} />
+              <DropdownPicker onChange={()=> {}} placeholder="All Days" items={items} label="label" value="value" />
             </div>
             <div
               className={style.middle}

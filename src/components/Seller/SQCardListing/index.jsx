@@ -35,7 +35,7 @@ const SQCardListing = (props) => {
           <div onClick={navigateToDetails} className={styles.sqCard} style={{ height: '11rem', marginBottom: '1.5rem', cursor: 'pointer' }}>
             <div className={styles.up}>
               <div className={styles.left}>
-                <h5 style={{ fontWeight: 600, fontSize: "0.9rem" }}>
+                <h5 style={{ fontWeight: 600, fontSize: "0.85rem" }}>
                   Fabrication - Screw
                 </h5>
                 <h5 className={styles.rfqId}>RFQ ID: 1234</h5>

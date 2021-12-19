@@ -14,9 +14,13 @@ const Login = (props) => {
   const onFinish = async (values) => {
     try{
          await dispatch(login(values));
-         history.replace('/')
+         history.replace("/Dashboard");
     }catch(err){}
   };
+
+  const navigateToSignUp = () => {
+     history.push('/SignUp')
+  }
 
   return (
     <div className={styles.signUpContainer}>
@@ -62,10 +66,14 @@ const Login = (props) => {
               ]}
             />
             <Form.Item>
-              <p style={{color: '#5887FF', fontSize: '0.85rem'}}>Forgot your password?</p>
+              <p style={{ color: "#5887FF", fontSize: "0.75rem" }}>
+                Forgot your password?
+              </p>
             </Form.Item>
             <Form.Item name="remember" valuePropName="checked">
-              <Checkbox>Remember me</Checkbox>
+              <Checkbox>
+                <span style={{ fontSize: "0.75rem" }}>Remember me</span>
+              </Checkbox>
             </Form.Item>
             <Form.Item noStyle>
               <Button htmlType="submit" className={styles.nextBtn}>
@@ -73,6 +81,17 @@ const Login = (props) => {
               </Button>
             </Form.Item>
           </Form>
+          <p
+            style={{
+              color: "#5887FF",
+              fontSize: "0.7rem",
+              marginTop: "0.5rem",
+              textAlign: "center",
+            }}
+          >
+            Already have account?{" "}
+            <span onClick={navigateToSignUp} style={{ cursor: "pointer" }}>Sign Up</span>
+          </p>
         </div>
       </div>
     </div>

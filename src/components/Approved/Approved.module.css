@@ -161,11 +161,11 @@ font-size: 12px;
   padding: 10px 20px;
 }
 .primary_default_btn {
-  background-color: #2f49d1;
+  background-color: #4e514d;
   color: #fff;
 }
 .primary_default_btn:hover {
-  background-color: #4661f0;
+  background-color: #4e514d;
   color: #fff;
 }
 /* .primary-white-btn,

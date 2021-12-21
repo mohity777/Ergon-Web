@@ -4,7 +4,7 @@
 
 .menu {
    padding: 1rem 0rem;
-   background-color: #0061F7;
+   background-color: #4e514d;
    width: 220px!important;
    max-width: 220px!important;
    min-width: 220px!important;
@@ -12,7 +12,7 @@
 
 .collapsedMenu {
    padding: 1rem 0rem;
-   background-color: #0061F7;
+   background-color: #4e514d;
    width: 50px!important;
    max-width: 50px!important;
    min-width: 50px!important;
@@ -110,7 +110,7 @@
 } 
 
 :global(.ant-menu.ant-menu-dark){                      /* drawer dark mode */
-   background-color: #0061F7;
+   background-color: #4e514d;
 }
 
 :global(.ant-menu-item .ant-menu-item-icon){            /* side menu options icon */
@@ -142,11 +142,11 @@
 
 :global(.ant-drawer-body){
    padding: 0;
-   background-color: #0061F7;
+   background-color: #4e514d;
 }
 
 :global(.ant-drawer-header){
-    background-color: #0061F7;
+    background-color: #4e514d;
     border: none;
 }
 

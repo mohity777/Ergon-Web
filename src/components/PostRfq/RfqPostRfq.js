@@ -38,7 +38,7 @@ const RfqPostDeal = () => {
         </div>
       </div>
      
-      <div style={{marginLeft:"46vmax"}}> <Link class="primary-default-btn " style={{borderRadius:"36px"}}  to="##"><i data-feather="plus"></i>Payment Due in 45 Days</Link>  </div>
+      <div style={{marginLeft:"46vmax"}}> <Link class="primary-default-btn " style={{borderRadius:"36px",background:"#4e514d"}}  to="##"><i data-feather="plus"></i>Payment Due in 45 Days</Link>  </div>
     </div>
    
   </div>

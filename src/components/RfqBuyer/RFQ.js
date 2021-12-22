@@ -36,15 +36,18 @@ const RFQ = (props) => {
 
   const history = useHistory();
 
-  const navigateToSqsForRfq = (rfqId) => {
+  const navigateToSqsForRfq = (rfqId, title) => {
     history.push({
       pathname: `/SqsForRfq/${rfqId}`,
+      state: {
+        title
+      }
     });
   }
 
 
   return (
-    <SQDashboard rfq="RFQ">
+    <SQDashboard headline="RFQ">
       <div className="App">
         <div className="layer"></div>
 
@@ -61,7 +64,7 @@ const RFQ = (props) => {
 
 
               
-            return  <div onClick={() => navigateToSqsForRfq(rfq?.id)} className={styles.sqCard} style={{ height: '11rem', marginBottom: '1.5rem', cursor: 'pointer' }}>
+            return  <div onClick={() => navigateToSqsForRfq(rfq?.id, rfq?.title)} className={styles.sqCard} style={{ height: '11rem', marginBottom: '1.5rem', cursor: 'pointer' }}>
                   <div className={styles.up}>
                     <div className={styles.left}>
                       <h5 style={{ fontWeight: 600, fontSize: "0.9rem" }}>

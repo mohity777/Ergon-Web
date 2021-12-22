@@ -17,6 +17,7 @@ export const getErrorMsg = (err) => {
 
 export const getMenuItemKey = (path) => {
   if (path == "/SQDetails") return "/SQ";
+  else if(path.includes('/SqsForRfq')) return "/RFQ"
   else return path;
 };
 

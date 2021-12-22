@@ -4,15 +4,15 @@ import SQDashboard from '../Seller/SQDashboard';
 import CompanyIcon from '../../dist/img/Seller/companyIcon.png';
 import Api from '../../utils/api';
 import { PATH } from '../../utils/apiPath';
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 
 const AllOuotes = (props) => {
 
   const [data,setData] = useState([]);
   const { id } = useParams();
+  const location = useLocation()
 
   useEffect(()=>{
-    console.log(id)
      if(id) getSqsForRfq();
   },[])
 
@@ -28,7 +28,7 @@ const AllOuotes = (props) => {
   }
 
   return (
-    <SQDashboard headline={"RFQ/"}>
+    <SQDashboard headline={`RFQ/${location.state.title}`}>
       <div className={styles.header}>
         <div className={styles.image} />
         <div className={styles.supplier}>Suppliers</div>

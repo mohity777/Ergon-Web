@@ -4,6 +4,7 @@ import styles from "./SQCardDetails.module.css";
 import ImgPlaceholder from "../../../dist/img/Seller/imgPlaceholder.png";
 import DropdownPicker from "../../DropdownPicker";
 import SQDashboard from "../SQDashboard"
+import { useLocation } from "react-router-dom";
 const items = [
   { label: "Raw Material Purchased", value: 0 },
   { label: "Manufacturing Started", value: 1 },
@@ -11,8 +12,10 @@ const items = [
 ];
 
 const SQCardDetails = (props) => {
+  const location = useLocation();
+
   return (
-    <SQDashboard>
+    <SQDashboard headline={`SQ/${location.state.title}`}>
         <div className={`${style.sqCard} ${styles.sqCardDetails}`}>
           <div className={`${style.up} ${styles.sqCardDetailsTop}`}>
             <div className={style.left}>

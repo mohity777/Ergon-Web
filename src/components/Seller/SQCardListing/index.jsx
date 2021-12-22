@@ -12,7 +12,12 @@ const SQCardListing = ({ item, onApplyPressed }) => {
   };
 
   const navigateToDetails = (e) => {
-    history.push("/SQDetails");
+    history.push({
+      pathname: "/SQDetails",
+      state: {
+        title: item?.title
+      }
+    });
   };
 
   return (

@@ -1,7 +1,7 @@
 import React from "react";
 import { Menu } from "antd";
 import styles from "./Layout.module.css";
-import DrawerLogo from "../../dist/img/Seller/drawerLogo.png";
+import Logo from "../../dist/img/Seller/logo.png";
 import { DRAWER_ITEMS } from "../../utils/constants";
 import { useLocation, useHistory } from "react-router-dom";
 import { getMenuItemKey } from "../../utils/functions";
@@ -18,7 +18,7 @@ const DrawerContent = ({ containerClass, onPressMenuItem }) => {
   return (
     <div className={containerClass}>
       <div className={styles.drawerHeader}>
-        <img src={DrawerLogo} className={styles.logo} />
+        <img src={Logo} className={styles.logo} />
         <span>
           <h5 className={styles.headline}>Ergons</h5>
           <h5 className={styles.headline}>Tech</h5>

@@ -83,7 +83,7 @@ const Login = (props) => {
           </Form>
           <p
             style={{
-              color: "#5887FF",
+              color: 'var(--primary)',
               fontSize: "0.7rem",
               marginTop: "0.5rem",
               textAlign: "center",

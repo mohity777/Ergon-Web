@@ -45,7 +45,7 @@ function Suppliers() {
 
                   </div>
                   <div className="d-flex">
-                    <Link class="primary-default-btn " style={{ marginLeft: "-2.1px", marginTop: "3vmax" ,background:"#4e514d"}} to="##">Share RFQ</Link>
+                    <Link class="primary-default-btn " style={{ marginLeft: "-2.1px", marginTop: "3vmax" ,background:"var(--primary)"}} to="##">Share RFQ</Link>
                   </div>
                 </div>
               </div>

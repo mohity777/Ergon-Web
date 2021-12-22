@@ -64,7 +64,7 @@
             /* White */
             
             background: #FFFFFF;
-            border: 1px solid #2F49D1;}
+            border: 1px solid var(--primary);}
 
 
             .rupees{margin-left: 39px ;

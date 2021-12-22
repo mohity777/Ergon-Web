@@ -1,21 +1,27 @@
 .drawerContainer{
     padding-top: 1rem;
+    overflow-x: hidden;
+    overflow-y:scroll;
 }
 
 .menu {
    padding: 1rem 0rem;
-   background-color: #4e514d;
+   background-color: var(--primary);
    width: 220px!important;
    max-width: 220px!important;
    min-width: 220px!important;
+   overflow-x: hidden;
+   overflow-y:scroll;
 }
 
 .collapsedMenu {
    padding: 1rem 0rem;
-   background-color: #4e514d;
+   background-color: var(--primary);
    width: 50px!important;
    max-width: 50px!important;
    min-width: 50px!important;
+   overflow-x: hidden;
+   overflow-y:scroll;
 }
 
 .drawerHeader {
@@ -23,16 +29,18 @@
    display: flex;
    padding: 0rem 1rem;
    margin-bottom: 1rem;
+   padding-top: 0.6rem;
    align-items: center;
 }
 
 .logo {
-   margin-right: 1rem;
+   margin-right: 0.5rem;
+   width: 4.4rem;
 }
 
 .headline {
     color: white;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 700;
 }
 
@@ -110,7 +118,7 @@
 } 
 
 :global(.ant-menu.ant-menu-dark){                      /* drawer dark mode */
-   background-color: #4e514d;
+   background-color: var(--primary);
 }
 
 :global(.ant-menu-item .ant-menu-item-icon){            /* side menu options icon */
@@ -142,11 +150,11 @@
 
 :global(.ant-drawer-body){
    padding: 0;
-   background-color: #4e514d;
+   background-color: var(--primary);
 }
 
 :global(.ant-drawer-header){
-    background-color: #4e514d;
+    background-color: var(--primary);
     border: none;
 }
 
@@ -156,4 +164,8 @@
 
 :global(.anticon-close){
    color: white;
+}
+
+:global(.ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected){          /* Selected Drawer Option */
+   background: var(--secondary);
 }

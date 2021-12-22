@@ -1,3 +1,8 @@
+:root {
+  --primary: #141b1c;
+  --secondary: #4e514d;
+}
+
 body {
   margin: 0;
   font-family: 'Montserrat'!important;

@@ -82,7 +82,7 @@
 }
 
 .applyBtn {
-  background-color: #4e514d;
+  background-color: var(--primary);
   padding: 0.5rem 1rem;
   border-radius: 10rem;
   color: white;

@@ -52,6 +52,6 @@
 }
 
 .btn {
-    background-color: #2F49D1;
+    background-color: var(--primary);
     color: white
 }

@@ -16,7 +16,6 @@ const SideMenu = (props) => {
       collapsed={sideMenuCollapsed}
       className={sideMenuCollapsed ? styles.collapsedMenu : styles.menu}
       style={{
-        overflow: "hidden",
         height: "100vh",
         position: "fixed",
         left: 0,

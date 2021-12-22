@@ -746,7 +746,7 @@ button.disabled:focus {
     padding: 10px 20px;
   }
   .primary-default-btn {
-    background-color: #2f49d1;
+    background-color: var(--primary);
     color: #fff;
   }
   .primary-default-btn:hover {
@@ -755,7 +755,7 @@ button.disabled:focus {
   }
   .primary-white-btn,
   .secondary-default-btn {
-    color: #2f49d1;
+    color: var(--primary);
   }
   .primary-white-btn {
     background-color: #fff;
@@ -767,7 +767,7 @@ button.disabled:focus {
     color: #4661f0;
   }
 .secondary-default-btn {
-  border: 2px solid #2f49d1;
+  border: 2px solid var(--primary);
   background-color: transparent;
 }
 .flat-btn,
@@ -789,7 +789,7 @@ button.disabled:focus {
   border-radius: 4px;
   font-size: 16px;
   line-height: 1.5;
-  color: #2f49d1;
+  color: var(--primary);
 }
 .sidebar-toggle {
   opacity: 0.6;
@@ -1003,7 +1003,7 @@ button.disabled:focus {
   text-align: left;
 }
 .dropdown a:hover {
-  color: #2f49d1;
+  color: var(--primary);
 }
 .badge-active,
 .badge-disabled,
@@ -1247,7 +1247,7 @@ textarea {
   min-width: 483px;
 }
 .posts-table__primary-text {
-  color: #2f49d1;
+  color: var(--primary);
   font-size: 12px;
   font-weight: 500;
   line-height: 1.4;
@@ -1288,7 +1288,7 @@ textarea {
   justify-content: center;
   width: 46px;
   height: 44px;
-  background-color: #2f49d1;
+  background-color: var(--primary);
   border-radius: 4px;
   color: #fff;
 }
@@ -1943,7 +1943,7 @@ textarea {
 }
 .stat-cards-icon.primary {
   background-color: rgba(47, 73, 209, 0.1);
-  color: #2f49d1;
+  color: var(--primary);
 }
 .stat-cards-icon.warning {
   background-color: rgba(255, 182, 72, 0.1);
@@ -2123,7 +2123,7 @@ textarea {
   background-color: rgba(255, 172, 50, 0.1);
 }
 .top-cat-list__subtitle .primary {
-  color: #2f49d1;
+  color: var(--primary);
   background-color: rgba(47, 73, 209, 0.1);
 }
 .chart {
@@ -2212,8 +2212,8 @@ textarea {
   border-bottom: 1px transparent dashed;
 }
 .footer a:hover {
-  color: #2f49d1;
-  border-color: #2f49d1;
+  color: var(--primary);
+  border-color: var(--primary);
 }
 .error-page-title {
   font-weight: 700;
@@ -2315,8 +2315,8 @@ textarea {
   border-bottom: dashed 1px transparent;
 }
 .forget-link:hover {
-  color: #2f49d1;
-  border-color: #2f49d1;
+  color: var(--primary);
+  border-color: var(--primary);
 }
 .sign-up__subtitle,
 .sign-up__title {
@@ -3028,10 +3028,10 @@ textarea {
   background-color: #4bde97;
 }
 .quick-links a.primary {
-  color: #2f49d1;
+  color: var(--primary);
 }
 .quick-links a.primary .quick-links-icon {
-  background-color: #2f49d1;
+  background-color: var(--primary);
 }
 .quick-links a.warning {
   color: #ffb648;

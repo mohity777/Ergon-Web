@@ -58,7 +58,8 @@
         .blocks{position: absolute;
             width: 128px;
             height: 80px;
-            left: 767px;
+            margin-left: -25vmax;
+            /* left: 767px; */
             /* top: 331px; */
             
             /* White */

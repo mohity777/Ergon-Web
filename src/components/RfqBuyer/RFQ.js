@@ -83,18 +83,20 @@ const RFQ = (props) => {
                       </div>
                     </div>
                     <div style={{ marginTop: "2vmax" }}>
+                    <div>
                       <div className={styleHeader.blocks}>
                         <div className={styleHeader.sideContent}>
                           <p>00</p>
                           <p className={styleHeader.line}>Quotes</p>
                         </div>
                       </div>{" "}
-                      <div className={styleHeader.blocks} style={{ left: "915px" }}>
+                      <div className={styleHeader.blocks} style={{ marginLeft:"-14vmax"}}>
                         <div className={styleHeader.sideContent}>
                           <p>02</p>
                           <p className={styleHeader.line}>Selected</p>
                         </div>
                       </div>{" "}
+                      </div>
                     </div>
 
                   </div>

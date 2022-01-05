@@ -34,7 +34,6 @@ const Modale = ({ visible, closeModal }) => {
       console.log(values);
       dispatch(createRfq(values));
       closeModal();
-      notifySuccess('RFQ creted Successfully')
     } catch (err) {}
   };
 
@@ -200,22 +199,6 @@ const Modale = ({ visible, closeModal }) => {
                   rules={[
                     {
                       required: true,
-                    },
-                  ]}
-                />
-                <SignUpInput
-                  type="number"
-                  placeholder="Quantity"
-                  name={["qty"]}
-                  label="Quantity"
-                  rules={[
-                    {
-                      required: true,
-                      message: "Quantity must be a valid Integer",
-                    },
-                    {
-                      type: "number",
-                      min: 0,
                     },
                   ]}
                 />

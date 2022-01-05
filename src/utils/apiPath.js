@@ -7,9 +7,13 @@ export const PATH = {
   getUser: "getUser/",
 
   createRfq: "createRFQ/",
-  getRfq:"getRFQs/",
-  getSqsForRfq: 'getSQbyRFQ/',
+  getRfqs: "getRFQs/",
+  getSqsForRfq: "getSQbyRFQ/",
+  getMyRfqs: "getMyRFQs/",
 
-  getSqs: "getRFQs/",
+  getMySQByStatus: "getMySQByStatus/",
   applySq: "createSQ/",
+  acceptSq: "acceptSQ/",
+  rejectSq: "rejectSQ/",
+  updatePO: 'updatePO/'
 };

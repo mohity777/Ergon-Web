@@ -1,12 +1,13 @@
 import Api from "../../utils/api";
 import { PATH } from "../../utils/apiPath";
-import { SET_SQS } from "../../utils/types";
+import { SET_SQ_REDUCER } from "../../utils/types";
 
-const setSqs = payload => ({type: SET_SQS, payload})
+export const setSqReducer = payload => ({type: SET_SQ_REDUCER, payload})
 
-export const getSqs = () => async (dispatch) => {
+export const getSqsByStatus = (status) => async (dispatch) => {
   try {
-      const res = await Api.get(PATH.getSqs);
-      dispatch(setSqs(res?.data || []))
+    const params = { status };
+    const res = await Api.get(PATH.getMySQByStatus, { params });
+    dispatch(setSqReducer({sqs: res?.data || []}))
   } catch (err) {}
 };

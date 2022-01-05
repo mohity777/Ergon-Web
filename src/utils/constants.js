@@ -47,7 +47,7 @@ export const DRAWER_ITEMS = [
   { key: "/RFQ", name: "RFQ", icon: FileTextFilled, to: "/RFQ" },
   { key: "/Suppliers", name: "Suppliers", icon: DropboxOutlined, to: "/Suppliers" },
   { key: "4", name: "Company Profile", icon: PictureFilled, to: "" },
-  { key: "/SQ", name: "SQ", icon: SnippetsFilled, to: "/SQ?type=Open" },
+  { key: "/SQ", name: "SQ", icon: SnippetsFilled, to: "/SQ?type=OPEN" },
   { key: "/RfqPostDeal", name: "Notifications", icon: MailFilled, to: "/RfqPostDeal" },
   { key: "7", name: "Appearance", icon: EditFilled, to: "" },
   { key: "8", name: "Users", icon: TeamOutlined, to: "" },
@@ -76,13 +76,15 @@ export const PRIVATE_ROUTES = {
 };
 
 export const SQ_TABS = [
-  {key: 0 , name: 'Open', path: '/SQ?type=Open'},
-  {key: 1, name: 'Accepted', path: '/SQ?type=Accepted'},
-  {key: 2,name: 'Completed', path: '/SQ?type=Completed'}
-]
+  { key: 0, name: "OPEN", path: "/SQ?type=OPEN" },
+  { key: 1, name: "ACCEPTED", path: "/SQ?type=ACCEPTED" },
+  { key: 2, name: "REJECTED", path: "/SQ?type=REJECTED" },
+  { key: 3, name: "COMPLETED", path: "/SQ?type=COMPLETED" },
+];
 
 export const SQ_PARAMS_TAB_INDEX = {
-  "Open": 0,
-  "Accepted": 1,
-  "Completed": 2
-}
+  OPEN: 0,
+  ACCEPTED: 1,
+  REJECTED: 2,
+  COMPLETED: 3,
+};

@@ -3,9 +3,10 @@ import SQDashboard from "../SQDashboard";
 import { SQ_PARAMS_TAB_INDEX, SQ_TABS } from "../../../utils/constants";
 import SQCardListing from "../SQCardListing";
 import { useDispatch, useSelector } from "react-redux";
-import { getSqs } from "../../../store/actions/sqActions";
+import { getSqsByStatus } from "../../../store/actions/sqActions";
 import SqModal from "../SQModal";
 import { useHistory } from "react-router-dom";
+import { getRfs } from "../../../store/actions/rfqActions";
 
 const SQ = (props) => {
  const sqs = useSelector(state => state.sq.sqs);
@@ -19,16 +20,15 @@ const SQ = (props) => {
  const history = useHistory();
 
  useEffect(() => {
-   if(!props.location.search) history.push({
+   if(!props.location.search) return history.push({
       pathname: '/SQ',
-      search: '?type=Open'
-   })
-   else setActiveIndex(SQ_PARAMS_TAB_INDEX[`${new URLSearchParams(props.location.search).get('type')}`])
+      search: '?type=OPEN'
+   });
+   const type = new URLSearchParams(props.location.search).get('type');
+   setActiveIndex(SQ_PARAMS_TAB_INDEX[`${type}`]);
+   if(type == "OPEN") dispatch(getRfs());
+   else dispatch(getSqsByStatus(type));
  }, [props.location.search]);
-
- useEffect(()=>{
-   dispatch(getSqs());
- },[])
 
   function closeModal() {
     setVisible(false);

@@ -5,12 +5,14 @@ import CompanyIcon from '../../dist/img/Seller/companyIcon.png';
 import Api from '../../utils/api';
 import { PATH } from '../../utils/apiPath';
 import { useParams, useLocation } from "react-router-dom";
+import { notifySuccess } from "../../utils/functions";
+import UploadPO from "./UploadPo";
 
 const AllOuotes = (props) => {
 
   const [data,setData] = useState([]);
   const { id } = useParams();
-  const location = useLocation()
+  const location = useLocation();
 
   useEffect(()=>{
      if(id) getSqsForRfq();
@@ -25,6 +27,26 @@ const AllOuotes = (props) => {
         });
         setData(res?.data || []);
    }catch(err){}
+  }
+
+  const onClickApprove = async (item) => {
+     try{
+       const body = {
+          sqID: item.id
+       }
+       const res = await Api.post(PATH.acceptSq,body);
+       notifySuccess('SQ Successfully Approved')
+     }catch(err){}
+  }
+
+  const onClickReject = async (item) => {
+    try {
+      const body = {
+        sqID: item.id,
+      };
+      const res = await Api.post(PATH.rejectSq, body);
+      notifySuccess("SQ Successfully Rejected");
+    } catch (err) {} 
   }
 
   return (
@@ -44,9 +66,12 @@ const AllOuotes = (props) => {
           </div>
           <div className={styles.supplier}>
             <p className={styles.supplierName}>{item?.company?.companyName}</p>
-            <span className={styles.supplierInfo}>Vendor ID: {item?.company?.id}</span>
-            <span className={styles.supplierInfo}>Location: {item?.company?.address}</span>
-            <span className={styles.supplierInfo}>Experience: 15</span>
+            <span className={styles.supplierInfo}>
+              Vendor ID: {item?.company?.id}
+            </span>
+            <span className={styles.supplierInfo}>
+              Location: {item?.company?.address}
+            </span>
           </div>
           <div className={styles.quote}>
             <p className={styles.supplierName}>Rs. {item?.estimate}</p>
@@ -58,18 +83,28 @@ const AllOuotes = (props) => {
             <p className={styles.supplierName}>{item?.status}</p>
           </div>
           <div className={styles.cta}>
-            <button
-              className={styles.btn}
-              style={{ backgroundColor: "#4BDE97" }}
-            >
-              Approve
-            </button>
-            <button
-              className={styles.btn}
-              style={{ backgroundColor: "#F26464" }}
-            >
-              Reject
-            </button>
+            {item?.status == "CREATED" ? (
+              <>
+                <button
+                  className={styles.btn}
+                  style={{ backgroundColor: "#4BDE97" }}
+                  onClick={() => onClickApprove(item)}
+                >
+                  Approve
+                </button>
+                <button
+                  className={styles.btn}
+                  style={{ backgroundColor: "#F26464" }}
+                  onClick={() => onClickReject(item)}
+                >
+                  Reject
+                </button>
+              </>
+            ) : item?.po ? (
+              <img src={item?.po} style={{ height: 50, width: 50 }}></img>
+            ) : (
+              <UploadPO sqID={item?.id} />
+            )}
           </div>
         </div>
       ))}

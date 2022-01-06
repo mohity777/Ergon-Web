@@ -1,10 +1,13 @@
 import Api from "../../utils/api";
 import { PATH } from "../../utils/apiPath";
-import { GET_RFQ_FAILURE, GET_RFQ_REQUEST, GET_RFQ_SUCCESS, IN_RFQ, REQUEST_RFQ, RFQ_FAILURE } from "../../utils/types";
+import { notifySuccess } from "../../utils/functions";
+import { SET_RFQ_REDUCER } from "../../utils/types";
+import { setSqReducer } from "./sqActions";
 
-export const createRfq = (data) => async (dispatch) => {
+export const setRfqReducer = payload => ({ type: SET_RFQ_REDUCER, payload })
+
+export const createRfq = (data) => async (dispatch, getState) => {
   try {
-    dispatch({ type: REQUEST_RFQ });
     const {
       category,
       subCategory,
@@ -33,25 +36,24 @@ export const createRfq = (data) => async (dispatch) => {
       note,
     };
     const res = await Api.post(PATH.createRfq, body);
-    dispatch({ type: IN_RFQ, payload: res });
+    const newMyRfqs = [( res?.data || {} ),...(getState().rfq?.myRfqs || [])];
+    dispatch(setRfqReducer({ myRfqs: newMyRfqs }));
+    notifySuccess("RFQ creted Successfully");
   } catch (err) {
-    dispatch({ type: RFQ_FAILURE, payload: "Error" });
     throw err;
   }
 };
 
+export const getRfs = () => async (dispatch) => {
+    try{
+        const res = await Api.get(PATH.getRfqs);
+        dispatch(setSqReducer({ sqs: res?.data || [] }));
+    }catch(err){}
+}
 
-export const getRfq = () => async (dispatch) => {
+export const getMyRfqs = () => async (dispatch) => {
   try {
-    dispatch({ type: GET_RFQ_REQUEST });
-    
-    const res = await Api.get(PATH.getRfq);
-
-    // console.log("Reducer state is ",res);
-    // console.log("Response data is ",res.data);
-    dispatch({ type: GET_RFQ_SUCCESS, payload: res.data});
-  } catch (err) {
-    dispatch({ type: GET_RFQ_FAILURE, payload: err.message });
-    throw err;
-  }
+    const res = await Api.get(PATH.getMyRfqs);
+    dispatch(setRfqReducer({ myRfqs: res?.data || [] }));
+  } catch (err) {}
 };

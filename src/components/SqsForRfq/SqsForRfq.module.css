@@ -21,25 +21,31 @@
 }
 
 .supplier {
-    width: 26%;
+    width: 22%;
     padding-right: 0.3rem;
     display: flex;
     flex-direction: column;
 }
 
 .quote {
-    width: 14%;
+    width: 18%;
     padding-right: 0.3rem;
+    display: flex;
+    align-items: center;
 }
 
 .delivery {
     width: 13%;
     padding-right: 0.3rem;
+    display: flex;
+    align-items: center;
 }
 
 .status {
     width: 13%;
     padding-right: 0.3rem;
+    display: flex;
+    align-items: center;
 }
 
 .cta {
@@ -63,10 +69,14 @@
 
 .btn {
     color: white;
-    width: 5rem;
+    width: 6rem;
     padding: 0.5rem 0rem;
     font-size: 0.75rem;
     font-weight: 500;
     border-radius: 0.3rem;
     margin: 0rem 0.3rem;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    display: flex;
 }

@@ -15,5 +15,6 @@ export const PATH = {
   applySq: "createSQ/",
   acceptSq: "acceptSQ/",
   rejectSq: "rejectSQ/",
-  updatePO: 'updatePO/'
+  updatePO: "updatePO/",
+  updateWorkStatus: "updateWorkStatus/",
 };

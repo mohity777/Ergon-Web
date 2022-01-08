@@ -4,7 +4,7 @@ import { SQ_PARAMS_TAB_INDEX, SQ_TABS } from "../../../utils/constants";
 import SQCardListing from "../SQCardListing";
 import { useDispatch, useSelector } from "react-redux";
 import { getSqsByStatus } from "../../../store/actions/sqActions";
-import SqModal from "../SQModal";
+import ApplySQModal from "../ApplySQModal";
 import { useHistory } from "react-router-dom";
 import { getRfs } from "../../../store/actions/rfqActions";
 
@@ -45,7 +45,7 @@ const SQ = (props) => {
       {sqs.map((item) => (
         <SQCardListing item={item} onApplyPressed={onApplyPressed} />
       ))}
-      <SqModal visible={visible} closeModal={closeModal} item={selectedItem.current} />
+      <ApplySQModal visible={visible} closeModal={closeModal} item={selectedItem.current} />
     </SQDashboard>
   );
 };

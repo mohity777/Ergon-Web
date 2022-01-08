@@ -1,0 +1,12 @@
+.modalSqCard {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 0.09rem solid rgb(220, 220, 220);
+    border-radius: 0.2rem;
+    overflow: hidden;
+    background-color: #E5E5E5;
+    width: 85%;
+    height: 14rem
+}

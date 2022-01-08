@@ -6,9 +6,9 @@ import Api from "../../../utils/api";
 import { PATH } from "../../../utils/apiPath";
 import { notifySuccess } from "../../../utils/functions";
 import styles from "../SQCardListing/SQCardListing.module.css";
-import style from "./SQModal.module.css";
+import style from "./ApplySQModal.module.css";
 
-const SQModal = ({ visible, closeModal, item }) => {
+const ApplySQModal = ({ visible, closeModal, item }) => {
 
   let estimate = useRef('');
   let time = useRef('');
@@ -103,4 +103,4 @@ const SQModal = ({ visible, closeModal, item }) => {
   );
 };
 
-export default SQModal;
+export default ApplySQModal;

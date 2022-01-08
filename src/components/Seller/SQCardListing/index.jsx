@@ -18,7 +18,7 @@ const SQCardListing = ({ item, onApplyPressed }) => {
     history.push({
       pathname: "/SQDetails",
       state: {
-        title: rfqDetails?.title,
+        data: item
       },
     });
   };

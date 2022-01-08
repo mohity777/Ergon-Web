@@ -4,7 +4,7 @@ import SQDashboard from '../Seller/SQDashboard';
 import CompanyIcon from '../../dist/img/Seller/companyIcon.png';
 import Api from '../../utils/api';
 import { PATH } from '../../utils/apiPath';
-import { useParams, useLocation } from "react-router-dom";
+import { useParams, useLocation, useHistory } from "react-router-dom";
 import { notifySuccess } from "../../utils/functions";
 import UploadPO from "./UploadPo";
 
@@ -13,6 +13,7 @@ const AllOuotes = (props) => {
   const [data,setData] = useState([]);
   const { id } = useParams();
   const location = useLocation();
+  const history = useHistory();
 
   useEffect(()=>{
      if(id) getSqsForRfq();
@@ -49,6 +50,16 @@ const AllOuotes = (props) => {
     } catch (err) {} 
   }
 
+  const navigateToDetails = (item) => {
+     history.push({
+       pathname: "/SQDetails",
+       state: {
+         data: item,
+         cameFrom: 'RFQ'
+       },
+     });
+   };
+
   return (
     <SQDashboard headline={`RFQ/${location.state.title}`}>
       <div className={styles.header}>
@@ -60,7 +71,7 @@ const AllOuotes = (props) => {
         <div className={styles.cta}></div>
       </div>
       {data.map((item, i) => (
-        <div key={i} className={styles.card}>
+        <div key={i} className={styles.card} style={{cursor: 'pointer'}} onClick={() => navigateToDetails(item)}>
           <div className={styles.image}>
             <img src={CompanyIcon} />
           </div>

@@ -16,7 +16,7 @@ import RfqPostDeal from "../components/PostRfq/RfqPostRfq";
 import RFQ from "../components/RfqBuyer/RFQ";
 import Suppliers from "../components/RfqBuyer/Suppliers";
 import SQ from "../components/Seller/SQ";
-import SQCardDetails from "../components/Seller/SQCardDetails";
+import SQDetails from "../components/Seller/SQDetails";
 import SignUp from "../components/SignUp";
 import SignUpDetails from "../components/SignUpDetails";
 
@@ -68,7 +68,7 @@ export const PRIVATE_ROUTES = {
     { path: "/RfqPostDeal", component: RfqPostDeal, exact: true },
 
     { path: "/SQ", component: SQ, exact: true },
-    { path: "/SQDetails", component: SQCardDetails, exact: true },
+    { path: "/SQDetails", component: SQDetails, exact: true },
   ],
   withoutLayout: [
     { path: "/SignUpDetails", component: SignUpDetails, exact: true },

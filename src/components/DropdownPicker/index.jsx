@@ -4,12 +4,14 @@ import styles from "./DropdownPicker.module.css";
 
 const { Option } = Select;
 
-const DropdownPicker = ({ items, placeholder, onChange, label, value }) => {
+const DropdownPicker = ({ items, placeholder, onChange, label, value, disabled, showArrow }) => {
   return (
     <Select
       className={`${styles.dropdown}`}
       onChange={onChange}
       placeholder={placeholder}
+      disabled={disabled}
+      showArrow={showArrow}
     >
       {items.map((item, i) => (
         <Option key={i} value={item?.[value]}>

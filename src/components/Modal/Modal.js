@@ -11,9 +11,61 @@ import { createRfq } from "../../store/actions/rfqActions";
 import SignUpInput from "../SignUpInput/index.jsx";
 import upload from "../../dist/img/Seller/upload.png";
 import { notifySuccess } from "../../utils/functions";
+import {
+  ref,
+  uploadBytesResumable,
+  getDownloadURL,
+  getStorage,
+} from "firebase/storage";
 
 Modal.setAppElement("#root");
 const Modale = ({ visible, closeModal }) => {
+
+
+const storage = getStorage()
+
+  const [image, setImage] = useState(null)
+  const [progress, setProgress] = useState("")
+const [imageurl, setImageurl] = useState("")
+
+
+    const handleUpload=()=>{
+     const storageTask = ref(storage,`images/ ${image.name}`);
+     const uploadTask = uploadBytesResumable(storageTask,image)
+
+     uploadTask.on(
+       "state_changed",
+       snapshot =>{const prog = Math.round(( snapshot.bytesTransferred / snapshot.totalBytes)*100)
+      setProgress(prog)
+      },
+       error=>{
+         console.log(error)
+       },
+       ()=>{
+         getDownloadURL(uploadTask.snapshot.ref).then(url => {console.log(url)
+          setImageurl(url)
+        }
+       
+         )
+       }
+     )
+      }
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   const [form] = Form.useForm();
 
   const dispatch = useDispatch();
@@ -37,14 +89,42 @@ const Modale = ({ visible, closeModal }) => {
     } catch (err) {}
   };
 
-  const getFile = (e) => {
-    console.log("Upload event:", e);
+  // const getFile = (e) => {
+  //   console.log("Upload event is :", e.target.files);
 
-    if (Array.isArray(e)) {
-      return e;
-    }
-    return e && e.fileList;
-  };
+  //   if (Array.isArray(e)) {
+  //     return e;
+  //   }
+  //   return e && e.fileList;
+  // };
+
+  const getFile = (e)=>{
+    console.log("even is ",e.fileList[0])
+    setImage(e.fileList[0])
+
+
+
+    // const storageTask = ref(storage,`images/ ${image.name}`);
+    //  const uploadTask = uploadBytesResumable(storageTask,image)
+
+    //  uploadTask.on(
+    //    "state_changed",
+    //    snapshot =>{const prog = Math.round(( snapshot.bytesTransferred / snapshot.totalBytes)*100)
+    //   setProgress(prog)
+    //   },
+    //    error=>{
+    //      console.log(error)
+    //    },
+    //    ()=>{
+    //      getDownloadURL(uploadTask.snapshot.ref).then(url => {console.log(url)
+    //       setImageurl(url)
+    //     }
+       
+    //      )
+    //    }
+    //  )
+      }
+  
 
   return (
     <div>
@@ -160,17 +240,18 @@ const Modale = ({ visible, closeModal }) => {
                   name="design"
                   label="Design"
                   getValueFromEvent={getFile}
+                  type="file"
                   required={false}
                   className={styleM.formLabel}
                   rules={[
                     {
-                      required: true,
+                      // required: true,
                     },
                   ]}
                 >
                   <Upload
                     listType="picture-card"
-                    multiple={true}
+                    multiple={false}
                     beforeUpload={() => {
                       return false;
                     }}
@@ -233,7 +314,7 @@ const Modale = ({ visible, closeModal }) => {
             </div>
             <div style={{display: 'flex', justifyContent: 'center'}}>
             <Form.Item>
-              <Button type="primary" htmlType="submit">
+              <Button type="primary" onClick={handleUpload} htmlType="submit">
                 Submit
               </Button>
             </Form.Item>

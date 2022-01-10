@@ -11,7 +11,7 @@ import styles from "./SqsForRfq.module.css";
 import Api from "../../utils/api";
 import { PATH } from "../../utils/apiPath";
 
-const UploadPO = ({ sqID }) => {
+const UploadPO = ({ sqID, index, sqs, updateSqs }) => {
   const poImg = useRef(null);
   const inputRef = useRef();
   const [message, setMessage] = useState("");
@@ -49,8 +49,11 @@ const UploadPO = ({ sqID }) => {
                 sqID,
                 PO: downloadURL,
               };
-              Api.post(PATH.updatePO,body).then(()=>{
+              Api.post(PATH.updatePO,body).then((res)=>{
                  setMessage("Uploaded Successfully");
+                 const newSqs = [...sqs];
+                 newSqs[index] = res?.data || {};
+                 updateSqs(newSqs);
               }).catch(err => {
                   console.log(err)
               })
@@ -69,7 +72,7 @@ const UploadPO = ({ sqID }) => {
   };
 
   return (
-    <div style={{display: 'flex', flexDirection: 'column'}}>
+    <div style={{display: 'flex', flexDirection: 'column'}} onClick={(e) => e.stopPropagation()}>
       {poImg.current ? (
         <img
           src={poImg.current}

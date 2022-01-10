@@ -11,6 +11,7 @@ import { PATH } from "../../../utils/apiPath";
 import { useState } from "react";
 import { notifySuccess } from "../../../utils/functions";
 import { useRef } from "react";
+import ImageView from "../../ImageViewer";
 
 const items = [
   { label: "Raw Material Purchased", value: 0 },
@@ -70,19 +71,16 @@ const SQDetails = () => {
           <div className={styles.poDesign}>
             <div className={styles.poDesignRow}>
               <h5 className={styles.poDesignText}>PO</h5>
-              <img
-                src={item?.po || ImgPlaceholder}
-                alt="..."
-                style={{ width: "2.4rem", height: "2.2rem", cursor: "pointer" }}
-                onClick={() => item?.po && window.open(item?.po, "_blank")}
+              <ImageView
+                src={item?.po}
+                style={{ width: "2.1rem", height: "2.1rem", cursor: "pointer" }}
               />
             </div>
             <div className={styles.poDesignRow}>
               <h5 className={styles.poDesignText}>Design</h5>
-              <img
-                src={ImgPlaceholder}
-                alt="..."
-                style={{ width: "2.4rem", height: "2.2rem" }}
+              <ImageView
+                src={rfqDetails?.design}
+                style={{ width: "2.1rem", height: "2.1rem", cursor: "pointer" }}
               />
             </div>
           </div>

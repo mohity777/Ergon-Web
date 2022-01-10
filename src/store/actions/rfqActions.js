@@ -3,11 +3,16 @@ import { PATH } from "../../utils/apiPath";
 import { notifySuccess } from "../../utils/functions";
 import { SET_RFQ_REDUCER } from "../../utils/types";
 import { setSqReducer } from "./sqActions";
+import {
+  ref,
+  uploadBytesResumable,
+  getDownloadURL,
+  getStorage,
+} from "firebase/storage";
 
 export const setRfqReducer = payload => ({ type: SET_RFQ_REDUCER, payload })
 
 export const createRfq = (data) => async (dispatch, getState) => {
-  try {
     const {
       category,
       subCategory,
@@ -22,26 +27,47 @@ export const createRfq = (data) => async (dispatch, getState) => {
       note,
     } = data;
 
-    const body = {
-      category,
-      subCategory,
-      title,
-      description,
-      design,
-      qty,
-      budget,
-      creditPeriod,
-      deliveryLocation,
-      applicationCloseTime,
-      note,
-    };
-    const res = await Api.post(PATH.createRfq, body);
-    const newMyRfqs = [( res?.data || {} ),...(getState().rfq?.myRfqs || [])];
-    dispatch(setRfqReducer({ myRfqs: newMyRfqs }));
-    notifySuccess("RFQ creted Successfully");
-  } catch (err) {
-    throw err;
-  }
+    const file = design[0]?.originFileObj;
+    const storage = getStorage();
+    const storageRef = ref(storage, `Erogon_Images/Design/${file.name}`);
+    const uploadTask = uploadBytesResumable(storageRef, file, "data_url");
+
+    uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        },
+        (error) => {
+          // Handle unsuccessful uploads
+          throw error;
+        },
+        () => {
+          // Handle successful uploads on complete
+          // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+             const body = {
+               category,
+               subCategory,
+               title,
+               description,
+               design: downloadURL,
+               qty,
+               budget,
+               creditPeriod,
+               deliveryLocation,
+               applicationCloseTime,
+               note,
+             };
+             Api.post(PATH.createRfq, body).then((res) => {
+                 const newMyRfqs = [res?.data || {}, ...(getState().rfq?.myRfqs || [])];
+                 dispatch(setRfqReducer({ myRfqs: newMyRfqs }));
+                 notifySuccess("RFQ creted Successfully");
+             }).catch((err)=>{
+                throw err;
+             });
+          });
+        }
+    );
 };
 
 export const getRfs = () => async (dispatch) => {

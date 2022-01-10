@@ -1,0 +1,32 @@
+.sqCard {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 0.09rem solid rgb(220, 220, 220);
+    border-radius: 0.2rem;
+    overflow: hidden;
+    background-color: #E5E5E5;
+}
+
+.rQuote{
+     align-self: center;
+     text-align: center;
+     margin: 2rem 0rem;
+     font-weight: 600;
+}
+
+.formMargin{
+    margin-top: 24px ;
+}
+
+.inputs{
+    margin-left: 25px;
+}
+
+.formLabel label{
+    color: black;
+    font-size: 0.8rem;
+    font-weight: 500;
+    height: 100%;
+}

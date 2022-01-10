@@ -3,7 +3,7 @@ import styles from "./SQDashboard.module.css";
 import DropdownPicker from "../../DropdownPicker";
 import { SearchOutlined } from "@ant-design/icons";
 import { Input } from "antd";
-import Modal from "../../Modal/Modal";
+import CreateRFQModal from "../../CreateRFQModal";
 import { useHistory } from "react-router-dom";
 
 const SQDashboard = ({ children, tabs, activeIndex, headline }) => {
@@ -19,11 +19,11 @@ const SQDashboard = ({ children, tabs, activeIndex, headline }) => {
   };
 
   const onPressTab = (item) => {
-      history.push(item.path);
+    history.push(item.path);
   }
 
   return (
-    <div style={{ marginTop: "0.3rem" }}>
+    <div style={{ marginTop: "0.3rem", height: '100%', display: 'flex', flexDirection: 'column' }}>
       <div className={styles.dashboard}>
         <div className={styles.searchRow}>
           <h5 style={{ fontWeight: 600 }}>{headline}</h5>
@@ -68,10 +68,10 @@ const SQDashboard = ({ children, tabs, activeIndex, headline }) => {
           </div>
         </div>
       </div>
-      <div className="site-layout-background" style={{ margin: "0px 1.5rem" }}>
+      <div className="site-layout-background" style={{ padding: "0px 1.5rem", height: '100%', display: 'flex', flexDirection: 'column'}}>
         {children}
       </div>
-      <Modal visible={visible} closeModal={closeRfq} />
+      <CreateRFQModal visible={visible} closeModal={closeRfq} />
     </div>
   );
 };

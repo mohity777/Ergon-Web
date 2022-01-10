@@ -7,6 +7,8 @@ import { PATH } from '../../utils/apiPath';
 import { useParams, useLocation, useHistory } from "react-router-dom";
 import { notifySuccess } from "../../utils/functions";
 import UploadPO from "./UploadPo";
+import ImageView from "../ImageViewer";
+import ButtonWithLoader from "../ButtonWithLoader";
 
 const AllOuotes = (props) => {
 
@@ -30,22 +32,28 @@ const AllOuotes = (props) => {
    }catch(err){}
   }
 
-  const onClickApprove = async (item) => {
+  const onClickApprove = async (item, index) => {
      try{
        const body = {
           sqID: item.id
        }
        const res = await Api.post(PATH.acceptSq,body);
+       const newData = [...data];
+       newData[index] = res?.data || {};
+       setData(newData);
        notifySuccess('SQ Successfully Approved')
      }catch(err){}
   }
 
-  const onClickReject = async (item) => {
+  const onClickReject = async (item, index) => {
     try {
       const body = {
         sqID: item.id,
       };
       const res = await Api.post(PATH.rejectSq, body);
+      const newData = [...data];
+      newData[index] = res?.data || {};
+      setData(newData);
       notifySuccess("SQ Successfully Rejected");
     } catch (err) {} 
   }
@@ -71,7 +79,12 @@ const AllOuotes = (props) => {
         <div className={styles.cta}></div>
       </div>
       {data.map((item, i) => (
-        <div key={i} className={styles.card} style={{cursor: 'pointer'}} onClick={() => navigateToDetails(item)}>
+        <div
+          key={i}
+          className={styles.card}
+          style={{ cursor: "pointer" }}
+          onClick={() => navigateToDetails(item)}
+        >
           <div className={styles.image}>
             <img src={CompanyIcon} />
           </div>
@@ -96,25 +109,28 @@ const AllOuotes = (props) => {
           <div className={styles.cta}>
             {item?.status == "CREATED" ? (
               <>
-                <button
-                  className={styles.btn}
-                  style={{ backgroundColor: "#4BDE97" }}
-                  onClick={() => onClickApprove(item)}
-                >
-                  Approve
-                </button>
-                <button
-                  className={styles.btn}
-                  style={{ backgroundColor: "#F26464" }}
-                  onClick={() => onClickReject(item)}
-                >
-                  Reject
-                </button>
+                <ButtonWithLoader
+                  btnClassName={styles.btn}
+                  btnStyle={{ backgroundColor: "#4BDE97" }}
+                  onClick={() => onClickApprove(item, i)}
+                  text="Approve"
+                />
+                <ButtonWithLoader
+                  btnClassName={styles.btn}
+                  btnStyle={{ backgroundColor: "#F26464" }}
+                  onClick={() => onClickReject(item, i)}
+                  text="Reject"
+                />
               </>
             ) : item?.po ? (
-              <img src={item?.po} style={{ height: 50, width: 50 }}></img>
+              <ImageView src={item?.po} style={{ height: 50, width: 50 }} />
             ) : (
-              <UploadPO sqID={item?.id} />
+              <UploadPO
+                sqID={item?.id}
+                index={i}
+                sqs={data}
+                updateSqs={setData}
+              />
             )}
           </div>
         </div>

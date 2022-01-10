@@ -4,9 +4,6 @@ import React from 'react'
 // import '../RfqBuyer/Buyer.css'
 import styleApp from './Approved.module.css'
 import { Link } from 'react-router-dom';
-
-import ModalKeep from '../Modals/ModalKeep';
-import Dots from '../ThreeDots/Dots';
 import Pagination from '../Pagination/Pagination'
 import SQDashboard from '../Seller/SQDashboard';
 

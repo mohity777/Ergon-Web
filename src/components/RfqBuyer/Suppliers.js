@@ -1,10 +1,6 @@
 
 import './Buyer.css'
 import { Link } from 'react-router-dom';
-
-
-import ModalKeep from '../Modals/ModalKeep';
-import Dots from '../ThreeDots/Dots';
 import SQDashboard from '../Seller/SQDashboard';
 
 

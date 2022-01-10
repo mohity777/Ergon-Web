@@ -12,7 +12,6 @@ import {
 import SqsForRfq from "../components/SqsForRfq";
 import ApprovedQuotes from "../components/Approved/ApprovedQuotes";
 import Login from "../components/Login";
-import RfqPostDeal from "../components/PostRfq/RfqPostRfq";
 import RFQ from "../components/RfqBuyer/RFQ";
 import Suppliers from "../components/RfqBuyer/Suppliers";
 import SQ from "../components/Seller/SQ";
@@ -48,7 +47,7 @@ export const DRAWER_ITEMS = [
   { key: "/Suppliers", name: "Suppliers", icon: DropboxOutlined, to: "/Suppliers" },
   { key: "4", name: "Company Profile", icon: PictureFilled, to: "" },
   { key: "/SQ", name: "SQ", icon: SnippetsFilled, to: "/SQ?type=OPEN" },
-  { key: "/RfqPostDeal", name: "Notifications", icon: MailFilled, to: "/RfqPostDeal" },
+  { key: "6", name: "Notifications", icon: MailFilled, to: "" },
   { key: "7", name: "Appearance", icon: EditFilled, to: "" },
   { key: "8", name: "Users", icon: TeamOutlined, to: "" },
   { key: "9", name: "Settings", icon: SettingFilled, to: "" },
@@ -63,10 +62,9 @@ export const PRIVATE_ROUTES = {
   withLayout: [
     { path: "/Dashboard", component: ApprovedQuotes, exact: true },
     { path: "/Suppliers", component: Suppliers, exact: true },
+
     { path: "/RFQ", component: RFQ, exact: true },
     { path: "/SqsForRfq/:id", component: SqsForRfq, exact: true },
-    { path: "/RfqPostDeal", component: RfqPostDeal, exact: true },
-
     { path: "/SQ", component: SQ, exact: true },
     { path: "/SQDetails", component: SQDetails, exact: true },
   ],
@@ -77,14 +75,16 @@ export const PRIVATE_ROUTES = {
 
 export const SQ_TABS = [
   { key: 0, name: "OPEN", path: "/SQ?type=OPEN" },
-  { key: 1, name: "ACCEPTED", path: "/SQ?type=ACCEPTED" },
-  { key: 2, name: "REJECTED", path: "/SQ?type=REJECTED" },
-  { key: 3, name: "COMPLETED", path: "/SQ?type=COMPLETED" },
+  { key: 1, name: "APPLIED", path: "/SQ?type=CREATED" },
+  { key: 2, name: "ACCEPTED", path: "/SQ?type=ACCEPTED" },
+  { key: 3, name: "REJECTED", path: "/SQ?type=REJECTED" },
+  { key: 4, name: "COMPLETED", path: "/SQ?type=COMPLETED" },
 ];
 
 export const SQ_PARAMS_TAB_INDEX = {
   OPEN: 0,
-  ACCEPTED: 1,
-  REJECTED: 2,
-  COMPLETED: 3,
+  CREATED: 1,
+  ACCEPTED: 2,
+  REJECTED: 3,
+  COMPLETED: 4,
 };

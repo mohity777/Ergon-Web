@@ -10,10 +10,12 @@ const ButtonWithLoader = ({
   onClick,
   text,
   children,
+  stopPropagation = true
 }) => {
   const [loading, setLoading] = useState(false);
 
-  const onPress = async () => {
+  const onPress = async (e) => {
+    if(stopPropagation) e.stopPropagation();
     if (!onClick) return;
     setLoading(true);
     await onClick();

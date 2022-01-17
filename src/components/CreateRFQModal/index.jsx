@@ -6,12 +6,6 @@ import { useDispatch } from "react-redux";
 import { createRfq } from "../../store/actions/rfqActions";
 import SignUpInput from "../SignUpInput/index.jsx";
 import upload from "../../dist/img/Seller/upload.png";
-import {
-  ref,
-  uploadBytesResumable,
-  getDownloadURL,
-  getStorage,
-} from "firebase/storage";
 
 const CreateRFQModal = ({ visible, closeModal }) => {
 

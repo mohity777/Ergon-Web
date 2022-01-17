@@ -1,4 +1,4 @@
-export const baseURL = "http://35.184.109.88/";
+export const baseURL = "http://35.188.10.78/";
 
 export const PATH = {
   login: "login/",

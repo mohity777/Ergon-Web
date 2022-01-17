@@ -8,6 +8,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
 import Store from "./store";
 import { initializeApp } from "firebase/app";
+import GlobalLoader from "./components/GlobalLoader";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -27,7 +28,7 @@ ReactDOM.render(
     <Provider store={Store}>
       <Router>
         <App />
-        {/* <Loader /> */}
+        <GlobalLoader />
       </Router>
     </Provider>
   </React.StrictMode>,

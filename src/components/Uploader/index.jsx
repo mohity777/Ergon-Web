@@ -35,7 +35,10 @@ class Uploader extends React.Component {
     });
   };
 
-  handleChange = ({ fileList }) => this.setState({ fileList });
+  handleChange = ({ fileList }) => {
+    this.setState({ fileList });
+    this.props.onChange && this.props.onChange(fileList);
+  };
 
   render() {
     const { previewVisible, previewImage, fileList, previewTitle } = this.state;
@@ -52,6 +55,7 @@ class Uploader extends React.Component {
           onPreview={this.handlePreview}
           onChange={this.handleChange}
           multiple={true}
+          maxCount={this.props.maxCount}
           beforeUpload={() => {
             return false;
           }}

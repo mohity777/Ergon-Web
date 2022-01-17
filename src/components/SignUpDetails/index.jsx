@@ -10,6 +10,15 @@ import Api from "../../utils/api";
 import { PATH } from "../../utils/apiPath";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
+import {
+  ref,
+  uploadBytesResumable,
+  getDownloadURL,
+  getStorage,
+} from "firebase/storage";
+import { useDispatch } from "react-redux";
+import { setGlobalLoader } from "../../store/actions/globalLoaderActions";
+import { notifyError } from "../../utils/functions";
 
 const { Option } = Select;
 
@@ -21,12 +30,40 @@ const SignUpDetails = (props) => {
   const area = useRef(null);
   const workedWith = useRef([]);
   const capabilities = useRef([]);
+  
+  const certificatesRewards = useRef([]);
+  const industryPhotos = useRef([]);
+  const industryLogo = useRef([]);
 
   const history = useHistory();
+  const dispatch = useDispatch();
   const user = useSelector(state => state.user);
+
+  const uploadToFirebase = async (file) => {
+    const storage = getStorage();
+    const storageRef = ref(storage, `Erogon_Images/${file.name}`);
+    const uploadTask = await uploadBytesResumable(storageRef, file, "data_url");  
+    const url = await getDownloadURL(uploadTask.ref);
+    return url;
+  }
 
   const onFinish = async () => {
     try{
+         dispatch(setGlobalLoader(true));
+         const res =  await Promise.all([
+           Promise.all(certificatesRewards.current.map(async it => {
+              const url = await uploadToFirebase(it?.originFileObj);
+              return url;
+           })),
+           Promise.all(industryPhotos.current.map(async it => {
+             const url = await uploadToFirebase(it?.originFileObj);
+             return url;
+           })),
+           Promise.all(industryLogo.current.map(async it =>{ 
+             const url = await uploadToFirebase(it?.originFileObj);
+             return url;
+           }))
+         ]);
          const data = {
            companyName: user?.company?.companyName,
            gstin: user?.company?.gstin,
@@ -39,11 +76,18 @@ const SignUpDetails = (props) => {
            products: products.current,
            workedWith: workedWith.current,
            machines: machines.current,
+           certificatesRewards: res[0],
+           industryPhotos: res[1],
+           industryLogo: res[2]
          };
          console.log(data)
-         const res = await Api.post(PATH.signUpDetails, data);
+         await Api.post(PATH.signUpDetails, data);
+         dispatch(setGlobalLoader(false));
          history.replace('/Dashboard')
-    }catch(err){}
+    }catch(err){
+         dispatch(setGlobalLoader(false));
+         notifyError(err?.message || 'Something Went Wrong!!');
+    }
   };
 
   const onSkip = () => {
@@ -164,19 +208,32 @@ const SignUpDetails = (props) => {
         <h5 className={styles.label} style={{ width: "15%" }}>
           Certifications/Rewards
         </h5>
-        <Uploader />
+        <Uploader
+          onChange={(fileList) => {
+            certificatesRewards.current = fileList || [];
+          }}
+        />
       </div>
       <div style={{ display: "flex", flexDirection: "row" }}>
         <h5 className={styles.label} style={{ width: "15%" }}>
           Industry Photos
         </h5>
-        <Uploader />
+        <Uploader
+          onChange={(fileList) => {
+            industryPhotos.current = fileList || [];
+          }}
+        />
       </div>
       <div style={{ display: "flex", flexDirection: "row" }}>
         <h5 className={styles.label} style={{ width: "15%" }}>
           Industry Logo
         </h5>
-        <Uploader />
+        <Uploader
+          maxCount={1}
+          onChange={(fileList) => {
+            industryLogo.current = fileList || [];
+          }}
+        />
       </div>
       <Form.Item noStyle>
         <Button htmlType="submit" className={styles.btn} onClick={onFinish}>

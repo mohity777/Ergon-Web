@@ -19,7 +19,6 @@ const DropdownPicker = ({
 
   useEffect(() => {
     if (valueToSet) {
-      alert('jjjj')
       setState(valueToSet);
     }
   }, [valueToSet]);

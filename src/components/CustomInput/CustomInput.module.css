@@ -1,0 +1,50 @@
+.container {
+  width: 25rem;
+  margin: 1rem 0rem;
+  margin-right: 5rem;
+}
+
+@media only screen and (max-width: 500px) {
+   .container {
+       width: 100%;
+       margin-right: 0;
+   }
+} 
+
+.input {
+    min-width: 0;
+    padding: 4px 11px;
+    border: 1px solid #d9d9d9;
+    border-radius: 2px;
+    transition: all .3s;
+    background-color: #eff0f6;
+    border-radius: 0.4rem;
+    height: 42px;
+    font-size: .75rem;
+    width: 65%;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.input:focus {
+    outline: none;
+    border: 1px solid #1890ff;
+    box-shadow: 0 0 2px #1890ff;
+}
+
+.input::placeholder {
+   color: rgb(210,210,210);
+   font-weight: 400;
+}
+
+.label {
+  color: black;
+  font-size: 0.85rem;
+  font-weight: 500;
+  height: 100%;
+  width: 35%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: pre-wrap;
+  align-self: center;
+}

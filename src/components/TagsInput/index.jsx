@@ -1,17 +1,23 @@
-import React, { memo } from "react";
-import SignUpInput from "../SignUpInput";
+import React, { memo, useEffect, useMemo, useState } from "react";
+import CustomInput from "../CustomInput";
 import styles from "./TagsInput.module.css";
 
 const TagsInput = ({
   placeholder,
   label,
   onChangeTags,
-  labelClass,
-  inputClass,
-  single = false,
-  onChange
+  valueToSet,
 }) => {
   const [tags, setTags] = React.useState([]);
+  const [input, setInput] = useState('')
+
+  useEffect(() => {
+    if (valueToSet) {
+      const updatedTags = [...valueToSet];
+      setTags(updatedTags);
+      onChangeTags(updatedTags);
+    }
+  }, [valueToSet]);
 
   const removeTags = (indexToRemove) => {
     const updatedTags = tags.filter((_, index) => index !== indexToRemove);
@@ -24,48 +30,40 @@ const TagsInput = ({
       const updatedTags = [...tags, event.target.value?.trim()];
       setTags(updatedTags);
       onChangeTags(updatedTags);
-      requestAnimationFrame(() => event.target.value = "");
+      setInput('')
     }
   };
 
-  return (
-    <div>
-      <div className={styles.inputView}>
-        <h5 className={`${styles.label} ${labelClass}`}>{label}</h5>
-        <div className={inputClass}>
-          <SignUpInput
-            noStyle={true}
-            placeholder={placeholder}
-            onKeyUp={(event) => {
-              if (single) return;
-              if (event.key == "Enter") {
-                addTags(event);
-              }
-            }}
-            onChange={(e) => {
-              onChange && onChange(e)
-            }}
-          />
+  const tagsList = useMemo(() => (
+    <ul className={styles.tags}>
+      {tags.map((tag, index) => (
+        <div key={index} className={styles.tag}>
+          <h1 className={styles.tag_title}>{tag}</h1>
+          <span
+            className={styles.tag_close_icon}
+            onClick={() => removeTags(index)}
+          >
+            x
+          </span>
         </div>
-      </div>
-      {single ? (
-        <></>
-      ) : (
-        <ul className={styles.tags}>
-          {tags.map((tag, index) => (
-            <div key={index} className={styles.tag}>
-              <h1 className={styles.tag_title}>{tag}</h1>
-              <span
-                className={styles.tag_close_icon}
-                onClick={() => removeTags(index)}
-              >
-                x
-              </span>
-            </div>
-          ))}
-        </ul>
-      )}
-    </div>
+      ))}
+    </ul>
+  ),[tags]);
+
+  return (
+    <CustomInput
+      placeholder={placeholder}
+      onKeyUp={(event) => {
+        if (event.key == "Enter") {
+          addTags(event);
+        }
+      }}
+      onChange={(e) => { setInput(e.target.value) }}
+      label={label}
+      valueToSet={input}
+    >
+    {tagsList}
+    </CustomInput>
   );
 };
 

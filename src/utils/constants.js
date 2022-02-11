@@ -1,16 +1,8 @@
 import {
-  DropboxOutlined,
-  MailFilled,
-  HomeFilled,
-  FileTextFilled,
-  PictureFilled,
-  SnippetsFilled,
-  EditFilled,
-  SettingFilled,
-  TeamOutlined,
+  DropboxOutlined, EditFilled, FileTextFilled, HomeFilled, MailFilled, PictureFilled, SettingFilled, SnippetsFilled, TeamOutlined
 } from "@ant-design/icons";
-import SqsForRfq from "../components/SqsForRfq";
-import ApprovedQuotes from "../components/Approved/ApprovedQuotes";
+import CompanyProfile from "../components/CompanyProfile";
+import Dashboard from "../components/Dashboard";
 import Login from "../components/Login";
 import RFQ from "../components/RfqBuyer/RFQ";
 import Suppliers from "../components/RfqBuyer/Suppliers";
@@ -18,6 +10,7 @@ import SQ from "../components/Seller/SQ";
 import SQDetails from "../components/Seller/SQDetails";
 import SignUp from "../components/SignUp";
 import SignUpDetails from "../components/SignUpDetails";
+import SqsForRfq from "../components/SqsForRfq";
 
 export const INDUSTRY_OPTIONS = [
   "Metal & Metal Products",
@@ -45,7 +38,7 @@ export const DRAWER_ITEMS = [
   { key: "/Dashboard", name: "Dashboard", icon: HomeFilled, to: "/Dashboard" },
   { key: "/RFQ", name: "RFQ", icon: FileTextFilled, to: "/RFQ" },
   { key: "/Suppliers", name: "Suppliers", icon: DropboxOutlined, to: "/Suppliers" },
-  { key: "4", name: "Company Profile", icon: PictureFilled, to: "" },
+  { key: "/CompanyProfile", name: "Company Profile", icon: PictureFilled, to: "/CompanyProfile" },
   { key: "/SQ", name: "SQ", icon: SnippetsFilled, to: "/SQ?type=OPEN" },
   { key: "6", name: "Notifications", icon: MailFilled, to: "" },
   { key: "7", name: "Appearance", icon: EditFilled, to: "" },
@@ -60,8 +53,9 @@ export const PUBLIC_ROUTES = [
 
 export const PRIVATE_ROUTES = {
   withLayout: [
-    { path: "/Dashboard", component: ApprovedQuotes, exact: true },
+    { path: "/Dashboard", component: Dashboard, exact: true },
     { path: "/Suppliers", component: Suppliers, exact: true },
+    { path: "/CompanyProfile", component: CompanyProfile, exact: true },
 
     { path: "/RFQ", component: RFQ, exact: true },
     { path: "/SqsForRfq/:id", component: SqsForRfq, exact: true },
@@ -88,3 +82,54 @@ export const SQ_PARAMS_TAB_INDEX = {
   REJECTED: 3,
   COMPLETED: 4,
 };
+
+export const chartData = [
+  {
+    month: "Jan",
+    numOfRfqSqs: 4000,
+    amt: 2400,
+  },
+  {
+    month: "Feb",
+    numOfRfqSqs: 3000,
+    amt: 2210,
+  },
+  {
+    month: "March",
+    numOfRfqSqs: 2000,
+    amt: 15500,
+  },
+  {
+    month: "April",
+    numOfRfqSqs: 2780,
+    amt: 3908,
+  },
+  {
+    month: "May",
+    numOfRfqSqs: 1890,
+    amt: 4800,
+  },
+  {
+    month: "June",
+    numOfRfqSqs: 2390,
+    amt: 3800,
+  },
+  {
+    month: "July",
+    numOfRfqSqs: 3490,
+    amt: 4300,
+  },
+];
+
+export const legendPayload = [
+  {
+    label: "RFQs/SQs",
+    value: "475273",
+    color: "#5F2EEA",
+  },
+  {
+    label: "Amount",
+    value: "782396",
+    color: "#4BDE97",
+  },
+];

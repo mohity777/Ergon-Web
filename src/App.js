@@ -1,11 +1,10 @@
-import "./components/Dashboard/Dashboard.css";
-
-import { useDispatch, useSelector } from "react-redux";
-import { Switch, Route, Redirect } from "react-router-dom";
-import { PRIVATE_ROUTES, PUBLIC_ROUTES } from "./utils/constants";
-import Layout from "./components/Layout";
 import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Redirect, Route, Switch } from "react-router-dom";
+import Layout from "./components/Layout";
 import { getUser } from "./store/actions/userActions";
+import { PRIVATE_ROUTES, PUBLIC_ROUTES } from "./utils/constants";
+
 
 const PublicRoute = ({ isLoggedIn, component: Component, ...rest }) => {
   return (

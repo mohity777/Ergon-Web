@@ -1,14 +1,14 @@
 import "antd/dist/antd.css";
+import { initializeApp } from "firebase/app";
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
-import Store from "./store";
-import { initializeApp } from "firebase/app";
+import { BrowserRouter as Router } from "react-router-dom";
+import App from "./App";
 import GlobalLoader from "./components/GlobalLoader";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
+import Store from "./store";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {

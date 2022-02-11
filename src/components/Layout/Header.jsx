@@ -1,19 +1,18 @@
-import React, { memo } from "react";
+import { AlignLeftOutlined, MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 import { Layout } from "antd";
+import React, { memo } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { useWindowSize } from "../../customHooks";
 import NotificationIcon from "../../dist/img/Seller/notificationIcon.png";
 import ProfileIcon from "../../dist/img/Seller/profileIcon.png";
 import SunIcon from "../../dist/img/Seller/sun.png";
-import styles from "./Layout.module.css";
-import { AlignLeftOutlined } from "@ant-design/icons";
-import { useDispatch, useSelector } from "react-redux";
 import {
   toggleDrawer,
-  toggleSideMenu,
+  toggleSideMenu
 } from "../../store/actions/drawerActions";
-import { useWindowSize } from "../../customHooks";
-import { MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons";
-import { useHistory } from "react-router-dom";
 import { setUser } from "../../store/actions/userActions";
+import styles from "./Layout.module.css";
 
 const { Header: AntdHeader } = Layout;
 
@@ -21,7 +20,7 @@ const Header = (props) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const [width] = useWindowSize();
-  const { sideMenuCollapsed } = useSelector((state) => state.drawer);
+  const { drawer: { sideMenuCollapsed }, user } = useSelector((state) => state);
 
   const SideMenuCollapseIcon = sideMenuCollapsed
     ? MenuUnfoldOutlined
@@ -40,6 +39,7 @@ const Header = (props) => {
       ) : (
         <SideMenuCollapseIcon onClick={() => dispatch(toggleSideMenu())} />
       )}
+      <h6 style={{ fontWeight: 700, fontSize: '0.9rem', marginLeft: '0.8rem' }}>{user?.company?.companyName}</h6>
       <div style={{ flex: 1 }} />
       <div>
         <img

@@ -9,10 +9,12 @@ import {
   getDownloadURL,
   getStorage,
 } from "firebase/storage";
+import { setGlobalLoader } from "./globalLoaderActions";
 
 export const setRfqReducer = payload => ({ type: SET_RFQ_REDUCER, payload })
 
 export const createRfq = (data) => async (dispatch, getState) => {
+    dispatch(setGlobalLoader(true))
     const {
       category,
       subCategory,
@@ -61,13 +63,16 @@ export const createRfq = (data) => async (dispatch, getState) => {
              Api.post(PATH.createRfq, body).then((res) => {
                  const newMyRfqs = [res?.data || {}, ...(getState().rfq?.myRfqs || [])];
                  dispatch(setRfqReducer({ myRfqs: newMyRfqs }));
+                 dispatch(setGlobalLoader(false));
                  notifySuccess("RFQ creted Successfully");
              }).catch((err)=>{
+                dispatch(setGlobalLoader(false));
                 throw err;
              });
           });
         }
     );
+    await uploadTask;
 };
 
 export const getRfs = () => async (dispatch) => {

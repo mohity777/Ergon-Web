@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import { Button, Form, Upload } from "antd";
+import React from "react";
 import Modal from "react-modal";
-import styleM from "./CreateRFQModal.module.css";
-import { Form, Button, Upload } from "antd";
 import { useDispatch } from "react-redux";
-import { createRfq } from "../../store/actions/rfqActions";
-import SignUpInput from "../SignUpInput/index.jsx";
 import upload from "../../dist/img/Seller/upload.png";
+import { createRfq } from "../../store/actions/rfqActions";
+import AntdInput from "../AntdInput/index.jsx";
+import styleM from "./CreateRFQModal.module.css";
 
 const CreateRFQModal = ({ visible, closeModal }) => {
 
@@ -75,7 +75,7 @@ const CreateRFQModal = ({ visible, closeModal }) => {
               }}
             >
               <div style={{ width: "35%" }}>
-                <SignUpInput
+                <AntdInput
                   placeholder="RFQ title"
                   name="title"
                   label="RFQ title"
@@ -85,7 +85,7 @@ const CreateRFQModal = ({ visible, closeModal }) => {
                     },
                   ]}
                 />
-                <SignUpInput
+                <AntdInput
                   placeholder="Category"
                   name="category"
                   label="Category"
@@ -95,7 +95,7 @@ const CreateRFQModal = ({ visible, closeModal }) => {
                     },
                   ]}
                 />
-                <SignUpInput
+                <AntdInput
                   type="number"
                   placeholder="Budget"
                   name={["budget"]}
@@ -111,7 +111,7 @@ const CreateRFQModal = ({ visible, closeModal }) => {
                     },
                   ]}
                 />
-                <SignUpInput
+                <AntdInput
                   type="textarea"
                   placeholder="Description"
                   name="description"
@@ -122,7 +122,7 @@ const CreateRFQModal = ({ visible, closeModal }) => {
                     },
                   ]}
                 />
-                <SignUpInput
+                <AntdInput
                   type="number"
                   placeholder="Quantity"
                   name={["qty"]}
@@ -138,7 +138,7 @@ const CreateRFQModal = ({ visible, closeModal }) => {
                     },
                   ]}
                 />
-                <SignUpInput
+                <AntdInput
                   placeholder="deleviery location"
                   name="deliveryLocation"
                   label="Deleviery Location"
@@ -176,7 +176,7 @@ const CreateRFQModal = ({ visible, closeModal }) => {
                 </Form.Item>
               </div>
               <div style={{ width: "35%" }}>
-                <SignUpInput
+                <AntdInput
                   placeholder="Note"
                   name="note"
                   label="Note"
@@ -186,7 +186,7 @@ const CreateRFQModal = ({ visible, closeModal }) => {
                     },
                   ]}
                 />
-                <SignUpInput
+                <AntdInput
                   placeholder="Sub-category"
                   name="subCategory"
                   label="Sub-category"
@@ -196,7 +196,7 @@ const CreateRFQModal = ({ visible, closeModal }) => {
                     },
                   ]}
                 />
-                <SignUpInput
+                <AntdInput
                   type="number"
                   placeholder="credit-period"
                   name={["creditPeriod"]}
@@ -212,7 +212,7 @@ const CreateRFQModal = ({ visible, closeModal }) => {
                     },
                   ]}
                 />
-                <SignUpInput
+                <AntdInput
                   type="dateTime"
                   name="applicationCloseTime"
                   label="Application Close time"

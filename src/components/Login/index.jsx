@@ -1,10 +1,10 @@
+import { Button, Checkbox, Form } from "antd";
 import React from "react";
-import styles from "../SignUp/SignUp.module.css";
-import { Button, Form, Checkbox } from "antd";
-import SignUpInput from "../SignUpInput";
 import { useDispatch } from "react-redux";
-import { login } from "../../store/actions/userActions";
 import { useHistory } from "react-router-dom";
+import { login } from "../../store/actions/userActions";
+import AntdInput from "../AntdInput";
+import styles from "../SignUp/SignUp.module.css";
 
 const Login = (props) => {
   const [form] = Form.useForm();
@@ -34,7 +34,7 @@ const Login = (props) => {
         </h5>
         <div className={styles.signUpBox}>
           <Form form={form} layout="vertical" onFinish={onFinish}>
-            <SignUpInput
+            <AntdInput
               label="Email"
               name="email"
               placeholder="Enter your email"
@@ -49,7 +49,7 @@ const Login = (props) => {
                 },
               ]}
             />
-            <SignUpInput
+            <AntdInput
               label="Password"
               name="password"
               placeholder="Enter your Password"

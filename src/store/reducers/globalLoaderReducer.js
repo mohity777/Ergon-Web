@@ -1,4 +1,4 @@
-import { SET_GLOBAL_LOADER, TOGGLE_DRAWER, TOGGLE_SIDE_MENU } from "../../utils/types";
+import { SET_GLOBAL_LOADER } from "../../utils/types";
 
 const INITIAL_STATE = {
   loading: false

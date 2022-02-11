@@ -1,10 +1,10 @@
-import React from "react";
 import { Menu } from "antd";
-import styles from "./Layout.module.css";
+import React, { memo } from "react";
+import { useHistory, useLocation } from "react-router-dom";
 import Logo from "../../dist/img/Seller/logo.png";
 import { DRAWER_ITEMS } from "../../utils/constants";
-import { useLocation, useHistory } from "react-router-dom";
 import { getMenuItemKey } from "../../utils/functions";
+import styles from "./Layout.module.css";
 
 const DrawerContent = ({ containerClass, onPressMenuItem }) => {
   const location = useLocation();
@@ -40,7 +40,7 @@ const DrawerContent = ({ containerClass, onPressMenuItem }) => {
               >
                 {item.name}
               </Menu.Item>
-              {item.name == "SQ" && <h5 className={styles.system}>SYSTEM</h5>}
+              {/* {item.name == "SQ" && <h5 className={styles.system}>SYSTEM</h5>} */}
             </>
           );
         })}
@@ -49,4 +49,4 @@ const DrawerContent = ({ containerClass, onPressMenuItem }) => {
   );
 };
 
-export default DrawerContent;
+export default memo(DrawerContent);

@@ -1,23 +1,14 @@
-import React from "react";
-import style from "../SQCardListing/SQCardListing.module.css";
-import styles from "./SQDetails.module.css";
-import ImgPlaceholder from "../../../dist/img/Seller/imgPlaceholder.png";
-import DropdownPicker from "../../DropdownPicker";
-import SQDashboard from "../SQDashboard"
+import React, { useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
-import ButtonWithLoader from "../../ButtonWithLoader";
-import Api from "../../../utils/api"
+import Api from "../../../utils/api";
 import { PATH } from "../../../utils/apiPath";
-import { useState } from "react";
 import { notifySuccess } from "../../../utils/functions";
-import { useRef } from "react";
+import ButtonWithLoader from "../../ButtonWithLoader";
+import DropdownPicker from "../../DropdownPicker";
 import ImageView from "../../ImageViewer";
-
-const items = [
-  { label: "Raw Material Purchased", value: 0 },
-  { label: "Manufacturing Started", value: 1 },
-  { label: "QA 1 Completed", value: 2 },
-];
+import style from "../SQCardListing/SQCardListing.module.css";
+import SQDashboard from "../SQDashboard";
+import styles from "./SQDetails.module.css";
 
 const SQDetails = () => {
 
@@ -57,7 +48,7 @@ const SQDetails = () => {
               </div>
               <div className={style.cardBox} style={{ marginRight: 0 }}>
                 <h5 className={style.boxLabel}>Qty</h5>
-                <h5 className={style.boxValue}>{rfqDetails?.qty} Tons</h5>
+                <h5 className={style.boxValue}>{rfqDetails?.qty}</h5>
               </div>
             </div>
           </div>
@@ -89,28 +80,24 @@ const SQDetails = () => {
             style={{ width: "fit-content", marginTop: 0 }}
           >
             <h5 className={styles.poDesignText}>Status</h5>
-            {cameFrom == "RFQ" ? (
+            {(cameFrom == "RFQ") || (item?.work_status == "COMPLETED") || (!item?.po) ? (
               <DropdownPicker
                 onChange={() => {}}
-                items={items}
-                label="label"
+                labelExactractor="label"
+                valueExtractor="value"
                 placeholder={item?.work_status}
                 disabled={true}
                 showArrow={false}
+                className={styles.disabled}
               />
             ) : (
               <div style={{ display: "flex", flexWrap: "wrap" }}>
                 <input
                   placeholder={item?.work_status || "status"}
-                  style={{
-                    border: "1px solid rgb(225,225,225)",
-                    borderRadius: 4,
-                    padding: 4,
-                    fontSize: "0.7rem",
-                  }}
                   onChange={(e) => {
                     workStatus.current = e.target.value;
                   }}
+                  className={styles.status}
                 />
                 <ButtonWithLoader
                   btnStyle={{
@@ -131,7 +118,9 @@ const SQDetails = () => {
             <div className={style.middleRow}>
               <h5 className={style.rowLabel}>Company Name</h5>
               <h5 className={style.rowValue}>
-                {rfqDetails?.company?.companyName}
+                {cameFrom == "RFQ"
+                  ? item?.company?.companyName
+                  : rfqDetails?.company?.companyName}
               </h5>
             </div>
             <div className={style.middleRow}>

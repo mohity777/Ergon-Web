@@ -1,0 +1,56 @@
+.container{
+    background-color: white;
+    padding: 2.5rem;
+    margin: 1rem;
+    margin-bottom: 0rem;
+}
+
+.inputView {
+    width: 25rem;
+    margin: 1rem 0rem;
+    margin-right: 5rem;
+}
+
+
+@media only screen and (max-width: 500px) {
+   .inputView {
+       width: 100%;
+       margin-right: 0;
+   }
+} 
+
+.label {
+    color: black;
+    font-size: 0.85rem;
+    font-weight: 500;
+    height: 100%;
+    width: 35%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: pre-wrap;
+    align-self: center;
+}
+
+.input {
+  width: 65%;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.input div:global(.ant-select-selector) {
+  height: 42px!important;
+  display: flex;
+  align-items: center;
+}
+
+.btn {
+    background-color: var(--primary);
+    color: white
+}

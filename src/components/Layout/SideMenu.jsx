@@ -1,8 +1,8 @@
-import React, { memo } from "react";
 import { Layout } from "antd";
-import styles from "./Layout.module.css";
-import DrawerContent from "./DrawerContent";
+import React, { memo } from "react";
 import { useSelector } from "react-redux";
+import DrawerContent from "./DrawerContent";
+import styles from "./Layout.module.css";
 
 const { Sider } = Layout;
 

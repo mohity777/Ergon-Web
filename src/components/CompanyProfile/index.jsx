@@ -4,21 +4,21 @@ import {
   getStorage, ref,
   uploadBytesResumable
 } from "firebase/storage";
-import React, { useRef } from "react";
+import React, { useMemo, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
 import { setGlobalLoader } from "../../store/actions/globalLoaderActions";
+import { getUser } from "../../store/actions/userActions";
 import Api from "../../utils/api";
 import { PATH } from "../../utils/apiPath";
 import { INDUSTRY_OPTIONS } from "../../utils/constants";
-import { notifyError } from "../../utils/functions";
+import { notifyError, notifySuccess } from "../../utils/functions";
 import CustomInput from "../CustomInput";
 import DropdownPicker from "../DropdownPicker";
 import TagsInput from "../TagsInput";
 import Uploader from "../Uploader";
-import styles from "./SignUpDetails.module.css";
+import styles from "./CompanyProfile.module.css";
 
-const SignUpDetails = (props) => {
+const CompanyProfile = (props) => {
   const products = useRef([]);
   const machines = useRef([]);
   const capacity = useRef(null);
@@ -26,74 +26,78 @@ const SignUpDetails = (props) => {
   const area = useRef(null);
   const workedWith = useRef([]);
   const capabilities = useRef([]);
-  
+
   const certificatesRewards = useRef([]);
   const industryPhotos = useRef([]);
   const industryLogo = useRef([]);
 
-  const history = useHistory();
   const dispatch = useDispatch();
-  const user = useSelector(state => state.user);
+  const user = useSelector((state) => state.user);
+
+  const company = useMemo(() => user?.company || {} , [user]);
 
   const uploadToFirebase = async (file) => {
     const storage = getStorage();
     const storageRef = ref(storage, `Erogon_Images/${file.name}`);
-    const uploadTask = await uploadBytesResumable(storageRef, file, "data_url");  
+    const uploadTask = await uploadBytesResumable(storageRef, file, "data_url");
     const url = await getDownloadURL(uploadTask.ref);
     return url;
-  }
-
-  const onFinish = async () => {
-    try{
-         dispatch(setGlobalLoader(true));
-         const res =  await Promise.all([
-           Promise.all(certificatesRewards.current.map(async it => {
-              const url = await uploadToFirebase(it?.originFileObj);
-              return url;
-           })),
-           Promise.all(industryPhotos.current.map(async it => {
-             const url = await uploadToFirebase(it?.originFileObj);
-             return url;
-           })),
-           Promise.all(industryLogo.current.map(async it =>{ 
-             const url = await uploadToFirebase(it?.originFileObj);
-             return url;
-           }))
-         ]);
-         const data = {
-           companyName: user?.company?.companyName,
-           gstin: user?.company?.gstin,
-           address: user?.company?.address,
-           ownerName: user?.company?.ownerName,
-           capacity: capacity.current,
-           capability: capabilities.current,
-           area: area.current,
-           industry: industry.current,
-           products: products.current,
-           workedWith: workedWith.current,
-           machines: machines.current,
-           certificatesRewards: res[0],
-           industryPhotos: res[1],
-           industryLogo: res[2]
-         };
-         console.log(data)
-         await Api.post(PATH.signUpDetails, data);
-         dispatch(setGlobalLoader(false));
-         history.replace('/Dashboard')
-    }catch(err){
-         dispatch(setGlobalLoader(false));
-         notifyError(err?.message || 'Something Went Wrong!!');
-    }
   };
 
-  const onSkip = () => {
-    history.push('/Dashboard')
-  }
+  const onFinish = async () => {
+    try {
+      dispatch(setGlobalLoader(true));
+      const res = await Promise.all([
+        Promise.all(
+          certificatesRewards.current.map(async (it) => {
+            const url = await uploadToFirebase(it?.originFileObj);
+            return url;
+          })
+        ),
+        Promise.all(
+          industryPhotos.current.map(async (it) => {
+            const url = await uploadToFirebase(it?.originFileObj);
+            return url;
+          })
+        ),
+        Promise.all(
+          industryLogo.current.map(async (it) => {
+            const url = await uploadToFirebase(it?.originFileObj);
+            return url;
+          })
+        ),
+      ]);
+      const data = {
+        companyName: company?.companyName,
+        gstin: company?.gstin,
+        address: company?.address,
+        ownerName: company?.ownerName,
+        capacity: capacity.current,
+        capability: capabilities.current,
+        area: area.current,
+        industry: industry.current,
+        products: products.current,
+        workedWith: workedWith.current,
+        machines: machines.current,
+        certificatesRewards: res[0],
+        industryPhotos: res[1],
+        industryLogo: res[2],
+      };
+      await Api.post(PATH.signUpDetails, data);
+      await dispatch(getUser());
+      dispatch(setGlobalLoader(false));
+      notifySuccess('Successfully Updated')
+    } catch (err) {
+      dispatch(setGlobalLoader(false));
+      notifyError(err?.message || "Something Went Wrong!!");
+    }
+  };
 
   return (
     <div className={styles.container}>
       <div className={styles.row}>
         <TagsInput
+          valueToSet={company?.products ? company?.products : []}
           placeholder="Gas Filter"
           label="Product List"
           name="products"
@@ -102,6 +106,7 @@ const SignUpDetails = (props) => {
           }}
         />
         <TagsInput
+          valueToSet={company?.capability ? company?.capability : []}
           placeholder="Capabilities"
           label="Capabilities"
           name="capabilities"
@@ -113,6 +118,7 @@ const SignUpDetails = (props) => {
       <div>
         <div className={styles.row}>
           <TagsInput
+            valueToSet={company?.machines ? company?.machines : []}
             placeholder="Lathe"
             label="Machines"
             name="machines"
@@ -121,6 +127,7 @@ const SignUpDetails = (props) => {
           <CustomInput
             placeholder="Fabrication"
             label="Capacity"
+            valueToSet={company?.capacity || "0"}
             onChange={(e) => {
               capacity.current = e.target.value;
             }}
@@ -135,12 +142,14 @@ const SignUpDetails = (props) => {
                   industry.current = value;
                 }}
                 items={INDUSTRY_OPTIONS}
+                valueToSet={company?.industry}
                 className={`${styles.input}`}
-                placeholder="Select Industry"
+                placeholder={"Industry"}
               />
             </div>
           </div>
           <CustomInput
+            valueToSet={company?.area || ""}
             placeholder="Delhi"
             label="Area/City"
             onChange={(e) => {
@@ -150,12 +159,14 @@ const SignUpDetails = (props) => {
         </div>
       </div>
       <TagsInput
+        valueToSet={company?.certifications ? company?.certifications : []}
         placeholder="ISO 9001"
         label="Certifications"
         name="certifications"
         onChangeTags={(tags) => {}}
       />
       <TagsInput
+        valueToSet={company?.workedWith ? company?.workedWith : []}
         placeholder="Tata Motars"
         label="Worked with"
         name="workedWith"
@@ -199,13 +210,8 @@ const SignUpDetails = (props) => {
           Update
         </Button>
       </Form.Item>
-      <Form.Item noStyle>
-        <Button htmlType="submit" className={styles.btn} onClick={onSkip}>
-          Skip
-        </Button>
-      </Form.Item>
     </div>
   );
 };
 
-export default SignUpDetails;
+export default CompanyProfile;

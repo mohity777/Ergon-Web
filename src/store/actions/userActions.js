@@ -31,9 +31,8 @@ export const login = data => async (dispatch) => {
         password: data.password
       }
       const res = await Api.post(PATH.login, body);
-      console.log(res);
       localStorage.setItem('token', res?.access_token || null);
-      dispatch(setUser({token: res?.access_token || null}))
+      dispatch(setUser({ token: res?.access_token || null, ...(res?.user_data || {}) }))
   }catch(err){
      throw err;
   }

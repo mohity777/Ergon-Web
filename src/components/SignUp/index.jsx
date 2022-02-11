@@ -1,10 +1,10 @@
+import { Button, Checkbox, Form } from "antd";
 import React from "react";
-import styles from "./SignUp.module.css";
-import { Button, Form, Checkbox } from "antd";
-import SignUpInput from "../SignUpInput";
 import { useDispatch } from "react-redux";
-import { signUp } from "../../store/actions/userActions";
 import { useHistory } from "react-router-dom";
+import { signUp } from "../../store/actions/userActions";
+import AntdInput from "../AntdInput";
+import styles from "./SignUp.module.css";
 
 
 const SignUp = (props) => {
@@ -34,7 +34,7 @@ const SignUp = (props) => {
         </h5>
         <div className={styles.signUpBox}>
           <Form form={form} layout="vertical" onFinish={onFinish}>
-            <SignUpInput
+            <AntdInput
               label="Contact Person Name"
               name="ownerName"
               placeholder="POC"
@@ -45,7 +45,7 @@ const SignUp = (props) => {
                 },
               ]}
             />
-            <SignUpInput
+            <AntdInput
               label="Company Name"
               name="companyName"
               placeholder="Enter comapny name"
@@ -56,7 +56,7 @@ const SignUp = (props) => {
                 },
               ]}
             />
-            <SignUpInput
+            <AntdInput
               label="GSTIN"
               name="gstin"
               placeholder="Enter GSTIN"
@@ -67,7 +67,7 @@ const SignUp = (props) => {
                 },
               ]}
             />
-            <SignUpInput
+            <AntdInput
               label="Email"
               name="email"
               placeholder="Enter your email"
@@ -82,7 +82,7 @@ const SignUp = (props) => {
                 },
               ]}
             />
-            <SignUpInput
+            <AntdInput
               label="Address"
               name="address"
               placeholder="Enter Address"
@@ -94,7 +94,7 @@ const SignUp = (props) => {
                 },
               ]}
             />
-            <SignUpInput
+            <AntdInput
               label="Password"
               name="password"
               placeholder="Enter your Password"
@@ -110,7 +110,7 @@ const SignUp = (props) => {
                 },
               ]}
             />
-            <SignUpInput
+            <AntdInput
               label="Confirmed Password"
               name="confirmedPassword"
               placeholder="Confirm your Password"

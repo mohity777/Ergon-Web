@@ -1,15 +1,14 @@
+import {
+  getDownloadURL,
+  getStorage, ref,
+  uploadBytesResumable
+} from "firebase/storage";
 import Api from "../../utils/api";
 import { PATH } from "../../utils/apiPath";
-import { notifySuccess } from "../../utils/functions";
+import { notifyError, notifySuccess } from "../../utils/functions";
 import { SET_RFQ_REDUCER } from "../../utils/types";
-import { setSqReducer } from "./sqActions";
-import {
-  ref,
-  uploadBytesResumable,
-  getDownloadURL,
-  getStorage,
-} from "firebase/storage";
 import { setGlobalLoader } from "./globalLoaderActions";
+import { setSqReducer } from "./sqActions";
 
 export const setRfqReducer = payload => ({ type: SET_RFQ_REDUCER, payload })
 
@@ -40,8 +39,8 @@ export const createRfq = (data) => async (dispatch, getState) => {
           const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         },
         (error) => {
-          // Handle unsuccessful uploads
-          throw error;
+         dispatch(setGlobalLoader(false));
+         notifyError(error?.message || "Something Went Wrong!!");
         },
         () => {
           // Handle successful uploads on complete

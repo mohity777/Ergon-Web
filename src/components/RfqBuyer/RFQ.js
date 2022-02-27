@@ -1,12 +1,11 @@
-import React, { useState } from "react";
-import styleHeader from "./RFQ.module.css";
-import SQDashboard from "../Seller/SQDashboard/index.jsx";
-import styles from "../Seller/SQCardListing/SQCardListing.module.css";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
 import { getMyRfqs } from "../../store/actions/rfqActions";
 import Loader from "../Loader";
+import styles from "../Seller/SQCardListing/SQCardListing.module.css";
+import SQDashboard from "../Seller/SQDashboard/index.jsx";
+import styleHeader from "./RFQ.module.css";
 
 const RFQ = (props) => {
   const dispatch = useDispatch();
@@ -60,7 +59,7 @@ const RFQ = (props) => {
                     </div>
                     <div className={styles.cardBox} style={{ marginRight: 0 }}>
                       <h5 className={styles.boxLabel}>Qty</h5>
-                      <h5 className={styles.boxValue}>50 {rfq.qty}</h5>
+                      <h5 className={styles.boxValue}>{rfq.qty}</h5>
                     </div>
                   </div>
                 </div>

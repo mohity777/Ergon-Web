@@ -40,7 +40,6 @@ const DrawerContent = ({ containerClass, onPressMenuItem }) => {
               >
                 {item.name}
               </Menu.Item>
-              {/* {item.name == "SQ" && <h5 className={styles.system}>SYSTEM</h5>} */}
             </>
           );
         })}

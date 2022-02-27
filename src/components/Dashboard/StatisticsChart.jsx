@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, { memo, useEffect, useRef, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import {
   CartesianGrid,
@@ -8,7 +8,9 @@ import {
   XAxis,
   YAxis
 } from "recharts";
-import { chartData, legendPayload } from "../../utils/constants";
+import Api from "../../utils/api";
+import { PATH } from "../../utils/apiPath";
+import { dashboardInitialChartData, legendPayload } from "../../utils/constants";
 
 const labelStyle = {
   fontSize: "0.7rem",
@@ -17,6 +19,33 @@ const labelStyle = {
 };
 
 const StatisticsChart = props => {
+
+  const [chartData, setChartData] = useState(dashboardInitialChartData);
+  const legendData = useRef({})
+
+  useEffect(() => {
+   Api.get(PATH.getDashboardStatistics).then((res)=>{
+      let sumOfSqs = 0, sumOfRfqs = 0;
+      const chartData = res.data?.map((item) => {
+        const month = Object.keys(item)[0];
+        const totalRFQsForMonth = item[month].totalRFQs;
+        const totalSqsForMonth = item[month].totalSQs;
+        sumOfRfqs = sumOfRfqs + totalRFQsForMonth;
+        sumOfSqs = sumOfSqs + totalSqsForMonth;
+        return {
+          month,
+          totalSQs: totalSqsForMonth,
+          totalRFQs: totalRFQsForMonth,
+        };
+      });
+    legendData.current = {
+      sumOfRfqs,
+      sumOfSqs,
+    };
+    setChartData(chartData)
+   })
+  },[])
+
     return (
       <View style={styles.chartVw}>
         <View style={styles.chartHeader}>
@@ -48,7 +77,7 @@ const StatisticsChart = props => {
                       { color: "black", fontWeight: "500" },
                     ]}
                   >
-                    {legend.value}
+                    {legendData.current[legend.valueExtractor]}
                   </Text>
                 </View>
               </View>
@@ -62,13 +91,13 @@ const StatisticsChart = props => {
           <Tooltip />
           <Line
             type="monotone"
-            dataKey="numOfRfqSqs"
+            dataKey="totalRFQs"
             stroke="#5F2EEA"
             strokeWidth={2}
           />
           <Line
             type="monotone"
-            dataKey="amt"
+            dataKey="totalSQs"
             stroke="#4BDE97"
             strokeWidth={2}
           />

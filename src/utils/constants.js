@@ -1,6 +1,4 @@
-import {
-  DropboxOutlined, EditFilled, FileTextFilled, HomeFilled, MailFilled, PictureFilled, SettingFilled, SnippetsFilled, TeamOutlined
-} from "@ant-design/icons";
+import { FileTextFilled, HomeFilled, PictureFilled, SnippetsFilled } from "@ant-design/icons";
 import CompanyProfile from "../components/CompanyProfile";
 import Dashboard from "../components/Dashboard";
 import Login from "../components/Login";
@@ -37,13 +35,13 @@ export const INDUSTRY_OPTIONS = [
 export const DRAWER_ITEMS = [
   { key: "/Dashboard", name: "Dashboard", icon: HomeFilled, to: "/Dashboard" },
   { key: "/RFQ", name: "RFQ", icon: FileTextFilled, to: "/RFQ" },
-  { key: "/Suppliers", name: "Suppliers", icon: DropboxOutlined, to: "/Suppliers" },
+  // { key: "/Suppliers", name: "Suppliers", icon: DropboxOutlined, to: "/Suppliers" },
   { key: "/CompanyProfile", name: "Company Profile", icon: PictureFilled, to: "/CompanyProfile" },
   { key: "/SQ", name: "SQ", icon: SnippetsFilled, to: "/SQ?type=OPEN" },
-  { key: "6", name: "Notifications", icon: MailFilled, to: "" },
-  { key: "7", name: "Appearance", icon: EditFilled, to: "" },
-  { key: "8", name: "Users", icon: TeamOutlined, to: "" },
-  { key: "9", name: "Settings", icon: SettingFilled, to: "" },
+  // { key: "6", name: "Notifications", icon: MailFilled, to: "" },
+  // { key: "7", name: "Appearance", icon: EditFilled, to: "" },
+  // { key: "8", name: "Users", icon: TeamOutlined, to: "" },
+  // { key: "9", name: "Settings", icon: SettingFilled, to: "" },
 ];
 
 export const PUBLIC_ROUTES = [
@@ -83,53 +81,53 @@ export const SQ_PARAMS_TAB_INDEX = {
   COMPLETED: 4,
 };
 
-export const chartData = [
+export const dashboardInitialChartData = [
   {
     month: "Jan",
-    numOfRfqSqs: 4000,
-    amt: 2400,
+    totalRFQs: 0,
+    totalSQs: 0,
   },
   {
     month: "Feb",
-    numOfRfqSqs: 3000,
-    amt: 2210,
+    totalRFQs: 0,
+    totalSQs: 0,
   },
   {
     month: "March",
-    numOfRfqSqs: 2000,
-    amt: 15500,
+    totalRFQs: 0,
+    totalSQs: 0,
   },
   {
     month: "April",
-    numOfRfqSqs: 2780,
-    amt: 3908,
+    totalRFQs: 0,
+    totalSQs: 0,
   },
   {
     month: "May",
-    numOfRfqSqs: 1890,
-    amt: 4800,
+    totalRFQs: 0,
+    totalSQs: 0,
   },
   {
     month: "June",
-    numOfRfqSqs: 2390,
-    amt: 3800,
+    totalRFQs: 0,
+    totalSQs: 0,
   },
   {
     month: "July",
-    numOfRfqSqs: 3490,
-    amt: 4300,
+    totalRFQs: 0,
+    totalSQs: 0,
   },
 ];
 
 export const legendPayload = [
   {
-    label: "RFQs/SQs",
-    value: "475273",
+    label: "Total RFQs",
+    valueExtractor: "sumOfRfqs",
     color: "#5F2EEA",
   },
   {
-    label: "Amount",
-    value: "782396",
+    label: "Total SQs",
+    valueExtractor: "sumOfSqs",
     color: "#4BDE97",
   },
 ];

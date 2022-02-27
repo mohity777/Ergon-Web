@@ -1,35 +1,39 @@
 import { FileTextOutlined, RiseOutlined } from "@ant-design/icons";
-import React, { memo } from "react";
+import { Skeleton } from "antd";
+import React, { memo, useEffect, useRef, useState } from "react";
 import { View } from 'react-native';
+import Api from "../../utils/api";
+import { PATH } from "../../utils/apiPath";
+import classes from "./Dashboard.module.css";
 
-const data = [
+const dashboardInfoData = [
   {
     title: "Total RFQs",
-    value: 222,
+    valueExtractor: "totalRFQs",
   },
   {
     title: "Open RFQs",
-    value: 22,
+    valueExtractor: "openRFQs",
   },
   {
     title: "Closed RFQs",
-    value: 222,
+    valueExtractor: "closedRFQs",
   },
   {
     title: "Total SQs",
-    value: 222,
+    valueExtractor: "totalSQs",
   },
   {
-    title: "Open SQs",
-    value: 22,
+    title: "Accepted SQs",
+    valueExtractor: "acceptedSQs",
   },
   {
     title: "Closed SQs",
-    value: 222,
+    valueExtractor: "completedSQs",
   },
 ];
 
-const RowComponent = memo(({ data, style }) => {
+const RowComponent = memo(({ data, style, loading, values }) => {
   return(
      <View style={[{flexDirection: 'row', flex:1}, style]}>
       {data.map((item, i) => (
@@ -40,7 +44,9 @@ const RowComponent = memo(({ data, style }) => {
             </View>
           </View>
           <View style={{ flex: 1, paddingHorizontal: '0.5rem', alignItems: 'flex-start'}}>
-            <h6 style={{ fontSize: '0.8rem', fontWeight: 600 }}>{item.value}</h6>
+            {loading ? <Skeleton active paragraph={false} className={classes.skelton} title={{ width: '5rem' }} /> : (
+               <h6 style={{ fontSize: '0.8rem', fontWeight: 600 }}>{values[item.valueExtractor]}</h6>
+            )}
             <h6 style={{ color: '#B9B9B9', fontSize: '0.7rem', fontWeight: 400 }}>{item.title}</h6>
           </View>
        </View>
@@ -50,6 +56,17 @@ const RowComponent = memo(({ data, style }) => {
 })
 
 const DashboardHeader = props => {
+  const data = useRef({});
+  const [loading, setLoading] = useState(true);
+
+  useEffect(()=>{
+      Api.get(PATH.getDashboardInfo).then((res)=>{
+          data.current = res.data || {};
+      }).finally(()=> {
+          setLoading(false);
+      })
+  },[])
+
     return(
       <View style={{ flexDirection: 'row', width: '100%', height: '12.9rem', marginBottom: '1.5rem' }}>
        <View style={{ backgroundColor: 'white', justifyContent: 'center', alignItems: 'center', width: '18%', borderRadius: '0.5rem' }}>
@@ -58,8 +75,8 @@ const DashboardHeader = props => {
          <h5 style={{ color: '#4BDE97', fontSize: '0.7rem', marginTop: '0.5rem' }}><RiseOutlined style={{ fontSize: '0.75rem' }}/>4.07% <span style={{color: '#B9B9B9', fontWeight: 400 }}>Last Month</span></h5>
        </View>
        <View style={{ flex: 1, flexDirection: 'column'}}>
-           <RowComponent data={data.slice(0,3)} />
-           <RowComponent data={data.slice(3,7)} style={{ marginTop: '0.5rem' }}/>
+           <RowComponent loading={loading} data={dashboardInfoData.slice(0,3)} values={data.current}/>
+           <RowComponent loading={loading} data={dashboardInfoData.slice(3,7)} values={data.current} style={{ marginTop: '0.5rem' }}/>
        </View>
       </View>
     )

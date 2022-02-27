@@ -17,4 +17,8 @@ export const PATH = {
   rejectSq: "rejectSQ/",
   updatePO: "updatePO/",
   updateWorkStatus: "updateWorkStatus/",
+
+  //Dashboard
+  getDashboardInfo: "getDashboardInfo/",
+  getDashboardStatistics: "getDashboardStatistics/",
 };
